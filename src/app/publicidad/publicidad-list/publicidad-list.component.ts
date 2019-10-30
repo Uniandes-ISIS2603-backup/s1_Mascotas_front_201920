@@ -19,7 +19,7 @@ export class PublicidadListComponent implements OnInit {
 
   getPublicidades():void
   {
-    this.publicidadService.getPublicidad().subscribe(publicidades => {this.publicidades =  [publicidades]; console.log('cargado')});
+    this.publicidadService.getPublicidad().subscribe(publicidades => {this.publicidades =  publicidades; console.log('cargado')});
   }
 
 }
