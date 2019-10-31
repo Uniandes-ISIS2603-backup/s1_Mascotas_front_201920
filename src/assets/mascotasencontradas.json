@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "especie": "Perro",
+        "raza": "Golden Retriever",
+        "lugar": "Plaza de Bolivar",
+        "descripcion": "Perro de 1 anio de edad macho, con panioleta azul."
+    },
+    {
+        "id": 2,
+        "especie": "Perro",
+        "raza": "Criollo",
+        "lugar": "Humedal El uberrimo",
+        "descripcion": "Perro viejo con estado de salud pobre, collar de cuero con simbolo de Harry Potter."
+    },
+    {
+        "id": 3,
+        "especie": "Gato",
+        "raza": "Siames",
+        "lugar": "Conjuntos Parques de Engativa",
+        "descripcion": "Gato bebe con mancha en la pata derecha delantera."
+    }
+]
