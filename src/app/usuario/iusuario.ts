@@ -1,4 +1,5 @@
-export interface Usuario {
+export interface Usuario 
+{
   /**
    * El id del usuario
    */
