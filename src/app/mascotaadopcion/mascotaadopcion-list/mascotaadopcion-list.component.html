@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Mascota Especie</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let i of mascotas">
+                    <td>{{i.especie}}</td>
+                    <td>{{i.raza}}</td>
+                    <td>{{i.descripcion}}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
