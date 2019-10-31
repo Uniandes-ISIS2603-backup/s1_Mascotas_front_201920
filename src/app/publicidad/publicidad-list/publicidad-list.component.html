@@ -1,22 +1,22 @@
 <div class="container-fluid">
-    <div class="col-md-2">
-      <table class="table table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <th>Id</th>
-            <th>Mensaje</th>
-            <th>Costo</th>
-            <th>Dias por semana</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr   *ngFor = "let p of publicidades">
-            <td>{{p.id}}</td>
-            <td>{{p.mensaje}}</td>
-            <td>{{p.costo}}</td>
-            <td>{{p.diasPorSemana}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="col-md-2">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Id</th>
+          <th>Mensaje</th>
+          <th>Costo</th>
+          <th>Dias por semana</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of publicidades">
+          <td>{{p.id}}</td>
+          <td>{{p.mensaje}}</td>
+          <td>{{p.costo}}</td>
+          <td>{{p.diasPorSemana}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>
