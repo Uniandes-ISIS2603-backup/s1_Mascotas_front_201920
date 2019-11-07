@@ -13,7 +13,7 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {MascotasencontradasModule} from './mascotasencontradas/mascotasencontradas.module';
 import {MultimediaModule} from './multimedia/multimedia.module';
 import {UsuarioModule} from './usuario/usuario.module';
-
+import {PublicidadModule} from './publicidad/publicidad.module';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
@@ -52,7 +52,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         MascotasencontradasModule,
         MultimediaModule,
         UsuarioModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        PublicidadModule
     ],
     bootstrap: [AppComponent],
     providers: [
