@@ -1,22 +1,17 @@
-<div class="container-fluid">
-    <div class="col-md-2">
-      <h1>Mascotas Encontradas</h1>
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Especie</th>    
-                    <th>Raza</th>
-                    <th>Lugar</th>
-                    <th>Descripcion</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let e of mascotasEncontradas">
-                    <td>{{e.especie}}</td>
-                    <td>{{e.raza}}</td>
-                    <td>{{e.lugar}}</td>
-                    <td>{{e.descripcion}}</td>
-                </tr>
-            </tbody>
-        </table>
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <a class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25" href="#">
+      <img src="/src/assets/images/temp-logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+      Mascotas Encontradas
+    </a>
+  </nav>
+
+<div class="card-group" id="mscs">
+    <div class="card" style="width:400px"  *ngFor = "let m of mascotasEncontradas">
+        <img class="card-img-top" src={{m.foto}} alt="Card image">
+        <div class="card-body">
+          <h4 class="card-title">{{m.raza + ", " + m.especie}}</h4>
+          <p class="card-text">{{m.descripcion}}</p>
+          <a href="#" class="btn btn-primary">info</a>
+        </div>
+      </div>
     </div>

@@ -4,20 +4,23 @@
         "especie": "Perro",
         "raza": "Golden Retriever",
         "lugar": "Plaza de Bolivar",
-        "descripcion": "Perro de 1 anio de edad macho, con panioleta azul."
+        "descripcion": "Perro de 1 anio de edad macho, con panioleta azul.",
+        "foto": "https://vetstreet-brightspot.s3.amazonaws.com/98/d98250a0d311e0a2380050568d634f/file/Golden-Retriever-3-645mk062411.jpg"
     },
     {
         "id": 2,
         "especie": "Perro",
         "raza": "Criollo",
         "lugar": "Humedal El uberrimo",
-        "descripcion": "Perro viejo con estado de salud pobre, collar de cuero con simbolo de Harry Potter."
+        "descripcion": "Perro viejo con estado de salud pobre, collar de cuero con simbolo de Harry Potter.",
+        "foto": "https://files.alerta.rcnradio.com/alerta_bogota/public/styles/article_desktop/public/2019-09/perro_enfermo_0_0.jpg"
     },
     {
         "id": 3,
         "especie": "Gato",
         "raza": "Siames",
         "lugar": "Conjuntos Parques de Engativa",
-        "descripcion": "Gato bebe con mancha en la pata derecha delantera."
+        "descripcion": "Gato bebe con mancha en la pata derecha delantera.",
+        "foto": "https://www.we-are-siamese.com/images/xwhat-type-of-siamese-baby-do-i-have-21397963.jpg.pagespeed.ic.RrY4lHLfqI.jpg"
     }
 ]

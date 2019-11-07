@@ -11,6 +11,8 @@ import {NgxPermissionsModule} from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 
 import {MascotasencontradasModule} from './mascotasencontradas/mascotasencontradas.module';
+import {MultimediaModule} from './multimedia/multimedia.module';
+import {UsuarioModule} from './usuario/usuario.module';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
@@ -48,6 +50,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         NgxPermissionsModule.forRoot(),
         NgbModule,
         MascotasencontradasModule,
+        MultimediaModule,
+        UsuarioModule,
         ReactiveFormsModule
     ],
     bootstrap: [AppComponent],
