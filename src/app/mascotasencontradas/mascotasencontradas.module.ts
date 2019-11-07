@@ -10,7 +10,6 @@ import {NgxPermissionsModule} from 'ngx-permissions';
 import { MascotasencontradasListComponent } from './mascotasencontradas-list/mascotasencontradas-list.component';
 
 import { MascotaEncontradaService } from './mascotaencontrada.service';
-import { MascotaencontradaEditorComponent } from './mascotaencontrada-editor/mascotaencontrada-editor.component';
 
 @NgModule({
   imports: [
@@ -23,7 +22,7 @@ import { MascotaencontradaEditorComponent } from './mascotaencontrada-editor/mas
     ReactiveFormsModule,
     NgxPermissionsModule
 ],
-  declarations: [MascotasencontradasListComponent, MascotaencontradaEditorComponent],
+  declarations: [MascotasencontradasListComponent],
   providers: [MascotaEncontradaService],
   exports: [MascotasencontradasListComponent]
 })
