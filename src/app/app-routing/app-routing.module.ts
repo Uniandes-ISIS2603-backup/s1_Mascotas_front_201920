@@ -9,6 +9,9 @@ import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component
 import { PublicidadComponent } from '../publicidad/publicidad/publicidad.component';
 import {PublicidadDetailComponent} from '../publicidad/publicidad-detail/publicidad-detail.component';
 import {PublicidadCreateComponent} from '../publicidad/publicidad-create/publicidad-create.component';
+import { MascotaAdopcionDetailComponent } from '../mascotaadopcion/mascotaadopcion-detail/mascotaadopcion-detail.component';
+import { MascotaadopcionListComponent } from '../mascotaadopcion/mascotaadopcion-list/mascotaadopcion-list.component';
+
 const routes: Routes = [
 
      {
@@ -61,6 +64,19 @@ const routes: Routes = [
           path: 'create',
           component: PublicidadCreateComponent,
           outlet: 'publicidadCreate'
+        }
+        ]
+      },
+      {
+        path: 'mascotas',
+        children: [{
+          path: 'list',
+          component: MascotaadopcionListComponent
+        },
+        {
+          path: ':id',
+          component: MascotaAdopcionDetailComponent,
+          outlet: 'detail'
         }
         ]
       }
