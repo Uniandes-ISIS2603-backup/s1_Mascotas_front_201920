@@ -18,6 +18,12 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 
 
+import { ReactiveFormsModule } from '@angular/forms';
+
+
+
+
+
 
 
 
@@ -43,7 +49,8 @@ import {AuthModule} from './auth/auth.module';
         NgxPermissionsModule.forRoot(),
         NgbModule,
         MascotasencontradasModule,
-        UsuarioModule
+        UsuarioModule,
+        ReactiveFormsModule
     ],
     bootstrap: [AppComponent],
     providers: [

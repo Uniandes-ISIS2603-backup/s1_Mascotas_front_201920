@@ -4,13 +4,18 @@ import { MascotaadopcionListComponent } from './mascotaadopcion-list/mascotaadop
 import { MascotaAdopcionService } from './mascotaadopcion.service';
 import { FormsModule } from '@angular/forms';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { MascotaCreateComponent } from './mascota-create/mascota-create.component';
+
+
 @NgModule({
     imports: [       
         CommonModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ],
-    declarations: [MascotaadopcionListComponent],
+    declarations: [MascotaadopcionListComponent, MascotaCreateComponent],
     providers: [ MascotaAdopcionService],
-    exports:[MascotaadopcionListComponent]
+    exports:[MascotaadopcionListComponent, MascotaCreateComponent]
 })
 export class MascotaAdopcionModule { }
