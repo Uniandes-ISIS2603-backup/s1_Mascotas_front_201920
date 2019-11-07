@@ -6,7 +6,6 @@ import { catchError, map, tap } from "rxjs/operators";
 
 
 
-
 import { MascotaAdopcion } from './mascotaadopcion';
 
 
@@ -48,7 +47,7 @@ export class MascotaAdopcionService {
     }
   
     /** PUT: update the client on the server */
-    updateMascota(mascota: Mascota): Observable<any> {
+    updateMascota(mascota: MascotaAdopcion): Observable<any> {
       return this.http.put(this.mascotasURL, mascota, this.httpOptions);
     }
   }

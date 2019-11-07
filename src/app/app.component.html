@@ -1,2 +1,10 @@
+<ul class="nav">
+	<li class="nav-item">
+		<a class="nav-link active" 
+       [routerLink] ="['/publicidades', { outlets: { 'publicidadList': 'list' } }]"
+       routerLinkActive="active">Publicidades</a>
+	</li>
+</ul>
+<router-outlet  name='publicidadList'></router-outlet>
 <app-mascotasencontradas-list>
 </app-mascotasencontradas-list>

@@ -1,0 +1,78 @@
+<form [formGroup]="publicidadForm" (ngSubmit)="createPublicidad(publicidadForm.value)">
+
+	<div class="form-group mx-sm-3 mb-2">
+		
+    <label for="diasPorSemana">
+      dias por semana
+    </label>
+		<input novalidate id="diasPorSemana" class="form-control" formControlName="diasPorSemana" placeholder="Dias que sera mostrada la publicidad">
+	
+  	<div class="alert alert-danger alert-dismissible fade show"
+			*ngIf="publicidadForm.get('diasPorSemana').hasError('required') && publicidadForm.get('diasPorSemana').touched">
+			Campo requerido
+		</div>
+	</div>
+
+	<div class="form-group  mx-sm-3 mb-2">
+		<label for="costo">
+      costo
+    </label>
+		<input id="costo" type="text"
+     class="form-control"
+     formControlName="costo"
+     placeholder="Costo de la publicidad">
+
+		<div class="alert alert-danger alert-dismissible fade show"
+			*ngIf="publicidadForm.get('costo').hasError('required') && publicidadForm.get('costo').touched">
+			Campo requerido
+		</div>
+	</div>
+
+  <div class="form-group  mx-sm-3 mb-2">
+		<label for="mensaje">
+      mensaje
+    </label>
+		<input id="mensaje" type="text"
+     class="form-control"
+     formControlName="mensaje"
+     placeholder="mensaje de la publicidad">
+
+		<div class="alert alert-danger alert-dismissible fade show"
+			*ngIf="publicidadForm.get('mensaje').hasError('required') && publicidadForm.get('mensaje').touched">
+			Campo requerido
+		</div>
+	</div>
+
+<div class="form-group  mx-sm-3 mb-2">
+		<label for="fechaInicio">
+      Fecha de Inicio
+    </label>
+		<input id="fechaInicio" type="text"
+     class="form-control"
+     formControlName="fechaInicio"
+     placeholder="fecha inicial de la publicidad">
+
+		<div class="alert alert-danger alert-dismissible fade show"
+			*ngIf="publicidadForm.get('fechaInicio').hasError('required') && publicidadForm.get('fechaInicio').touched">
+			Campo requerido
+		</div>
+	</div>
+  
+  <div class="form-group  mx-sm-3 mb-2">
+		<label for="fechaFin">
+      Fecha fin
+    </label>
+		<input id="fechaFin" type="text"
+     class="form-control"
+     formControlName="fechaFin"
+     placeholder="fecha final de la publicidad">
+
+		<div class="alert alert-danger alert-dismissible fade show"
+			*ngIf="publicidadForm.get('fechaFin').hasError('required') && publicidadForm.get('fechaFin').touched">
+			Campo requerido
+		</div>
+	</div>
+
+	<button class="button mx-sm-3 mb-2" type="submit" [disabled]="publicidadForm.invalid">Create</button>
+
+</form>

@@ -4,4 +4,7 @@ export class Publicidad
   diasPorSemana: number;
   costo: number;
   mensaje:string;
+  fechaFin:string;
+  fechaInicio:string;
+
 }
