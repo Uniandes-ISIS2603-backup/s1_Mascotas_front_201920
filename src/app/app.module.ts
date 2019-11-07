@@ -11,6 +11,7 @@ import {NgxPermissionsModule} from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 
 import {MascotasencontradasModule} from './mascotasencontradas/mascotasencontradas.module';
+import {MultimediaModule} from './multimedia/multimedia.module';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
@@ -41,7 +42,8 @@ import {AuthModule} from './auth/auth.module';
         NgxPaginationModule,
         NgxPermissionsModule.forRoot(),
         NgbModule,
-        MascotasencontradasModule
+        MascotasencontradasModule,
+        MultimediaModule
     ],
     bootstrap: [AppComponent],
     providers: [

@@ -35,4 +35,9 @@ export interface MascotaEncontrada {
      * Usuario de la mascota
      */
     usuario?: Usuario;
+
+    /**
+     * Ruta de la foto de la mascota
+     */
+    foto?: string;
 }
