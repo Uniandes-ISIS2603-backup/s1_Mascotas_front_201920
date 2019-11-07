@@ -1,0 +1,62 @@
+<form [formGroup]="mascotaperdidaForm" (ngSubmit)="createMascotaPerdida(mascotaperdidaForm.value)">
+
+
+
+	<div class="form-group  mx-sm-3 mb-2">
+		<label for="raza">
+			raza
+		</label>
+		<input id="raza" type="text" class="form-control" formControlName="raza"
+			placeholder="raza de la mascotaperdida">
+
+		<div class="alert alert-danger alert-dismissible fade show"
+			*ngIf="mascotaperdidaForm.get('raza').hasError('required') && mascotaperdidaForm.get('raza').touched">
+			Campo requerido
+		</div>
+	</div>
+
+
+	<div class="form-group mx-sm-3 mb-2">
+		<label for="especie">
+			Especie
+		</label>
+		<input novalidate id="especie" class="form-control" formControlName="especie" placeholder="La especie">
+
+		<div class="alert alert-danger alert-dismissible fade show"
+			*ngIf="mascotaperdidaForm.get('especie').hasError('required') && mascotaperdidaForm.get('especie').touched">
+			Especie Requerida
+		</div>
+
+	</div>
+
+	<div class="form-group  mx-sm-3 mb-2">
+		<label for="descripcion">
+			descripcion
+		</label>
+		<input id="descripcion" type="text" class="form-control" formControlName="descripcion"
+			placeholder="descripcion de la mascotaperdida">
+
+		<div class="alert alert-danger alert-dismissible fade show"
+			*ngIf="mascotaperdidaForm.get('descripcion').hasError('required') && mascotaperdidaForm.get('descripcion').touched">
+			Campo requerido
+		</div>
+	</div>
+
+	<div class="form-group  mx-sm-3 mb-2">
+		<label for="lugar">
+			lugar
+		</label>
+		<input id="lugar" type="text" class="form-control" formControlName="lugar"
+			placeholder="lugar de la mascotaperdida">
+
+		<div class="alert alert-danger alert-dismissible fade show"
+			*ngIf="mascotaperdidaForm.get('lugar').hasError('required') && mascotaperdidaForm.get('lugar').touched">
+			Campo requerido
+		</div>
+	</div>
+
+
+
+	<button class="button mx-sm-3 mb-2" type="submit" [disabled]="mascotaperdidaForm.invalid">Create</button>
+
+</form>

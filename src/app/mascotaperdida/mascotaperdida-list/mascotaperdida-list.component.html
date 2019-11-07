@@ -1,27 +1,21 @@
 <div class="container-fluid">
-	<div class="col-mj-2">
-
-		<table class="table table-striped">
-
-			<thead class="thead-dark">
-				<tr>
-
-					<th>Nombre mascota perdida</th>
-
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-
-					<td>Mark</td>
-
-				</tr>
-				<tr>
-					<td>Mark</td>
-				</tr>
-				<tr>
-					<td>Mark</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+  <div class="col-md-2">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Id</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr   *ngFor = "let p of mascotaperdidas">
+          <td>
+            <a class="figure-caption" [routerLink] ="['/mascotaperdidas', { outlets: { 'mascotaperdidaDetail': [p.id] } }]" >
+            {{p.id}}</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-dark" [routerLink] ="['/mascotaperdidas', { outlets: { 'mascotaperdidaCreate': 'create' } }]">Create</button>
+    <br>
+    <br>
+  </div>
+</div>

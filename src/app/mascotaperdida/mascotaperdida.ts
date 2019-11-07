@@ -1,4 +1,4 @@
-export class Mascotaperdida 
+export class MascotaPerdida 
 {
    /**
      * El usuario asociado a la mascota
@@ -56,13 +56,5 @@ export class Mascotaperdida
     lugar: string;
     
     
-    
-    constructor (raza: string, especie: number, descripcion: string, lugar: string)
-    {
-        this.raza = raza;
-        this.descripcion = descripcion;
-        this.lugar = lugar;
-        this.especie = especie;
-    }
 
 }

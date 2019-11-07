@@ -1,35 +1,28 @@
 <form [formGroup]="mascotaForm" (ngSubmit)="createMascota(mascotaForm.value)">
 
-   <div class="form-group mx-sm-3 mb-2">
+  <div class="form-group mx-sm-3 mb-2">
     <label for="especie">
       Especie
     </label>
-    <input novalidate
-      id="especie"
-      class="form-control"
-      formControlName="especie"
-      placeholder="La especie">
+    <input novalidate id="especie" class="form-control" formControlName="especie" placeholder="La especie">
 
-      <div class="alert alert-danger alert-dismissible fade show"
-			*ngIf="mascotaForm.get('especie').hasError('required') && mascotaForm.get('especie').touched">
-			Especie Requerida
-		</div>
+    <div class="alert alert-danger alert-dismissible fade show"
+      *ngIf="mascotaForm.get('especie').hasError('required') && mascotaForm.get('especie').touched">
+      Especie Requerida
+    </div>
 
-   </div>
+  </div>
 
-   <div class="form-group  mx-sm-3 mb-2">
+  <div class="form-group  mx-sm-3 mb-2">
     <label for="raza">
       Raza
     </label>
-   <input id="raza" type="text"
-     class="form-control"
-     formControlName="raza"
-     placeholder="La raza">
+    <input id="raza" type="text" class="form-control" formControlName="raza" placeholder="La raza">
 
-     <div class="alert alert-danger alert-dismissible fade show"
-			*ngIf="mascotaForm.get('raza').hasError('required') && mascotaForm.get('raza').touched">
-			Raza Requerida
-		</div>
+    <div class="alert alert-danger alert-dismissible fade show"
+      *ngIf="mascotaForm.get('raza').hasError('required') && mascotaForm.get('raza').touched">
+      Raza Requerida
+    </div>
 
   </div>
 
@@ -37,51 +30,41 @@
     <label for="descripcion">
       Descripcion
     </label>
-   <input id="descripcion" type="text"
-     class="form-control"
-     formControlName="descripcion"
-     placeholder="La descripcion">
+    <input id="descripcion" type="text" class="form-control" formControlName="descripcion" placeholder="La descripcion">
 
-<div class="alert alert-danger alert-dismissible fade show"
-			*ngIf="mascotaForm.get('descripcion').hasError('required') && mascotaForm.get('descripcion').touched">
-			Descripcion Requerida
-		</div>
+    <div class="alert alert-danger alert-dismissible fade show"
+      *ngIf="mascotaForm.get('descripcion').hasError('required') && mascotaForm.get('descripcion').touched">
+      Descripcion Requerida
+    </div>
 
   </div>
 
-    <div class="form-group  mx-sm-3 mb-2">
+  <div class="form-group  mx-sm-3 mb-2">
     <label for="lugar">
       Lugar
     </label>
-   <input id="lugar" type="text"
-     class="form-control"
-     formControlName="lugar"
-     placeholder="El lugar">
+    <input id="lugar" type="text" class="form-control" formControlName="lugar" placeholder="El lugar">
 
-     <div class="alert alert-danger alert-dismissible fade show"
-			*ngIf="mascotaForm.get('lugar').hasError('required') && mascotaForm.get('lugar').touched">
-		 Lugar Requerido
-		</div>
+    <div class="alert alert-danger alert-dismissible fade show"
+      *ngIf="mascotaForm.get('lugar').hasError('required') && mascotaForm.get('lugar').touched">
+      Lugar Requerido
+    </div>
 
   </div>
 
-    <div class="form-group  mx-sm-3 mb-2">
+  <div class="form-group  mx-sm-3 mb-2">
     <label for="historia">
       Historia
     </label>
-   <input id="historia" type="text"
-     class="form-control"
-     formControlName="historia"
-     placeholder="La historia">
+    <input id="historia" type="text" class="form-control" formControlName="historia" placeholder="La historia">
 
-     <div class="alert alert-danger alert-dismissible fade show"
-			*ngIf="mascotaForm.get('historia').hasError('required') && mascotaForm.get('historia').touched">
-		 Historia Requerida
-		</div>
+    <div class="alert alert-danger alert-dismissible fade show"
+      *ngIf="mascotaForm.get('historia').hasError('required') && mascotaForm.get('historia').touched">
+      Historia Requerida
+    </div>
   </div>
 
 
-  <button class="button mx-sm-3 mb-2" type="submit"   
-          >Create</button>
+  <button class="button mx-sm-3 mb-2" type="submit">Create</button>
 
 </form>

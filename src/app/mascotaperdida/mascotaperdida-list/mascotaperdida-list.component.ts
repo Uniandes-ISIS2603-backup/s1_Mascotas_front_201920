@@ -1,14 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { Mascotaperdida} from '../mascotaperdida';
-
+import { MascotaPerdida } from '../mascotaperdida';
+import { MascotaPerdidaService } from '../mascotaperdida.service';
 
 @Component({
-  selector: 'list-mascotaperdida',
+  selector: 'app-mascotaperdida-list',
   templateUrl: './mascotaperdida-list.component.html',
-  
+  styleUrls: ['./mascotaperdida-list.component.css']
 })
-export class MascotaperdidaListComponent  {
+export class MascotaPerdidaListComponent implements OnInit {
 
-mascotasperdidas : Mascotaperdida[] = [new Mascotaperdida ("chigu",1,"dada","jajaj"), new Mascotaperdida ("pa",2,"sa","me")];
+  mascotaperdidas: MascotaPerdida[];
+
+  constructor(private mascotaperdidaService: MascotaPerdidaService) { }
+
+  ngOnInit() {
+    this.getMascotaPerdidas();
+  }
+
+  getMascotaPerdidas():void
+  {
+    this.mascotaperdidaService.getMascotaPerdidas().subscribe(mascotaperdidas => {this.mascotaperdidas =  mascotaperdidas; console.log('cargado')});
+  }
 
 }
