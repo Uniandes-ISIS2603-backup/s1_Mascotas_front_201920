@@ -5,11 +5,11 @@ import { Usuario } from "../usuario";
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-mascota-create',
-  templateUrl: './mascota-create.component.html',
-  styleUrls: ['./mascota-create.component.css']
+  selector: 'app-usuario-create',
+  templateUrl: './usuario-create.component.html',
+  styleUrls: ['./usuario-create.component.css']
 })
-export class MascotaCreateComponent implements OnInit {
+export class UsuarioCreateComponent implements OnInit {
 
 usuarioForm: FormGroup;
 usuarios: Usuario[];

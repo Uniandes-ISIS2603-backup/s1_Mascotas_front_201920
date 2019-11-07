@@ -29,7 +29,7 @@ private usuariosURL = "api/usuarios"; // URL to web api
   }
   /** POST: add a new client to the server */
   createUsuario(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(this.usuariosURL, usuario, this.httpOptions).pipe(tap((usuario: Usuario) => console.log(`added usuario w/ ${usuario.raza} id=${usuario.id}`)));
+    return this.http.post<Usuario>(this.usuariosURL, usuario, this.httpOptions).pipe(tap((usuario: Usuario) => console.log(`added usuario w/ ${usuario.nombre} id=${usuario.id}`)));
   }
 
   /** DELETE: delete the client from the server */

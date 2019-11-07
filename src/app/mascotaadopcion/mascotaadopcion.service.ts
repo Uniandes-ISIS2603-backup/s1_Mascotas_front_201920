@@ -29,7 +29,7 @@ export class MascotaAdopcionService {
     }
   
     /** GET client by id. Will 404 if id not found */
-    getMascota(id: number): Observable<MascotaAdopcion> {
+    getMascotaDetail(id: number): Observable<MascotaAdopcion> {
       const url = `${this.mascotasURL}/${id}`;
       return this.http.get<MascotaAdopcion>(url);
     }
