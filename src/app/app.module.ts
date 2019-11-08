@@ -4,6 +4,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpErrorInterceptor} from './interceptors/httperrorinterceptor.service';
+import {AuthModule} from './auth/auth.module';
 
 
 import {MascotasencontradasModule} from './mascotasencontradas/mascotasencontradas.module';
@@ -44,8 +45,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         MascotasencontradasModule,
         MultimediaModule,
         UsuarioModule,
-       
-        PublicidadModule
+        PublicidadModule,
+        AuthModule
     ],
     bootstrap: [AppComponent],
     providers: [
