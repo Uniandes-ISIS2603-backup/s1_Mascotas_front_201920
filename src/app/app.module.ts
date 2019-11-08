@@ -6,7 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpErrorInterceptor} from './interceptors/httperrorinterceptor.service';
 import {AuthModule} from './auth/auth.module';
 
-import {MascotaAdopcion} from './mascotaadopcion/mascotaadopcion'
+import {MascotaAdopcionModule} from './mascotaadopcion/mascotaadopcion.module'
 import {MascotasencontradasModule} from './mascotasencontradas/mascotasencontradas.module';
 import {MultimediaModule} from './multimedia/multimedia.module';
 import {UsuarioModule} from './usuario/usuario.module';
@@ -37,7 +37,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         UsuarioModule,
         PublicidadModule,
         AuthModule,
-        MascotaAdopcion
+        MascotaAdopcionModule
     ],
     bootstrap: [AppComponent],
     providers: [
