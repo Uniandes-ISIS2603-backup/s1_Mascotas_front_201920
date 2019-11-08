@@ -6,24 +6,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpErrorInterceptor} from './interceptors/httperrorinterceptor.service';
 import {AuthModule} from './auth/auth.module';
 
-
+import {MascotaAdopcion} from './mascotaadopcion/mascotaadopcion'
 import {MascotasencontradasModule} from './mascotasencontradas/mascotasencontradas.module';
 import {MultimediaModule} from './multimedia/multimedia.module';
 import {UsuarioModule} from './usuario/usuario.module';
 import {PublicidadModule} from './publicidad/publicidad.module';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
-
-
-
 import { ReactiveFormsModule } from '@angular/forms';
-
-
-
-
-
-
-
 
 
 @NgModule({
@@ -46,7 +36,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         MultimediaModule,
         UsuarioModule,
         PublicidadModule,
-        AuthModule
+        AuthModule,
+        MascotaAdopcion
     ],
     bootstrap: [AppComponent],
     providers: [
