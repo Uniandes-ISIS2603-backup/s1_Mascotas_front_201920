@@ -28,7 +28,7 @@ const routes: Routes = [
     
     ]
   },
-     /**{
+     {
         path: 'auth',
         children: [
             {
@@ -52,7 +52,7 @@ const routes: Routes = [
                 }
             }
         ]
-    },*/
+    },
     {
         path: 'home',
         component: AuthLoginComponent

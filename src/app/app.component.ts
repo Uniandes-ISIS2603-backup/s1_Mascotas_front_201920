@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
      */
     ngOnInit(): void {
         this.title = "s1_mascotas-Front";
-       
+        this.authService.start();
     }
 
        /**
