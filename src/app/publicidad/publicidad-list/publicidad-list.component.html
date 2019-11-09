@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="col-md-2">
+  <div class="col-6">
     <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
@@ -13,7 +13,16 @@
             {{p.id}} 
           </td>
           <td>
+              <a class="btn btn-link" data-toggle="collapse" href="#mensaje-{{p.id}}" role="button" aria-expanded="false" aria-controls="mensaje">
+                  Ver
+                </a>
               <button type="button" class="btn btn-link" (click)= "onSelection(p)">Abrir</button>
+              
+              <div class="collapse" id="mensaje-{{p.id}}">
+                <div class="card card-body">
+                  {{p.mensaje}}
+                </div>
+              </div>
           </td>
         </tr>
       </tbody>
