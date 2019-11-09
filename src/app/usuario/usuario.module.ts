@@ -4,9 +4,13 @@ import { UsuarioListComponent } from './usuario-list/usuario-list.component';
 import { UsuarioService } from './usuario.service';
 import { UsuarioCreateComponent } from './usuario-create/usuario-create.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [UsuarioListComponent, UsuarioCreateComponent],
   exports: [UsuarioListComponent],
