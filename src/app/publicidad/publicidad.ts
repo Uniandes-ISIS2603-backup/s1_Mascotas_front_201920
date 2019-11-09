@@ -7,4 +7,6 @@ export class Publicidad
   fechaFin:string;
   fechaInicio:string;
 
+   
+
 }
