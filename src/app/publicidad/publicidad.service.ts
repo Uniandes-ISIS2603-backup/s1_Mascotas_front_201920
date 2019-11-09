@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { catchError, map, tap } from "rxjs/operators";
 
 const API_URL = 'http://localhost:8080/s1_mascotas-api/api/';
-const editorials = 'publicidades/';
+const editorials = 'publicidades';
 //const API_URL = "../../assets/";
 //const editorials = "publicidades.json";
 
@@ -21,8 +21,11 @@ export class PublicidadService {
     return this.http.get<Publicidad[]>(API_URL + editorials);
   }
 
-  getPublicidad(id: number): Observable<Publicidad> {
-    return this.http.get<Publicidad>(API_URL + editorials + id);
+  getPublicidad(id: number): Observable<Publicidad> 
+  {
+    console.log("que pasa?")
+    console.log(API_URL + editorials +"/"+ id);
+    return this.http.get<Publicidad>(API_URL + editorials +"/"+ id);
   }
 
   createPublicidad(publicidad: Publicidad): Observable<Publicidad> {

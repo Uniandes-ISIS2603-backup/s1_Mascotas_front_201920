@@ -7,7 +7,6 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { PublicidadCreateComponent } from './publicidad-create/publicidad-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PublicidadComponent } from './publicidad/publicidad.component';
 
 @NgModule({
   imports: [
@@ -16,7 +15,7 @@ import { PublicidadComponent } from './publicidad/publicidad.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [PublicidadListComponent, PublicidadDetailComponent, PublicidadCreateComponent, PublicidadComponent],
+  declarations: [PublicidadListComponent, PublicidadDetailComponent, PublicidadCreateComponent],
   exports : [PublicidadListComponent],
   providers: [PublicidadService]
 })

@@ -4,18 +4,25 @@
       <thead class="thead-dark">
         <tr>
           <th>Id</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr   *ngFor = "let p of publicidades">
           <td>
-            <a class="figure-caption" [routerLink] ="['/publicidades', { outlets: { 'publicidadDetail': [p.id] } }]" >
-            {{p.id}}</a></td>
+            {{p.id}} 
+          </td>
+          <td>
+              <button type="button" class="btn btn-link" (click)= "onSelection(p)">Abrir</button>
+          </td>
         </tr>
       </tbody>
     </table>
-    <button type="button" class="btn btn-dark" [routerLink] ="['/publicidades', { outlets: { 'publicidadCreate': 'create' } }]">Create</button>
+    <button type="button" class="btn btn-dark" (click)= "onCreate()">Create</button>
     <br>
     <br>
+  </div>
+  <div class="col-md-2">
+    <router-outlet></router-outlet>
   </div>
 </div>

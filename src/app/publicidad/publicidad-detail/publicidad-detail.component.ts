@@ -31,6 +31,7 @@ export class PublicidadDetailComponent implements OnInit {
   onLoad(params) {
 
     this.id = parseInt(params['id']);
+    console.log(this.id);
     this.publicidad = new Publicidad();
     this.getPublicidad();
   }

@@ -16,6 +16,12 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
+import {FormsModule} from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgxPermissionsModule} from 'ngx-permissions';
+import { ModalDialogModule } from 'ngx-modal-dialog';
+
 @NgModule({
     declarations: [
         AppComponent
@@ -37,7 +43,11 @@ import { ReactiveFormsModule } from '@angular/forms';
         UsuarioModule,
         PublicidadModule,
         AuthModule,
-        MascotaAdopcionModule
+        MascotaAdopcionModule,
+        FormsModule,
+        NgxPaginationModule,
+        NgxPermissionsModule.forRoot(),
+        NgbModule
     ],
     bootstrap: [AppComponent],
     providers: [
