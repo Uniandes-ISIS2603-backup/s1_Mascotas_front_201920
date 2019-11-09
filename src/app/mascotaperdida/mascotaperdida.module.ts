@@ -9,7 +9,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
     CommonModule,
     AppRoutingModule
   ],
-  declarations: [ MascotaPerdidaListComponent, MascotaPerdidaDetailComponent],
+  declarations: [ MascotaPerdidaListComponent, MascotaPerdidaDetailComponent, MascotaPerdidaDetailComponent],
   exports: [MascotaPerdidaListComponent]
 })
 export class MascotaperdidaModule { }
