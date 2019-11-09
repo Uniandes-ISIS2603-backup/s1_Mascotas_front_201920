@@ -14,6 +14,8 @@ import { MascotaadopcionListComponent } from '../mascotaadopcion/mascotaadopcion
 import { MascotaPerdidaListComponent } from '../mascotaperdida/mascotaperdida-list/mascotaperdida-list.component';
 import { MascotaPerdidaDetailComponent } from '../mascotaperdida/mascotaperdida-detail/mascotaperdida-detail.component';
 import { MascotasencontradasListComponent } from '../mascotasencontradas/mascotasencontradas-list/mascotasencontradas-list.component';
+import { UsuarioListComponent } from '../usuario/usuario-list/usuario-list.component';
+import { UsuarioCreateComponent } from '../usuario/usuario-create/usuario-create.component';
 
 const routes: Routes = [
   {
@@ -66,6 +68,17 @@ const routes: Routes = [
       {
         path: ':id',
         component: PublicidadDetailComponent
+      }
+
+    ]
+  },
+  {
+    path: 'usuarios',
+    component: UsuarioListComponent,
+    children: [
+      {
+        path: 'create',
+        component: UsuarioCreateComponent
       }
 
     ]
