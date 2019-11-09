@@ -21,6 +21,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxPermissionsModule} from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
+import { MascotaperdidaModule } from './mascotaperdida/mascotaperdida.module';
 
 @NgModule({
     declarations: [
@@ -39,6 +40,7 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
         }),
        
         MascotasencontradasModule,
+        MascotaperdidaModule,
         MultimediaModule,
         UsuarioModule,
         PublicidadModule,
