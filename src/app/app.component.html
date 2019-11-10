@@ -1,53 +1,8 @@
-<<<<<<< HEAD
-<div class="container-fluid">
-	<ul class="nav">
-		<li class="nav-item">
-			<a class="nav-link active" [routerLink]="['/home']">Home</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link active" [routerLink]="['/usuarios']">Usuario</a>
-		</li>
-		<li class="nav-item dropdown-submenu">
-			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-				aria-haspopup="true" aria-expanded="false">Mascotas</a>
-			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item" class="nav-item nav-link"
-					[routerLink]="['/mascotasPerdidas/list']">Perdidas</a>
-				<a class="dropdown-item" class="nav-item nav-link"
-					[routerLink]="['/mascotasEncontradas/list']">Encontradas</a>
-				<a class="dropdown-item" class="nav-item nav-link"
-					[routerLink]="['/mascotasAdopcion/list']">Adopcion</a>
-			</div>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link active" [routerLink]="['/publicidad']">Publicidades</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link active" [routerLink]="['/procesos']">Procesos</a>
-		</li>
-		<li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-				aria-haspopup="true" aria-expanded="false">Auth</a>
-			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item" class="nav-item nav-link" [routerLink]="['/auth/login']">Login</a>
-				<a class="dropdown-item" class="nav-item nav-link" [routerLink]="['/auth/sign-up']">Sign Up</a>
-			</div>
-		</li>
-	</ul>
-	<router-outlet></router-outlet>
-	<footer id="footer" class="footer bg-light">
-		<div class="container">
-			<p class="navbar-text text-center">
-				<img src="../assets/uniandes.png" alt="logo" width="8%" /><span id="footer-text">© Mascotas
-					Felices</span>
-				<a routerLink="/home"> Inicio</a>
-			</p>
-		</div>
-	</footer>
-</div>
-=======
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="#">Macotas Felices</a>
+		<a class="navbar-brand" href="/">
+			<img src="../assets/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+			Mascotas Felices
+		  </a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	  <span class="navbar-toggler-icon"></span>
 	</button>
@@ -91,4 +46,3 @@
   </nav>
 
 <router-outlet></router-outlet>
->>>>>>> d4f4962fddb8856f57d420221a35bad8cd73ff94
