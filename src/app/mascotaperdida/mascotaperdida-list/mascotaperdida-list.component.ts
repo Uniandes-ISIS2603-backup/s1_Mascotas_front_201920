@@ -52,7 +52,6 @@ export class MascotaPerdidaListComponent implements OnInit {
     return new Date(ob.toString().split('[UTC]')[0]);
   }
   onCreate() {
-    console.log("HOLIGUES");
     this.router.navigate(["mascotasPerdidas", "create"])
   }
   onInfo( id: number)

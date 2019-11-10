@@ -30,8 +30,8 @@ export class MascotaadopcionListComponent implements OnInit {
       this.router.navigate(["mascotasAdopcion", "create"])
     }
 
-    onDetail(){
-      this.router.navigate(["mascotasAdopcion", "id"])
+    onDetail(id:number){
+      this.router.navigate(["mascotasAdopcion", id])
     }
 
 

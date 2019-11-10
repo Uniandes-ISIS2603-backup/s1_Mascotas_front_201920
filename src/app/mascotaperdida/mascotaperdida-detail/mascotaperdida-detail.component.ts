@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
 import { MascotaPerdida } from '../mascotaperdida';
 import { MascotaPerdidaService } from '../mascotaperdida.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-mascotaperdida-detail',
@@ -16,10 +16,9 @@ export class MascotaPerdidaDetailComponent implements OnInit {
 
   loader: any;
 
-  constructor(private mascotaperdidaService: MascotaPerdidaService,
-             private route: ActivatedRoute
-  ) { }
-
+  constructor(private mascotaperdidaService: MascotaPerdidaService, 
+    private router: Router, 
+    private route: ActivatedRoute) { }
   ngOnInit() {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
   }
@@ -38,6 +37,9 @@ export class MascotaPerdidaDetailComponent implements OnInit {
   getMascotaPerdida():void
   {
     this.mascotaperdidaService.getMascotaPerdida(this.id).subscribe(mascotaperdidas => this.mascotaperdida =  mascotaperdidas);
+  }
+  onBack(){
+    this.router.navigate(["mascotasPerdidas", "list"]);
   }
 
 }
