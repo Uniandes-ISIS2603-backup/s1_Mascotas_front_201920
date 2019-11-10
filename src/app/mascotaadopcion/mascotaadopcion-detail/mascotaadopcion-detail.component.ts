@@ -26,10 +26,13 @@ export class MascotaAdopcionDetailComponent implements OnInit {
 
   mascotaDetail: MascotaAdopcionDetail;
 
-    loader: any;
 
+  
   @Input() 
   mascota_id: number;
+
+  
+  loader: any;
 
   getMascotaDetail():void
    {
@@ -41,8 +44,7 @@ export class MascotaAdopcionDetailComponent implements OnInit {
 
   onLoad(params) {
 
-    this.mascota_id = parseInt(params['id']);
-    console.log(" mascotas " + this.mascota_id);
+    this.mascota_id = parseInt(params["d"]);
     this.mascotaDetail = new MascotaAdopcionDetail();
     this.getMascotaDetail();
   }

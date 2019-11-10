@@ -14,7 +14,9 @@ export class MascotaadopcionListComponent implements OnInit {
 
   mascotas: MascotaAdopcion[];
 
-  constructor(private mascotaAdopcionService: MascotaAdopcionService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private mascotaAdopcionService: MascotaAdopcionService, private router: Router, private route: ActivatedRoute) { 
+    this.mascotas=[];
+  }
 
   ngOnInit() {
      this.getMascotas();
@@ -25,8 +27,14 @@ export class MascotaadopcionListComponent implements OnInit {
     }
 
     onCreate() {
-      this.router.navigate(["mascotasPerdidas", "create"])
+      this.router.navigate(["mascotasAdopcion", "create"])
     }
+
+    onDetail(){
+      this.router.navigate(["mascotasAdopcion", "id"])
+    }
+
+
 
 
    

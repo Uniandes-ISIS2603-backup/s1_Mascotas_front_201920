@@ -34,8 +34,9 @@ const routes: Routes = [
       component: MascotaCreateComponent
     },
     {
-      path: ':id',
-      component: MascotaAdopcionDetailComponent
+      path: 'id',
+      component: MascotaAdopcionDetailComponent,
+      outlet: "detail"
     }
     ]
   },
