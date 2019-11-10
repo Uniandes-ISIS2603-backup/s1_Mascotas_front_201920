@@ -4,12 +4,14 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule, NgbDateAdapter, NgbDateNativeAdapter} from '@ng-bootstrap/ng-bootstrap';
 import {NgxPermissionsModule} from 'ngx-permissions';
 
-import { MascotasencontradasListComponent } from './mascotasencontradas-list/mascotasencontradas-list.component';
+import { EspeciePipe, MascotasencontradasListComponent } from './mascotasencontradas-list/mascotasencontradas-list.component';
 
 import { MascotaEncontradaService } from './mascotaencontrada.service';
+import { MascotaEncontradaCreateComponent } from './mascota-encontrada-create/mascota-encontrada-create.component';
+import { MatInputModule, MatFormFieldModule, MatSelectModule, MatButtonModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -18,12 +20,16 @@ import { MascotaEncontradaService } from './mascotaencontrada.service';
     HttpClientModule,
     CommonModule,
     FormsModule,
-    NgbModule,
+    NgbModule.forRoot(),
     ReactiveFormsModule,
-    NgxPermissionsModule
+    NgxPermissionsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule
 ],
-  declarations: [MascotasencontradasListComponent],
-  providers: [MascotaEncontradaService],
-  exports: [MascotasencontradasListComponent]
+  declarations: [EspeciePipe, MascotasencontradasListComponent, MascotaEncontradaCreateComponent],
+  providers: [MascotaEncontradaService, {provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}],
+  exports: [EspeciePipe]
 })
 export class MascotasencontradasModule { }

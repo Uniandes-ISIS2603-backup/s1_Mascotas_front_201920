@@ -22,6 +22,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxPermissionsModule} from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 import { MascotaperdidaModule } from './mascotaperdida/mascotaperdida.module';
+import { MatFormFieldModule, MatInputModule } from '@angular/material';
 
 @NgModule({
     declarations: [
@@ -49,7 +50,9 @@ import { MascotaperdidaModule } from './mascotaperdida/mascotaperdida.module';
         FormsModule,
         NgxPaginationModule,
         NgxPermissionsModule.forRoot(),
-        NgbModule
+        NgbModule,
+        MatFormFieldModule,
+        MatInputModule
     ],
     bootstrap: [AppComponent],
     providers: [

@@ -1,33 +1,46 @@
-<ul class="nav">
-	<li class="nav-item">
-		<a class="nav-link active" [routerLink]="['/home']">Home</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link active" [routerLink]="['/usuarios']">Usuario</a>
-	</li>
-	<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-			aria-haspopup="true" aria-expanded="false">Mascotas</a>
-		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			<a class="dropdown-item" class="nav-item nav-link" [routerLink]="['/mascotasPerdidas/list']">Perdidas</a>
-			<a class="dropdown-item" class="nav-item nav-link"
-				[routerLink]="['/mascotasEncontradas/list']">Encontradas</a>
-			<a class="dropdown-item" class="nav-item nav-link" [routerLink]="['/mascotasAdopcion/list']">Adopcion</a>
+<div class="container-fluid">
+	<ul class="nav">
+		<li class="nav-item">
+			<a class="nav-link active" [routerLink]="['/home']">Home</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link active" [routerLink]="['/usuarios']">Usuario</a>
+		</li>
+		<li class="nav-item dropdown-submenu">
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+				aria-haspopup="true" aria-expanded="false">Mascotas</a>
+			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<a class="dropdown-item" class="nav-item nav-link"
+					[routerLink]="['/mascotasPerdidas/list']">Perdidas</a>
+				<a class="dropdown-item" class="nav-item nav-link"
+					[routerLink]="['/mascotasEncontradas/list']">Encontradas</a>
+				<a class="dropdown-item" class="nav-item nav-link"
+					[routerLink]="['/mascotasAdopcion/list']">Adopcion</a>
+			</div>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link active" [routerLink]="['/publicidad']">Publicidades</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link active" [routerLink]="['/procesos']">Procesos</a>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+				aria-haspopup="true" aria-expanded="false">Auth</a>
+			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<a class="dropdown-item" class="nav-item nav-link" [routerLink]="['/auth/login']">Login</a>
+				<a class="dropdown-item" class="nav-item nav-link" [routerLink]="['/auth/sign-up']">Sign Up</a>
+			</div>
+		</li>
+	</ul>
+	<router-outlet></router-outlet>
+	<footer id="footer" class="footer bg-light">
+		<div class="container">
+			<p class="navbar-text text-center">
+				<img src="../assets/uniandes.png" alt="logo" width="8%" /><span id="footer-text">© Mascotas
+					Felices</span>
+				<a routerLink="/home"> Inicio</a>
+			</p>
 		</div>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link active" [routerLink]="['/publicidad']">Publicidades</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link active" [routerLink]="['/procesos']">Procesos</a>
-	</li>
-	<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-			aria-haspopup="true" aria-expanded="false">Auth</a>
-		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			<a class="dropdown-item" class="nav-item nav-link" [routerLink]="['/auth/login']">Login</a>
-			<a class="dropdown-item" class="nav-item nav-link" [routerLink]="['/auth/sign-up']">Sign Up</a>
-		</div>
-	</li>
-</ul>
-<router-outlet></router-outlet>
+	</footer>
+</div>

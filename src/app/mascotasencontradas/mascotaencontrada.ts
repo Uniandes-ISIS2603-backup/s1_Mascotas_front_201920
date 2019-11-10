@@ -9,7 +9,7 @@ export interface MascotaEncontrada {
     /**
      * Especie de la mascota encontrada
      */
-    especie?: string;
+    especie?: number;
 
     /**
      * Raza de la mascota encontrada
@@ -29,15 +29,10 @@ export interface MascotaEncontrada {
     /**
      * Fecha cuando se encontro la mascota
      */
-    fecha?: Date;
+    fechaEncontrada?: Date;
 
     /**
      * Usuario de la mascota
      */
     usuario?: Usuario;
-
-    /**
-     * Ruta de la foto de la mascota
-     */
-    foto?: string;
 }

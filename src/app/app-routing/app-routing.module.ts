@@ -16,6 +16,9 @@ import { MascotaPerdidaDetailComponent } from '../mascotaperdida/mascotaperdida-
 import { MascotasencontradasListComponent } from '../mascotasencontradas/mascotasencontradas-list/mascotasencontradas-list.component';
 import { UsuarioListComponent } from '../usuario/usuario-list/usuario-list.component';
 import { UsuarioCreateComponent } from '../usuario/usuario-create/usuario-create.component';
+import { MascotaCreateComponent } from '../mascotaadopcion/mascota-create/mascota-create.component';
+import { MascotaPerdidaCreateComponent } from '../mascotaperdida/mascotaperdida-create/mascotaperdida-create.component';
+import { MascotaEncontradaCreateComponent } from '../mascotasencontradas/mascota-encontrada-create/mascota-encontrada-create.component';
 
 const routes: Routes = [
   {
@@ -25,9 +28,12 @@ const routes: Routes = [
       component: MascotaadopcionListComponent
     },
     {
+      path: 'create',
+      component: MascotaCreateComponent
+    },
+    {
       path: ':id',
-      component: MascotaAdopcionDetailComponent,
-      outlet: 'detail'
+      component: MascotaAdopcionDetailComponent
     }
     ]
   },
@@ -38,9 +44,12 @@ const routes: Routes = [
       component: MascotaPerdidaListComponent
     },
     {
+      path: 'create',
+      component: MascotaPerdidaCreateComponent
+    },
+    {
       path: ':id',
-      component: MascotaPerdidaDetailComponent,
-      outlet: 'detail'
+      component: MascotaPerdidaDetailComponent
     }
     ]
   },
@@ -51,9 +60,13 @@ const routes: Routes = [
       component: MascotasencontradasListComponent
     },
     {
+      path: 'create',
+      component: MascotaEncontradaCreateComponent
+    },
+    {
       path: ':id',
-      component: MascotaAdopcionDetailComponent,
-      outlet: 'detail'
+      //component: MascotaEncontradaDetailComponent
+      redirectTo: 'mascotasEncontradas/list'
     }
     ]
   },
@@ -69,7 +82,6 @@ const routes: Routes = [
         path: ':id',
         component: PublicidadDetailComponent
       }
-
     ]
   },
   {

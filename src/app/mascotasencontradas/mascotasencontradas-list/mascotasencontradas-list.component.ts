@@ -1,6 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PipeTransform } from '@angular/core';
 import {MascotaEncontrada} from '../mascotaencontrada';
 import {MascotaEncontradaService} from '../mascotaencontrada.service';
+import {Pipe} from '@angular/core';
+import { stringify } from 'querystring';
+import { MascotaEncontradaDetail } from '../mascotaencontrada-detail';
+
+@Pipe({name: 'especie'})
+export class EspeciePipe implements PipeTransform{
+  transform(idEspecie : number) {
+    let especie: string;
+    switch(idEspecie)
+    {
+      case 0: {
+        especie = 'Perro';
+        break;
+      }
+      case 1: {
+        especie = 'Gato';
+        break;
+      }
+      default: {
+        especie = 'Animal Mistico';
+        break;
+      }
+    }
+    return especie;
+  }
+
+
+
+}
 
 @Component({
   selector: 'app-mascotasencontradas-list',
@@ -12,7 +41,7 @@ export class MascotasencontradasListComponent implements OnInit {
   /**
    * Lista de las mascotas encontradas
    */
-  mascotasEncontradas: MascotaEncontrada[] = [{especie: 'Perro'}, {especie: 'Gato'}];
+  mascotasEncontradas: MascotaEncontradaDetail[];
 
   /**
    * Constructor del componente
@@ -23,10 +52,19 @@ export class MascotasencontradasListComponent implements OnInit {
   /**
    * Pide al servicio la lista de las mascotas encontradas
    */
-  getEditorials(): void {
+  getMascotas(): void {
     this.mascotaEncontradaService
       .getMascotasEncontradas()
         .subscribe((mascotasEncontradas) => this.mascotasEncontradas = mascotasEncontradas);
+  }
+
+  /**
+   * 
+   * @param ob 
+   */
+  setDate(ob: Date): Date{
+    console.log(ob.toString().split('[UTC]')[0]);
+    return new Date(ob.toString().split('[UTC]')[0]);
   }
 
   /**
@@ -34,7 +72,7 @@ export class MascotasencontradasListComponent implements OnInit {
    * This method will be called when the component is created
    */
   ngOnInit() {
-    this.getEditorials();
+    this.getMascotas();
   }
 
 }

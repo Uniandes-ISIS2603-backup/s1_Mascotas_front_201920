@@ -1,0 +1,10 @@
+footer {
+    background-color: orange;
+    position: relative;
+    margin-top: 100;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+}
