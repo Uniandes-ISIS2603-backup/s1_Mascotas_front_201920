@@ -8,7 +8,6 @@ import {AuthModule} from './auth/auth.module';
 
 import {MascotaAdopcionModule} from './mascotaadopcion/mascotaadopcion.module'
 import {MascotasencontradasModule} from './mascotasencontradas/mascotasencontradas.module';
-import {MultimediaModule} from './multimedia/multimedia.module';
 import {UsuarioModule} from './usuario/usuario.module';
 import {PublicidadModule} from './publicidad/publicidad.module';
 import {AppComponent} from './app.component';
@@ -42,7 +41,6 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
        
         MascotasencontradasModule,
         MascotaperdidaModule,
-        MultimediaModule,
         UsuarioModule,
         PublicidadModule,
         AuthModule,

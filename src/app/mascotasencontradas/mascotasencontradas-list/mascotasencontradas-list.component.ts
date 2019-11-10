@@ -59,11 +59,31 @@ export class MascotasencontradasListComponent implements OnInit {
   }
 
   /**
+   * Pide la ruta de la imagen de la mascota para mostrar
+   * @param m La mascota
+   * @return string La ruta
+   */
+  getImageSrc(m: MascotaEncontradaDetail): string
+  {
+    let src = "../../../assets/images/mascota.png";
+    if(m != undefined && m.multimedia != undefined)
+    {
+      for(let mul of m.multimedia)
+      {
+        if(mul.tipo == 'foto'){
+          src = mul.url;
+          break;
+        }
+      }
+    }
+    return src;
+  }
+
+  /**
    * 
    * @param ob 
    */
   setDate(ob: Date): Date{
-    console.log(ob.toString().split('[UTC]')[0]);
     return new Date(ob.toString().split('[UTC]')[0]);
   }
 

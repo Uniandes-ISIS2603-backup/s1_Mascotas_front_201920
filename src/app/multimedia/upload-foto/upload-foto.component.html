@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Subir foto</h1>
+<div mat-dialog-content>
+    <p>Nombre</p>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.nombre">
+    </mat-form-field>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputFotos">Upload</span>
+        </div>
+        <div class="custom-file">
+            <input type="file" #imageInput [(ngModel)]="data.url" accept="image/*" class="custom-file-input" id="inputFile" aria-describedby="inputFotos" (change)=processImage(imageInput)>
+            <label class="custom-file-label" for="inputFile">Selecciona la imagen</label>
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button mat-button cdkFocusInitial [mat-dialog-close]="data">Ok</button>
+</div>

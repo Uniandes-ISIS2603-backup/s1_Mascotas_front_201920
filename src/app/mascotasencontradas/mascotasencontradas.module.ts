@@ -8,10 +8,12 @@ import {NgbModule, NgbDateAdapter, NgbDateNativeAdapter} from '@ng-bootstrap/ng-
 import {NgxPermissionsModule} from 'ngx-permissions';
 
 import { EspeciePipe, MascotasencontradasListComponent } from './mascotasencontradas-list/mascotasencontradas-list.component';
+import {UploadFotoComponent} from '../multimedia/upload-foto/upload-foto.component';
 
 import { MascotaEncontradaService } from './mascotaencontrada.service';
-import { MascotaEncontradaCreateComponent } from './mascota-encontrada-create/mascota-encontrada-create.component';
-import { MatInputModule, MatFormFieldModule, MatSelectModule, MatButtonModule } from '@angular/material';
+import { MascotaEncontradaCreateComponent} from './mascota-encontrada-create/mascota-encontrada-create.component';
+import { MatInputModule, MatFormFieldModule, MatSelectModule, MatButtonModule, MatGridListModule, MatDialogModule, MatDialog, MatCardModule } from '@angular/material';
+import { MultimediaModule } from '../multimedia/multimedia.module';
 
 @NgModule({
   imports: [
@@ -26,8 +28,13 @@ import { MatInputModule, MatFormFieldModule, MatSelectModule, MatButtonModule } 
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatGridListModule,
+    MatDialogModule,
+    MultimediaModule,
+    MatCardModule
 ],
+  entryComponents: [UploadFotoComponent],
   declarations: [EspeciePipe, MascotasencontradasListComponent, MascotaEncontradaCreateComponent],
   providers: [MascotaEncontradaService, {provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}],
   exports: [EspeciePipe]
