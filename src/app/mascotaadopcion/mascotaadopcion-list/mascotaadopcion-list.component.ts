@@ -25,7 +25,7 @@ export class MascotaadopcionListComponent implements OnInit {
     }
 
     onCreate() {
-      this.router.navigate(["mascotasAdopcion", "create"])
+      this.router.navigate(["mascotasPerdidas", "create"])
     }
 
 
