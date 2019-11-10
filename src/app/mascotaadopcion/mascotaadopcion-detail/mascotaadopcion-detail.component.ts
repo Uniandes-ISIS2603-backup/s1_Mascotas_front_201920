@@ -1,7 +1,11 @@
-import { Component, OnInit , Input} from '@angular/core';
-import { ActivatedRoute, Params } from "@angular/router";
+import { Component, OnInit , Input,  ViewContainerRef} from '@angular/core';
+import { ActivatedRoute, Router, Params } from "@angular/router";
 import { MascotaAdopcionService} from "../mascotaadopcion.service";
 import { MascotaAdopcionDetail } from "../mascotaadopcion-detail";
+import { MascotaAdopcion} from "../mascotaadopcion";
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-mascotaadopcion-detail',
@@ -10,8 +14,15 @@ import { MascotaAdopcionDetail } from "../mascotaadopcion-detail";
 })
 export class MascotaAdopcionDetailComponent implements OnInit {
 
-  constructor( private mascotaadopcionService: MascotaAdopcionService,
-    private route: ActivatedRoute) { }
+  constructor( 
+
+    private mascotaadopcionService: MascotaAdopcionService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private viewRef: ViewContainerRef,
+    private toastrService: ToastrService
+
+              ) { }
 
   mascotaDetail: MascotaAdopcionDetail;
 

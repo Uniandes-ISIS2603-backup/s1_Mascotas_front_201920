@@ -23,10 +23,12 @@ import { MascotaEncontradaCreateComponent } from '../mascotasencontradas/mascota
 const routes: Routes = [
   {
     path: 'mascotasAdopcion',
-    children: [{
-      path: 'list',
-      component: MascotaadopcionListComponent
-    },
+    //component: MascotaadopcionListComponent,
+    children: [
+      {
+        path: 'list',
+        component: MascotaadopcionListComponent
+      },
     {
       path: 'create',
       component: MascotaCreateComponent
@@ -39,6 +41,7 @@ const routes: Routes = [
   },
   {
     path: 'mascotasPerdidas',
+    //component: MascotaPerdidaListComponent,
     children: [{
       path: 'list',
       component: MascotaPerdidaListComponent

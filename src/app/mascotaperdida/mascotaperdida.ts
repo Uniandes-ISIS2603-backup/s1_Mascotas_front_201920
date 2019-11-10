@@ -1,26 +1,22 @@
+import { Usuario } from "../usuario/usuario";
 export class MascotaPerdida 
 {
    /**
      * El usuario asociado a la mascota
      */
-    /*@PodamExclude
-    @ManyToOne
-    private UsuarioEntity usuario;*/
+    
+   usuario: Usuario;
     
     /**
      * Recompensa
      */
-   /* @PodamExclude
-    @OneToOne
-    private RecompensaEntity recompensa;*/
-
+   /*RecompensaEntity recompensa;*/
+  
     /**
      * La fecha en la que se perdió la mascota
      */
-   /* @Temporal(TemporalType.DATE)
-    @PodamStrategyValue (DateStrategy.class)
-    private Date fechaPerdida;*/
     
+    fechaPerdida: Date;
     /**
      * Fotos que tiene la mascota
      */
