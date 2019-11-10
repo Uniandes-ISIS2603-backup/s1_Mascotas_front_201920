@@ -10,6 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class PublicidadListComponent implements OnInit {
 
+  total: string;
+
   publicidades: Publicidad[];
 
   constructor(private publicidadService: PublicidadService, private router: Router, private route: ActivatedRoute) { }
@@ -18,18 +20,45 @@ export class PublicidadListComponent implements OnInit {
     this.getPublicidades();
   }
 
-  getPublicidades():void
-  {
-    this.publicidadService.getPublicidades().subscribe(publicidades => {this.publicidades =  publicidades; console.log('cargado')});
+  getPublicidades(): void {
+    this.publicidadService.getPublicidades().subscribe(
+      publicidades => 
+      { 
+        this.publicidades = publicidades; 
+        this.getTotal()
+      });
   }
 
-  onSelection(publicidad: Publicidad)
-  {
-    this.router.navigate( [publicidad.id+""], {relativeTo: this.route})
+  onSelection(publicidad: Publicidad) {
+    this.router.navigate([publicidad.id + ""], { relativeTo: this.route })
   }
 
-  onCreate()
-  {
-    this.router.navigate( ["publicidad","create"])
+  onCreate() {
+    this.router.navigate(["publicidad", "create"])
   }
+
+  getTotal() 
+  {
+    let t: number = 0;
+
+    this.publicidades.forEach( publicidad =>
+      t+= publicidad.costo
+    )
+
+    let str: string = String(t);
+    let res: string = "$"+ str.charAt(0);
+
+      
+      for (var i = 1; i < str.length; i++) {
+        if (i % 3 == 0) 
+        {
+          res += "." + str.charAt(i);
+        }
+        else res += str.charAt(i);
+      }
+  
+    this.total = res;
+  }
+
+ 
 }

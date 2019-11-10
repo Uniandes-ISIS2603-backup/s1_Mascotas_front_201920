@@ -15,8 +15,12 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule
   ],
+<<<<<<< HEAD
   declarations: [ MascotaPerdidaListComponent, MascotaPerdidaDetailComponent, MascotaPerdidaCreateComponent],
   providers: [MascotaPerdidaService],
+=======
+  declarations: [ MascotaPerdidaListComponent, MascotaPerdidaDetailComponent, MascotaPerdidaDetailComponent],
+>>>>>>> d4f4962fddb8856f57d420221a35bad8cd73ff94
   exports: [MascotaPerdidaListComponent]
 })
 export class MascotaperdidaModule { }

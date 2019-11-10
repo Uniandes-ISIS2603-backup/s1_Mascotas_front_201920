@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container-fluid">
 	<ul class="nav">
 		<li class="nav-item">
@@ -44,3 +45,50 @@
 		</div>
 	</footer>
 </div>
+=======
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="#">Macotas Felices</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+  
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	  <ul class="navbar-nav mr-auto">
+		<li class="nav-item">
+		  <a class="nav-link" href="#" [routerLink]="['/usuarios']">Usuario</a>
+		</li>
+		<li class="nav-item dropdown">
+		  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Mascotas
+		  </a>
+		  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			<a class="dropdown-item" href="#" [routerLink]="['/mascotasPerdidas/list']">Perdidas</a>
+			<a class="dropdown-item" [routerLink]="['/mascotasEncontradas/list']">Encontradas</a>
+			<a class="dropdown-item" [routerLink]="['/mascotasAdopcion/list']">Adopcion</a>
+		  </div>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#" [routerLink]="['/publicidad']">Publicidades</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#" [routerLink]="['/procesos']">Procesos</a>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Auth
+			</a>
+			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			  <a class="dropdown-item" href="#" [routerLink]="['/auth/login']">Login</a>
+			  <a class="dropdown-item" [routerLink]="['/auth/sign-up']">Sign Up</a>
+			</div>
+		  </li>
+	  </ul>
+	  <form class="form-inline my-2 my-lg-0">
+		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	  </form>
+	</div>
+  </nav>
+
+<router-outlet></router-outlet>
+>>>>>>> d4f4962fddb8856f57d420221a35bad8cd73ff94
