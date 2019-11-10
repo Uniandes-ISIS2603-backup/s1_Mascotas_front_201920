@@ -5,7 +5,7 @@ export class MascotaPerdida
      * El usuario asociado a la mascota
      */
     
-   usuario: Usuario;
+   usuario?: Usuario;
     
     /**
      * Recompensa

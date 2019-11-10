@@ -1,0 +1,22 @@
+<form [formGroup]="recompensaForm" (ngSubmit)="createPublicidad(recompensaForm.value)">
+
+	<div class="form-group mx-sm-3 mb-2">
+	
+	<div class="form-group  mx-sm-3 mb-2">
+		<label for="monto">
+      monto de la recompensa
+    </label>
+		<input id="monto" type="text"
+     class="form-control"
+     formControlName="monto"
+     placeholder="Monto de la recompensa">
+
+		<div class="alert alert-danger alert-dismissible fade show"
+			*ngIf="recompensaForm.get('monto').hasError('required') && recompensaForm.get('monto').touched">
+			Campo requerido
+		</div>
+	</div>
+
+	<button class="button mx-sm-3 mb-2" type="submit" [disabled]="recompensaForm.invalid">Crear</button>
+
+</form>

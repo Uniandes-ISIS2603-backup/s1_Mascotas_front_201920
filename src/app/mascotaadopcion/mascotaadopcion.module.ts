@@ -6,13 +6,15 @@ import { MascotaAdopcionService } from './mascotaadopcion.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MascotaCreateComponent } from './mascota-create/mascota-create.component';
 import { MascotaAdopcionDetailComponent } from './mascotaadopcion-detail/mascotaadopcion-detail.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
     imports: [       
         CommonModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        RouterModule
     ],
     declarations: [MascotaadopcionListComponent, MascotaCreateComponent, MascotaAdopcionDetailComponent],
     providers: [ MascotaAdopcionService],

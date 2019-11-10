@@ -1,10 +1,15 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
         <a class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25" href="#">
           <img src="/src/assets/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
           Mascotas en Adopcion
         </a>
-        <button type="button" class="btn btn-dark" (click)="onCreate()"> Crear Mascota</button>
+        <button type="button" class="btn btn-success" (click)="onCreate()"> Crear Mascota</button>
+        
       </nav>
+
 
 <div class="container-fluid">
    
@@ -18,11 +23,14 @@
             <tbody>
                 <tr *ngFor = "let i of mascotas">
                         <div class="card" style="width: 18rem;">
-                                <img src="..." class="card-img-top" alt="...">
+                                <img src="../../../assets/images/gato.png" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                  <h5 class="card-title">{{i.especie}}, {{i.raza}}</h5>
+                                  <h5 class="card-title">Especie: {{i.especie}}, Raza: {{i.raza}}, ID: {{i.id}} </h5>
                                   <p class="card-text">{{i.descripcion}}</p>
-                                  <a href="#" class="btn btn-primary">Procesos Adopcion</a>
+          
+                                   <button type="button" class="btn btn-primary" (click)="onDetail(i.id)" >Procesos Adopcion</button>
+
+                                   
                                 </div>
                               </div>
                 </tr>
