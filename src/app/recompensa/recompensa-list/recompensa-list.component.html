@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Id</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of recompensas">
+            <td>
+              {{p.id}}
+            </td>
+            <td>
+              <a class="btn btn-link" data-toggle="collapse" href="#monto-{{p.id}}" role="button"
+                aria-expanded="false" aria-controls="monto">
+                Ver
+              </a>
+              <button type="button" class="btn btn-link" (click)="onSelection(p)">Abrir</button>
+
+              <div class="collapse" id="monto-{{p.id}}">
+                <div class="card card-body">
+                  {{p.monto}}
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-dark" (click)="onCreate()">Create</button>
+      <br>
+      <br>
+    </div>
+
+  </div>
+</div>
