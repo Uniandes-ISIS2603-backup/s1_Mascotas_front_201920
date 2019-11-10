@@ -15,7 +15,7 @@ const mascotas = 'mascotasadopcion.json';
 @Injectable({ providedIn: "root" })
 export class MascotaAdopcionService {
     
-    private mascotasURL = "api/mascotas"; // URL to web api
+    private mascotasURL = "http://localhost:8080/s1_mascotas-api/mascotasadopcion"; // URL to web api
 
     httpOptions = {
       headers: new HttpHeaders({ "Content-Type": "application/json" })

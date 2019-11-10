@@ -23,10 +23,8 @@ import { MascotaEncontradaCreateComponent } from '../mascotasencontradas/mascota
 const routes: Routes = [
   {
     path: 'mascotasAdopcion',
-    children: [{
-      path: 'list',
-      component: MascotaadopcionListComponent
-    },
+    component: MascotaadopcionListComponent,
+    children: [
     {
       path: 'create',
       component: MascotaCreateComponent
