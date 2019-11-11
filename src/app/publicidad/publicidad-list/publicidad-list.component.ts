@@ -27,7 +27,7 @@ export class PublicidadListComponent implements OnInit {
     this.publicidadService.getPublicidades().subscribe(
       publicidades => 
       { 
-        this.publicidades = publicidades.map(x => Object.assign(new Publicidad(), x));;
+        this.publicidades = publicidades.map(x => Object.assign(new Publicidad(), x));
         this.getTotal()
       });
   }
@@ -60,8 +60,8 @@ export class PublicidadListComponent implements OnInit {
         else aux += str.charAt(i);
       }
     let res: string ="";
-    for (var i = aux.length -1; i >=0; i--) {
-        res+= aux.charAt(i);
+    for (var e = aux.length -1; e >=0; i--) {
+        res+= aux.charAt(e);
     }
     this.total = "$"+res;
   }
