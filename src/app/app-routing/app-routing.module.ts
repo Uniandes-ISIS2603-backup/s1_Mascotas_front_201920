@@ -127,11 +127,10 @@ const routes: Routes = [
   },
   {
     path: 'usuarios',
-    component: UsuarioListComponent,
     children: [
       {
-        path: 'create',
-        component: UsuarioCreateComponent
+        path: 'list',
+        component: UsuarioListComponent
       },
       {
         path: 'sign-up',
