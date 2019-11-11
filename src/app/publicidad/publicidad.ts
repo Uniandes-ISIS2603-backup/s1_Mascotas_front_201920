@@ -6,7 +6,6 @@ export class Publicidad
   mensaje:string;
   fechaFin:string;
   fechaInicio:string;
-
-   
+  multimedia:string
 
 }

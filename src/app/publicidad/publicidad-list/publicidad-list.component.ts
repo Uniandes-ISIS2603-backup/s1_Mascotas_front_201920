@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class PublicidadListComponent implements OnInit {
 
-  total: string;
+  total: string = "$0" ;
 
   publicidades: Publicidad[];
 

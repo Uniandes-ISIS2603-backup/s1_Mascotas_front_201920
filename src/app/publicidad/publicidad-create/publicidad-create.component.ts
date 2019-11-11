@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Publicidad } from "../publicidad";
 import { PublicidadService } from "../publicidad.service";
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-publicidad-create',
@@ -29,6 +30,8 @@ export class PublicidadCreateComponent{
 
   createPublicidad(newPublicidad: Publicidad) {
    this.showSuccess();
+   newPublicidad.fechaInicio= newPublicidad.fechaInicio+"T05:00:00Z[UTC]";
+   newPublicidad.fechaFin= newPublicidad.fechaFin+"T05:00:00Z[UTC]";
     // Process checkout data here
     console.warn("La publicidad se ha enviado", newPublicidad);
 
