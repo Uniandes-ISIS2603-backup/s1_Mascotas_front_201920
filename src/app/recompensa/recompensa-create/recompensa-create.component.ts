@@ -28,7 +28,7 @@ export class RecompensaCreateComponent{
    this.showSuccess();
     // Process checkout data here
     console.warn("La recompensa se ha enviado", newRecompensa);
-
+    newRecompensa.pagado =false;
     this.recompensaService.createRecompensa(newRecompensa).subscribe(o => {
       this.showSuccess();
     });

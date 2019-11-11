@@ -11,7 +11,6 @@ import { RecompensaService } from '../recompensa.service';
 export class RecompensaDetailComponent implements OnInit {
 
   recompensa: Recompensa;
-  costo: string;
 
   @Input() id: number;
 

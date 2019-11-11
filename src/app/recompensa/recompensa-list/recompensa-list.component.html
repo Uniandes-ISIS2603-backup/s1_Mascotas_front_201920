@@ -1,37 +1,19 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-6">
-      <table class="table table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <th>Id</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let p of recompensas">
-            <td>
-              {{p.id}}
-            </td>
-            <td>
-              <a class="btn btn-link" data-toggle="collapse" href="#monto-{{p.id}}" role="button"
-                aria-expanded="false" aria-controls="monto">
-                Ver
-              </a>
-              <button type="button" class="btn btn-link" (click)="onSelection(p)">Abrir</button>
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+  <a class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25" href="#">
+    <img src="/src/assets/images/recompensa.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Recompensas
+  </a>
+</nav>
 
-              <div class="collapse" id="monto-{{p.id}}">
-                <div class="card card-body">
-                  {{p.monto}}
-                </div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <button type="button" class="btn btn-dark" (click)="onCreate()">Create</button>
-      <br>
-      <br>
+<button type="button" class="btn btn-link" (click)="onCreate()">Crear</button>
+<div class="card-columns" id="mscs">
+  <div class="card" style="width:500" *ngFor="let m of recompensas">
+    <!-- <img class="card-img-top" *ngIf="m.fotos[0] != undefined" src={{m.fotos[0].url}} alt={{m.raza}}>
+      <img class="card-img-top" *ngIf="m.fotos[0] == undefined" src="../../../assets/images/mascota.png" alt={{m.raza}}> -->
+    <div class="card-body">
+      <h4 class="card-title">Recompensa: {{m.id}}</h4>
+      <p class="card-text">Monto: {{m.monto}}</p>
+      <button type="button" class="btn btn-primary" (click)="onSelection(m.id)">info</button>
     </div>
 
   </div>
