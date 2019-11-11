@@ -20,4 +20,7 @@ import { RouterModule } from '@angular/router';
     providers: [ MascotaAdopcionService],
     exports:[MascotaadopcionListComponent, MascotaCreateComponent, MascotaAdopcionDetailComponent]
 })
+/**
+ * Modulo principal de la MascotaAdopcion
+ */
 export class MascotaAdopcionModule { }

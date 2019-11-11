@@ -3,30 +3,32 @@ import {MascotaAdopcion} from "./mascotaadopcion";
 import { Usuario } from "../usuario/usuario";
 export class Proceso {
     /**
-    * The review's id
+    * id del proceso
     */
     id: number;
 
     /**
-     * The review's name
+     * estado del proceso
      */
     estado: string;
 
     /**
-     * The review's source
+     * comentario del proceso
      */
     comentario: string;
 
     /**
-    * A brief summary of the review
+    * calificacion del proceso
     */
     calificacion: number;
 
     /**
-    * The book of the review
+    * Mascota adopcion asociada al proceso
     */
     mascota: MascotaAdopcion;
-
+    /**
+     * Usuaio asociado al proceso
+     */
     usuario: Usuario;
 
    
