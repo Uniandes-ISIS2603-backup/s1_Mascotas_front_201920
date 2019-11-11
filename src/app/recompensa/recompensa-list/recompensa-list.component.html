@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+  <a class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25" href="#">
+    <img src="/src/assets/images/recompensa.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Recompensas
+  </a>
+</nav>
+
+<button type="button" class="btn btn-link" (click)="onCreate()">Crear</button>
+<div class="card-columns" id="mscs">
+  <div class="card" style="width:500" *ngFor="let m of recompensas">
+    <div class="card-body">
+      <h4 class="card-title">Recompensa: {{m.id}}</h4>
+      <p class="card-text">Monto: {{m.monto}}</p>
+      <button type="button" class="btn btn-primary" (click)="onSelection(m.id)">info</button>
+    </div>
+  </div>
+
+</div>

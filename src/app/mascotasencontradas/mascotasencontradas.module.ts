@@ -5,13 +5,19 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule, NgbDateAdapter, NgbDateNativeAdapter} from '@ng-bootstrap/ng-bootstrap';
+import { MatCarouselModule} from '@ngmodule/material-carousel';
 import {NgxPermissionsModule} from 'ngx-permissions';
 
 import { EspeciePipe, MascotasencontradasListComponent } from './mascotasencontradas-list/mascotasencontradas-list.component';
+import {UploadFotoComponent} from '../multimedia/upload-foto/upload-foto.component';
 
 import { MascotaEncontradaService } from './mascotaencontrada.service';
-import { MascotaEncontradaCreateComponent } from './mascota-encontrada-create/mascota-encontrada-create.component';
-import { MatInputModule, MatFormFieldModule, MatSelectModule, MatButtonModule } from '@angular/material';
+import { MascotaEncontradaCreateComponent} from './mascota-encontrada-create/mascota-encontrada-create.component';
+import { MatInputModule, MatFormFieldModule, MatSelectModule, MatButtonModule, MatGridListModule, MatDialogModule, MatDialog, MatCardModule } from '@angular/material';
+import { MultimediaModule } from '../multimedia/multimedia.module';
+import { MascotaEncontradaDetailComponent } from './mascota-encontrada-detail/mascota-encontrada-detail.component';
+import { ModalDialogModule, ModalDialogService } from 'ngx-modal-dialog';
+import { ModalDialogInstanceService } from 'ngx-modal-dialog/src/modal-dialog-instance.service';
 
 @NgModule({
   imports: [
@@ -26,10 +32,17 @@ import { MatInputModule, MatFormFieldModule, MatSelectModule, MatButtonModule } 
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatGridListModule,
+    MatDialogModule,
+    MultimediaModule,
+    MatCardModule,
+    ModalDialogModule,
+    MatCarouselModule
 ],
-  declarations: [EspeciePipe, MascotasencontradasListComponent, MascotaEncontradaCreateComponent],
-  providers: [MascotaEncontradaService, {provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}],
+  entryComponents: [UploadFotoComponent],
+  declarations: [EspeciePipe, MascotasencontradasListComponent, MascotaEncontradaCreateComponent, MascotaEncontradaDetailComponent],
+  providers: [MascotaEncontradaService, ModalDialogService, ModalDialogInstanceService, {provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}],
   exports: [EspeciePipe]
 })
 export class MascotasencontradasModule { }

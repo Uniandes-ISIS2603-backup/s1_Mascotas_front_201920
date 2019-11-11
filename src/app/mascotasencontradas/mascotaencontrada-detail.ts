@@ -3,7 +3,5 @@ import { Multimedia } from "../multimedia/multimedia";
 
 export interface MascotaEncontradaDetail extends MascotaEncontrada {
     
-    fotos?: Multimedia[];
-
-    videos?: Multimedia[];
+    multimedia?: Multimedia[];
 }

@@ -7,6 +7,7 @@ import { catchError, map, tap } from "rxjs/operators";
 
 
 import { MascotaAdopcion } from './mascotaadopcion';
+import { MascotaAdopcionDetail } from "./mascotaadopcion-detail";
 
 
 const API_URL = "../../assets/";
@@ -15,7 +16,7 @@ const mascotas = 'mascotasadopcion.json';
 @Injectable({ providedIn: "root" })
 export class MascotaAdopcionService {
     
-    private mascotasURL = "api/mascotas"; // URL to web api
+    private mascotasURL = "http://localhost:8080/s1_mascotas-api/api/mascotasadopcion"; // URL to web api
 
     httpOptions = {
       headers: new HttpHeaders({ "Content-Type": "application/json" })
@@ -23,22 +24,22 @@ export class MascotaAdopcionService {
   
     constructor(private http: HttpClient) {}
   
-    /** GET clientes from the server */
+    /** GET mascotas from the server */
     getMascotas(): Observable<MascotaAdopcion[]> {
       return this.http.get<MascotaAdopcion[]>(this.mascotasURL);
     }
   
-    /** GET client by id. Will 404 if id not found */
-    getMascotaDetail(id: number): Observable<MascotaAdopcion> {
+    /** GET mascotas by id. Will 404 if id not found */
+    getMascotaDetail(id: number): Observable<MascotaAdopcionDetail> {
       const url = `${this.mascotasURL}/${id}`;
-      return this.http.get<MascotaAdopcion>(url);
+      return this.http.get<MascotaAdopcionDetail>(url);
     }
-    /** POST: add a new client to the server */
+    /** POST: add a new mascota to the server */
     createMascota(mascota: MascotaAdopcion): Observable<MascotaAdopcion> {
       return this.http.post<MascotaAdopcion>(this.mascotasURL, mascota, this.httpOptions).pipe(tap((mascota: MascotaAdopcion) => console.log(`added mascota w/ ${mascota.raza} id=${mascota.id}`)));
     }
   
-    /** DELETE: delete the client from the server */
+    /** DELETE: delete the mascota from the server */
     deleteMascota(mascota: MascotaAdopcion | number): Observable<MascotaAdopcion> {
       const id = typeof mascota === "number" ? mascota : mascota.id;
       const url = `${this.mascotasURL}/${id}`;
@@ -46,7 +47,7 @@ export class MascotaAdopcionService {
       return this.http.delete<MascotaAdopcion>(url, this.httpOptions);
     }
   
-    /** PUT: update the client on the server */
+    /** PUT: update the mascota on the server */
     updateMascota(mascota: MascotaAdopcion): Observable<any> {
       return this.http.put(this.mascotasURL, mascota, this.httpOptions);
     }

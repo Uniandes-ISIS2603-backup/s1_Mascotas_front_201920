@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Publicidad } from '../publicidad';
-import { PublicidadService } from '../publicidad.service';
+import {Component, OnInit, ViewContainerRef} from '@angular/core';
+import {Publicidad} from "../publicidad";
+import {PublicidadService} from "../publicidad.service";
+import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
+import {ModalDialogService} from "ngx-modal-dialog";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-publicidad-detail',
@@ -10,50 +12,83 @@ import { PublicidadService } from '../publicidad.service';
 })
 export class PublicidadDetailComponent implements OnInit {
 
-  publicidad: Publicidad;
-  costo: string;
+  tipos = ['foto', 'video'];
 
-  @Input() id: number;
+  id: number;
 
-  loader: any;
+  publicidad: Publicidad = new Publicidad();
 
-  constructor(private publicidadService: PublicidadService,
-    private route: ActivatedRoute
-  ) { }
+  /**
+   * The suscription which helps to know when a new mascota
+   * needs to be loaded*/
+  navigationSubscription;
 
-  ngOnInit() {
-    this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
-  }
-
-  ngOnDestroy() {
-    this.loader.unsubscribe();
-  }
-
-  onLoad(params) {
-
-    this.id = parseInt(params['id']);
-    this.publicidad = new Publicidad();
-    this.getPublicidad();
-  }
-
-  getPublicidad(): void {
-    this.publicidadService.getPublicidad(this.id).subscribe(publicidades => {
-      this.publicidad = publicidades;
-      this.getTotal();
+  /**
+   * The constructor of the component
+   * @param service The mascota service which communicates with the API
+   * @param route The route which helps to retrieves the id of the mascota to be shown
+   * @param router The router which is needed to know when the component needs to reload
+   * @param toastrService The toastr to show messages to the user
+   */
+  constructor(
+      private service: PublicidadService,
+      private route: ActivatedRoute,
+      private modalDialogService: ModalDialogService,
+      private router: Router,
+      private viewRef: ViewContainerRef,
+      private toastrService: ToastrService
+  )
+  {
+    this.navigationSubscription = this.router.events.subscribe((e: any) => {
+      if (e instanceof NavigationEnd) {
+        this.ngOnInit();
+      }
     });
   }
 
-  getTotal() {
-    let str: string = String(this.publicidad.costo);
-    let res: string = "$" + str.charAt(0);
 
-    for (var i = 1; i < str.length; i++) {
-      if (i % 3 == 0) {
-        res += "." + str.charAt(i);
+  getPublicidad() {
+    this.service.getPublicidad(this.id)
+        .subscribe(p => {
+          this.publicidad = p;
+        })
+  }
+
+  /**
+   *
+   * @param ob
+   */
+  setDate(ob: Date): Date{
+    return ob != undefined ? new Date(ob.toString().split('[UTC]')[0]): new Date();
+  }
+
+  ngOnInit() {
+    this.id = +this.route.snapshot.paramMap.get('id');
+    this.getPublicidad();
+  }
+
+  getCosto(publicidad:Publicidad): string
+  {
+    let t: number = publicidad.costo;
+
+    let str: string = String(t);
+    let aux: string = str.charAt(str.length-1);
+
+    for (var i = str.length-2; i >= 0; i--) {
+
+      if (i % 3 == 0 )
+      {
+        aux += "." + str.charAt(i);
       }
-      else res += str.charAt(i);
+      else aux += str.charAt(i);
     }
-    this.costo = res;
+    let res: string ="";
+    for (var e = aux.length -1; i >=0; e--) {
+      res+= aux.charAt(e);
+    }
+    return  "$"+res;
+
   }
 
 }
+

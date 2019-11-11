@@ -8,7 +8,6 @@ import {AuthModule} from './auth/auth.module';
 
 import {MascotaAdopcionModule} from './mascotaadopcion/mascotaadopcion.module'
 import {MascotasencontradasModule} from './mascotasencontradas/mascotasencontradas.module';
-import {MultimediaModule} from './multimedia/multimedia.module';
 import {UsuarioModule} from './usuario/usuario.module';
 import {PublicidadModule} from './publicidad/publicidad.module';
 import {AppComponent} from './app.component';
@@ -22,6 +21,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxPermissionsModule} from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 import { MascotaperdidaModule } from './mascotaperdida/mascotaperdida.module';
+import { RecompensaModule } from './recompensa/recompensa.module';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 
 @NgModule({
@@ -42,7 +42,6 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
        
         MascotasencontradasModule,
         MascotaperdidaModule,
-        MultimediaModule,
         UsuarioModule,
         PublicidadModule,
         AuthModule,
@@ -52,7 +51,9 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
         NgxPermissionsModule.forRoot(),
         NgbModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
+        RecompensaModule
+
     ],
     bootstrap: [AppComponent],
     providers: [

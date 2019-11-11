@@ -1,7 +1,11 @@
-import { Component, OnInit , Input} from '@angular/core';
-import { ActivatedRoute, Params } from "@angular/router";
+import { Component, OnInit , Input,  ViewContainerRef} from '@angular/core';
+import { ActivatedRoute, Router, Params } from "@angular/router";
 import { MascotaAdopcionService} from "../mascotaadopcion.service";
 import { MascotaAdopcionDetail } from "../mascotaadopcion-detail";
+import { MascotaAdopcion} from "../mascotaadopcion";
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-mascotaadopcion-detail',
@@ -10,19 +14,29 @@ import { MascotaAdopcionDetail } from "../mascotaadopcion-detail";
 })
 export class MascotaAdopcionDetailComponent implements OnInit {
 
-  constructor( private mascotaadopcionService: MascotaAdopcionService,
-    private route: ActivatedRoute) { }
+  constructor( 
+
+    private mascotaadopcionService: MascotaAdopcionService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private viewRef: ViewContainerRef,
+    private toastrService: ToastrService
+
+              ) { }
 
   mascotaDetail: MascotaAdopcionDetail;
 
-    loader: any;
 
+  
   @Input() 
-  mascota_id: number;
+  id: number;
+
+  
+  loader: any;
 
   getMascotaDetail():void
    {
-     this.mascotaadopcionService.getMascotaDetail(this.mascota_id).subscribe( 
+     this.mascotaadopcionService.getMascotaDetail(this.id).subscribe( 
         mascotadetail => ( this.mascotaDetail= mascotadetail )
      );
    }
@@ -30,17 +44,18 @@ export class MascotaAdopcionDetailComponent implements OnInit {
 
   onLoad(params) {
 
-    this.mascota_id = parseInt(params['id']);
-    console.log(" mascotas " + this.mascota_id);
+    this.id = parseInt(params["d"]);
     this.mascotaDetail = new MascotaAdopcionDetail();
     this.getMascotaDetail();
   }
   ngOnInit() {
-    this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+    this.id = +this.route.snapshot.paramMap.get('id');
+    if (this.id){
+    this.mascotaDetail = new MascotaAdopcionDetail();
+    this.getMascotaDetail();
   }
 
-  ngOnDestroy() {
-    this.loader.unsubscribe();
-  }
+ 
 
+}
 }

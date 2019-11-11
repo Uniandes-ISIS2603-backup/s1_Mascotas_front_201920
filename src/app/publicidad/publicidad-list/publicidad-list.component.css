@@ -1,0 +1,32 @@
+
+.vh-100 {
+    min-height: 100vh;
+}
+
+.color{
+    background-color: #979797;
+}
+
+/* The sidebar menu */
+.sidenav {
+
+   /* z-index: 1; /* Stay on top */
+    top: 0;
+    padding-top: 20px;
+}
+
+/* The navigation menu links
+.sidenav button {
+
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}*/
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+

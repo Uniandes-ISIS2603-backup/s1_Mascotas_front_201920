@@ -1,60 +1,42 @@
-export class MascotaPerdida 
-{
-   /**
-     * El usuario asociado a la mascota
-     */
-    /*@PodamExclude
-    @ManyToOne
-    private UsuarioEntity usuario;*/
-    
-    /**
-     * Recompensa
-     */
-   /* @PodamExclude
-    @OneToOne
-    private RecompensaEntity recompensa;*/
+import { Usuario } from "../usuario/usuario";
+import { Recompensa } from "../recompensa/recompensa";
+export class MascotaPerdida {
+  /**
+    * El usuario asociado a la mascota
+    */
+  usuario?: Usuario;
 
-    /**
-     * La fecha en la que se perdió la mascota
-     */
-   /* @Temporal(TemporalType.DATE)
-    @PodamStrategyValue (DateStrategy.class)
-    private Date fechaPerdida;*/
-    
-    /**
-     * Fotos que tiene la mascota
-     */
-    /*@PodamExclude
-    @OneToMany(mappedBy = "mascotaPerdida")
-    private List<MultimediaEntity> fotos = new ArrayList<>();*/
-    
-    /**
-     * Videos que tiene la mascota
-     */
-    /*@PodamExclude
-    @OneToMany(mappedBy = "mascotaPerdida2")
-    private List<MultimediaEntity> videos = new ArrayList<>();*/
+  /**
+   * Recompensa
+   */
+  recompensa?: Recompensa;
 
-    /**
-     * Raza de la mascota perdida
-     */
-    raza: string;
-    
-    /**
-     * La especie de la mascota perdida
-     */
-    especie: number;
-    
-    /**
-     * La descripción de la mascota perdida
-     */
-    descripcion: string;
-    
-    /**
-     * El lugar donde se perdió la mascota
-     */
-    lugar: string;
-    
-    
+  /**
+   * La fecha en la que se perdió la mascota
+   */
+
+  fechaPerdida: Date;
+
+  /**
+   * Raza de la mascota perdida
+   */
+  raza: string;
+
+  /**
+   * La especie de la mascota perdida
+   */
+  especie: number;
+
+  /**
+   * La descripción de la mascota perdida
+   */
+  descripcion: string;
+
+  /**
+   * El lugar donde se perdió la mascota
+   */
+  lugar: string;
+
+
 
 }

@@ -5,18 +5,25 @@
   </a>
 </nav>
 
-<a mat-button [routerLink]="['/mascotasEncotradas/create']" routerLinkActive="router-link-active" id="btn">Crear</a>
-<div class="card-columns" id="mscs">
-  <div class="card" style="width:500" *ngFor="let m of mascotasEncontradas">
-    <img class="card-img-top" *ngIf="m.fotos[0] != undefined" src={{m.fotos[0].url}} alt={{m.raza}}>
-    <img class="card-img-top" *ngIf="m.fotos[0] == undefined" src="../../../assets/images/mascota.png" alt={{m.raza}}>
-    <div class="card-body">
-      <h4 class="card-title">{{m.raza + ", " + (m.especie | especie)}}</h4>
-      <p class="card-text">{{m.descripcion}}</p>
-      <a href="#" class="btn btn-primary">info</a>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">{{"Fecha: " + (setDate(m.fechaEncontrada) | date:'shortDate')}}</small>
-    </div>
-  </div>
-</div>
+<a mat-button [routerLink]="['/mascotasEncontradas/create']" routerLinkActive="router-link-active" id="btn">Crear</a>
+<mat-grid-list cols="3" rowHeight="4:6" gutterSize="15px" id="mscs" class="mat-grid-list">
+  <mat-grid-tile  *ngFor="let m of mascotasEncontradas">
+      <mat-card class="card h-100">
+        <img mat-card-image src={{getImageSrc(m)}} alt={{m.raza}}>
+          <mat-card-header class="header-image">
+            <mat-card-title class="mat-card-title">{{m.raza}}</mat-card-title>
+            <mat-card-subtitle class="mat-card-subtitle">{{m.especie | especie}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+          </mat-card-content>
+          <mat-card-actions class="mx-auto d-block">
+            <button mat-button class="text-primary" [routerLink]="['/mascotasEncontradas', m.id]" routerLinkActive="router-link-active">Ver</button>
+            <button mat-button>Compartir</button>
+          </mat-card-actions>
+          <mat-card-footer class="mat-card-footer text-center">
+
+            <small class="text-muted">{{(setDate(m.fechaEncontrada) | date:'mediumDate')}}</small>
+          </mat-card-footer>
+        </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

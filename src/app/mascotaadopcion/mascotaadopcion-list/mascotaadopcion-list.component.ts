@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PipeTransform, Pipe } from '@angular/core';
 import { MascotaAdopcion } from '../mascotaadopcion';
 import { MascotaAdopcionService } from '../mascotaadopcion.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
+
+
 
 @Component({
   selector: 'app-mascotaadopcion-list',
@@ -9,7 +13,14 @@ import { MascotaAdopcionService } from '../mascotaadopcion.service';
 })
 export class MascotaadopcionListComponent implements OnInit {
 
-  constructor(private mascotaAdopcionService: MascotaAdopcionService) { }
+  
+
+
+  mascotas: MascotaAdopcion[];
+
+  constructor(private mascotaAdopcionService: MascotaAdopcionService, private router: Router, private route: ActivatedRoute) { 
+    this.mascotas=[];
+  }
 
   ngOnInit() {
      this.getMascotas();
@@ -19,7 +30,17 @@ export class MascotaadopcionListComponent implements OnInit {
    this.mascotaAdopcionService.getMascotas().subscribe(mascotas => this.mascotas = mascotas);
     }
 
-   mascotas: MascotaAdopcion[] = []
+    onCreate() {
+      this.router.navigate(["mascotasAdopcion", "create"])
+    }
+
+    onDetail(id: number){
+      this.router.navigate(["mascotasAdopcion", id])
+    }
+
+
+
+
    
 
 
