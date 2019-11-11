@@ -10,6 +10,9 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import { PublicidadSearchComponent } from './publicidad-search/publicidad-search.component';
 import { PublicidadDetailComponent } from './publicidad-detail/publicidad-detail.component';
 
+/**
+ * @author German Rozo
+ */
 @NgModule({
     imports: [
         CommonModule,

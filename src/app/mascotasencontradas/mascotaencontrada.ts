@@ -1,5 +1,9 @@
 import { Usuario } from "../usuario/usuario";
 
+/**
+ *
+ * @author German Rozo
+ */
 export interface MascotaEncontrada {
     /**
      * Id de la mascota encontrada

@@ -1,4 +1,7 @@
-export class Publicidad 
+/**
+ * @author German Rozo
+ */
+export class Publicidad
 {
   id: number;
   diasPorSemana: number;
