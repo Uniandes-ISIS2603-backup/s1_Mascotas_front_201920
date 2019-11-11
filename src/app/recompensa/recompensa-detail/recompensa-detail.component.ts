@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Recompensa } from '../recompensa';
 import { RecompensaService } from '../recompensa.service';
 
@@ -17,8 +17,8 @@ export class RecompensaDetailComponent implements OnInit {
   loader: any;
 
   constructor(private recompensaService: RecompensaService,
-    private route: ActivatedRoute
-  ) { }
+    private router: Router, 
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
@@ -39,6 +39,9 @@ export class RecompensaDetailComponent implements OnInit {
     this.recompensaService.getRecompensa(this.id).subscribe(recompensas => {
       this.recompensa = recompensas;
     });
+  }
+  onBack(){
+    this.router.navigate(["recompensa", "list"]);
   }
 
 

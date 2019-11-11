@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-    <a class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25" href="#">
-      <img src="/src/assets/images/logoPerdida.png" width="30" height="30" class="d-inline-block align-top" alt="">
-      Mascotas Perdidas
-    </a>
-  </nav>
-  
-  <button type="button" class="btn btn-link" (click)="onCreate()">Crear</button>
+  <a class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25" href="#">
+    <img src="/src/assets/images/logoPerdida.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Mascotas Perdidas
+  </a>
+</nav>
+
+<button type="button" class="btn btn-link" (click)="onCreate()">Crear</button>
 <div class="card-columns" id="mscs">
   <div class="card" style="width:500" *ngFor="let m of mascotasPerdidas">
     <!-- <img class="card-img-top" *ngIf="m.fotos[0] != undefined" src={{m.fotos[0].url}} alt={{m.raza}}>
