@@ -30,11 +30,11 @@ export class PublicidadListComponent implements OnInit {
   }
 
   onSelection(publicidad: Publicidad) {
-    this.router.navigate([publicidad.id + ""], { relativeTo: this.route })
+    this.router.navigate([publicidad.id + ""], { relativeTo: this.route });
   }
 
   onCreate() {
-    this.router.navigate(["publicidad", "create"])
+    this.router.navigate(["publicidad", "create"]);
   }
 
   getTotal() 
@@ -46,19 +46,46 @@ export class PublicidadListComponent implements OnInit {
     )
 
     let str: string = String(t);
-    let res: string = "$"+ str.charAt(0);
+    let aux: string = str.charAt(str.length-1);
 
-      
-      for (var i = 1; i < str.length; i++) {
-        if (i % 3 == 0) 
+      for (var i = str.length-2; i >= 0; i--) {
+
+        if (i % 3 == 0 )
         {
-          res += "." + str.charAt(i);
+          aux += "." + str.charAt(i);
         }
-        else res += str.charAt(i);
+        else aux += str.charAt(i);
       }
-  
-    this.total = res;
+    let res: string ="";
+    for (var i = aux.length -1; i >=0; i--) {
+        res+= aux.charAt(i);
+    }
+    this.total = "$"+res;
+  }
+//1.23
+  getCosto(publicidad:Publicidad): string
+  {
+    let t: number = publicidad.costo;
+
+    let str: string = String(t);
+    let aux: string = str.charAt(str.length-1);
+
+    for (var i = str.length-2; i >= 0; i--) {
+
+      if (i % 3 == 0 )
+      {
+        aux += "." + str.charAt(i);
+      }
+      else aux += str.charAt(i);
+    }
+    let res: string ="";
+    for (var i = aux.length -1; i >=0; i--) {
+      res+= aux.charAt(i);
+    }
+    return  "$"+res;
   }
 
- 
+  onSearch() {
+    this.router.navigate(["publicidad", "search"])
+  }
 }
