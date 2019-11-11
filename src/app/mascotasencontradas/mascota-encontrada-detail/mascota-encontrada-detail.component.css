@@ -1,0 +1,15 @@
+div > img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-height: 20%;
+    min-width: 20%;
+    transform: translate(-50%, -50%);
+  }
+
+.subtitle {
+    margin-top: 0%;
+    margin-bottom: 5px;
+    font-size: 20px
+}

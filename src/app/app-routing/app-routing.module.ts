@@ -18,6 +18,7 @@ import { UsuarioCreateComponent } from '../usuario/usuario-create/usuario-create
 import { MascotaCreateComponent } from '../mascotaadopcion/mascota-create/mascota-create.component';
 import { MascotaPerdidaCreateComponent } from '../mascotaperdida/mascotaperdida-create/mascotaperdida-create.component';
 import { MascotaEncontradaCreateComponent } from '../mascotasencontradas/mascota-encontrada-create/mascota-encontrada-create.component';
+import { MascotaEncontradaDetailComponent } from '../mascotasencontradas/mascota-encontrada-detail/mascota-encontrada-detail.component';
 
 const routes: Routes = [
   {
@@ -28,14 +29,14 @@ const routes: Routes = [
         path: 'list',
         component: MascotaadopcionListComponent
       },
-    {
-      path: 'create',
-      component: MascotaCreateComponent
-    },
-    {
-      path: ':id',
-      component: MascotaAdopcionDetailComponent
-    }
+      {
+        path: 'create',
+        component: MascotaCreateComponent
+      },
+      {
+        path: ':id',
+        component: MascotaAdopcionDetailComponent
+      }
     ]
   },
   {
@@ -67,8 +68,7 @@ const routes: Routes = [
     },
     {
       path: ':id',
-      //component: MascotaEncontradaDetailComponent
-      redirectTo: 'mascotasEncontradas/list'
+      component: MascotaEncontradaDetailComponent
     }
     ]
   },
