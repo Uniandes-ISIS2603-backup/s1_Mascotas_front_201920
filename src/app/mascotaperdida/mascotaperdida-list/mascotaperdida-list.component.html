@@ -11,6 +11,7 @@
     <!-- <img class="card-img-top" *ngIf="m.fotos[0] != undefined" src={{m.fotos[0].url}} alt={{m.raza}}>
     <img class="card-img-top" *ngIf="m.fotos[0] == undefined" src="../../../assets/images/mascota.png" alt={{m.raza}}> -->
     <div class="card-body">
+        <img class="card-img-top"  src={{getImageSrc(m)}} alt={{m.raza}}>
       <h4 class="card-title">{{m.raza + ", " + (m.especie | especie)}}</h4>
       <p class="card-text">{{m.descripcion}}</p>
       <button type="button" class="btn btn-primary" (click)="onInfo(m.id)">info</button>
