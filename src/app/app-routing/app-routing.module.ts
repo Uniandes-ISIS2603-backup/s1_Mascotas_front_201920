@@ -91,7 +91,12 @@ const routes: Routes = [
       {
         path: 'create',
         component: UsuarioCreateComponent
-      }
+      },
+      {
+        path: 'sign-up',
+        component: UsuarioCreateComponent
+      },
+
 
     ]
   },
@@ -122,7 +127,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: AuthLoginComponent
+    component: UsuarioCreateComponent
   },
   {
     path: '**',

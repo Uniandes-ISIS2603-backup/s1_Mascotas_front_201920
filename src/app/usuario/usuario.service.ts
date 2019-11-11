@@ -9,7 +9,7 @@ import { Usuario } from './usuario';
 @Injectable({ providedIn: "root" })
 export class UsuarioService {
 
-private usuariosURL = "api/usuarios"; // URL to web api
+private usuariosURL = "http://localhost:8080/s1_mascotas-api/api/usuarios"; // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ "Content-Type": "application/json" })
