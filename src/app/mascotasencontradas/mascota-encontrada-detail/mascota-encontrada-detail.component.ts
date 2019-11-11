@@ -120,4 +120,14 @@ deleteMascota(): void {
         this.getOtherMascotas();
   }
 
+  /**
+    * This method helps to refresh the view when we need to load another book into it
+    * when one of the other books in the list is clicked
+    */
+   ngOnDestroy() {
+    if (this.navigationSubscription) {
+        this.navigationSubscription.unsubscribe();
+    }
+}
+
 }

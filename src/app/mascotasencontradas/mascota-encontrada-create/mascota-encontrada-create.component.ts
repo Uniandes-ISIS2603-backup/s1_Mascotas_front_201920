@@ -141,6 +141,7 @@ export class MascotaEncontradaCreateComponent implements OnInit {
       mult = result;
       console.log(mult.url);
     });**/
+    console.log("Video Uploaded");
     this.multimedia.push({
       "nombre": "Prueba",
       "url": "../../../assets/images/videoC.png",

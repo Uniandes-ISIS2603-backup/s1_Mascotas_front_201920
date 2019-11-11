@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 import { RecompensaCreateComponent } from './recompensa-create/recompensa-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecompensaListComponent } from './recompensa-list/recompensa-list.component';
-import { RouterTestingModule } from '@angular/router/testing';
 
 
 
@@ -17,8 +16,7 @@ import { RouterTestingModule } from '@angular/router/testing';
     CommonModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    RouterTestingModule
+    ReactiveFormsModule
    // RecompensaListComponent
   ],
   declarations: [ RecompensaListComponent, 

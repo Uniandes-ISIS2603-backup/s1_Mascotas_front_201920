@@ -29,14 +29,14 @@ export class MascotaAdopcionDetailComponent implements OnInit {
 
   
   @Input() 
-  mascota_id: number;
+  id: number;
 
   
   loader: any;
 
   getMascotaDetail():void
    {
-     this.mascotaadopcionService.getMascotaDetail(this.mascota_id).subscribe( 
+     this.mascotaadopcionService.getMascotaDetail(this.id).subscribe( 
         mascotadetail => ( this.mascotaDetail= mascotadetail )
      );
    }
@@ -44,16 +44,18 @@ export class MascotaAdopcionDetailComponent implements OnInit {
 
   onLoad(params) {
 
-    this.mascota_id = parseInt(params["d"]);
+    this.id = parseInt(params["d"]);
     this.mascotaDetail = new MascotaAdopcionDetail();
     this.getMascotaDetail();
   }
   ngOnInit() {
-    this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+    this.id = +this.route.snapshot.paramMap.get('id');
+    if (this.id){
+    this.mascotaDetail = new MascotaAdopcionDetail();
+    this.getMascotaDetail();
   }
 
-  ngOnDestroy() {
-    this.loader.unsubscribe();
-  }
+ 
 
+}
 }
