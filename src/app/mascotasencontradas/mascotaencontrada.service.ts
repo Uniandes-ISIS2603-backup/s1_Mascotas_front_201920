@@ -42,6 +42,15 @@ export class MascotaEncontradaService {
     }
 
     /**
+     * Deletes the mascota from the server database through API
+     * @param mascotaId Id de la mascota a borrar
+     * @returns la mascota borrada
+     */
+    deleteMascotaEncontrada(mascotaId): Observable<MascotaEncontrada> {
+        return this.http.delete<MascotaEncontrada>(API_URL + mascotasencontradas + '/' + mascotaId);
+    }
+
+    /**
     * Creates a multimedia
     * @param multimediaO The multimedia
     * @returns True if the multimedia was posted, false otherwise

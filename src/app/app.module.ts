@@ -21,6 +21,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxPermissionsModule} from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 import { MascotaperdidaModule } from './mascotaperdida/mascotaperdida.module';
+import { RecompensaModule } from './recompensa/recompensa.module';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 
 @NgModule({
@@ -50,7 +51,9 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
         NgxPermissionsModule.forRoot(),
         NgbModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
+        RecompensaModule
+
     ],
     bootstrap: [AppComponent],
     providers: [

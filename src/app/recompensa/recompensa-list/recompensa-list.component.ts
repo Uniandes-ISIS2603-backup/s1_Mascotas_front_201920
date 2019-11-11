@@ -29,8 +29,8 @@ export class RecompensaListComponent implements OnInit {
       });
   }
 
-  onSelection(recompensa: Recompensa) {
-    this.router.navigate([recompensa.id + ""], { relativeTo: this.route })
+  onSelection(id: number) {
+    this.router.navigate(["recompensa", id])
   }
 
   onCreate() {
