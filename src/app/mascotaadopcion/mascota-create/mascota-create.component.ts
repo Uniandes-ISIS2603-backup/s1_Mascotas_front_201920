@@ -9,11 +9,24 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './mascota-create.component.html',
   styleUrls: ['./mascota-create.component.css']
 })
+/**
+ * Componente para crear una mascota adopcion
+ */
 export class MascotaCreateComponent implements OnInit {
-
+/**
+ * Formulario
+ */
 mascotaForm: FormGroup;
+/**
+ * Lista de mascotas adopcion
+ */
 mascotas: MascotaAdopcion[];
-
+/**
+ * 
+ * @param mascotaService servicio de las marcotas adopcion
+ * @param formBuilder formulario
+ * @param toastr toardter 
+ */
  constructor(
     private mascotaService: MascotaAdopcionService,
     private formBuilder: FormBuilder,
@@ -28,7 +41,10 @@ mascotas: MascotaAdopcion[];
       
     });
   }
-  
+  /**
+   * Crea una mascota adopcion
+   * @param newMascota mascota adopcion a crear
+   */
   createMascota(newMascota: MascotaAdopcion) {
 
     console.warn("mascota creada", newMascota);
@@ -39,11 +55,15 @@ mascotas: MascotaAdopcion[];
     });
     this.mascotaForm.reset();
   }
-
+/**
+ * Metodo para suscribirse al servicio
+ */
   ngOnInit() {
     this.mascotaService.getMascotas().subscribe(mascotas => (this.mascotas = mascotas));
   }
-
+/**
+ * Metodo para la contruccion de notificaciones al crear una marcota
+ */
   showSuccess() {
      for (let i = 0; i < this.mascotas.length; i++){
       console.log(this.mascotas[i].id+' '+this.mascotas[i].raza+' '+this.mascotas[i].historia);
