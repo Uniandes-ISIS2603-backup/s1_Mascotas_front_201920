@@ -87,6 +87,7 @@ export class PublicidadDetailComponent implements OnInit {
       res+= aux.charAt(e);
     }
     return  "$"+res;
+
   }
 
 }

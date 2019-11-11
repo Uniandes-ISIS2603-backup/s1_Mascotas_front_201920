@@ -83,6 +83,7 @@ export class PublicidadListComponent implements OnInit {
       res+= aux.charAt(e);
     }
     return  "$"+res;
+
   }
 
   onSearch() {
