@@ -12,14 +12,14 @@ export class ImageService {
 
   public uploadImage(image: File, name: string): Observable<string> {
 
-    const httpOptions = {
+    /**const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/octet-stream',
         'X-Goog-Upload-File-Name': name,
         'X-Goog-Upload-Protocol': 'raw',
         'Authorization': 'my-auth-token'
       })
-    };
+    };**/
 
     return this.http.post<string>('https://photoslibrary.googleapis.com/v1/uploads', image);
   }

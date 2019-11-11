@@ -27,6 +27,8 @@ import { MascotaEncontradaDetailComponent } from '../mascotasencontradas/mascota
 import { RecompensaListComponent } from '../recompensa/recompensa-list/recompensa-list.component';
 import { RecompensaDetailComponent } from '../recompensa/recompensa-detail/recompensa-detail.component';
 import { RecompensaCreateComponent } from '../recompensa/recompensa-create/recompensa-create.component';
+import {PublicidadSearchComponent} from "../publicidad/publicidad-search/publicidad-search.component";
+import {PublicidadDetailComponent} from "../publicidad/publicidad-detail/publicidad-detail.component";
 
 
 
@@ -110,17 +112,31 @@ const routes: Routes = [
       {
         path: 'create',
         component: PublicidadCreateComponent
+      },
+      {
+        path: 'search',
+        component: PublicidadSearchComponent,
+        children: [
+          {
+            path: ':id',
+            component: PublicidadDetailComponent
+          }
+        ]
       }
     ]
   },
   {
     path: 'usuarios',
-    component: UsuarioListComponent,
     children: [
       {
-        path: 'create',
+        path: 'list',
+        component: UsuarioListComponent
+      },
+      {
+        path: 'sign-up',
         component: UsuarioCreateComponent
-      }
+      },
+
 
     ]
   },
@@ -151,7 +167,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: AuthLoginComponent
+    component: UsuarioCreateComponent
   },
   {
     path: '**',

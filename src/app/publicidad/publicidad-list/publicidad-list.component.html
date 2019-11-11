@@ -1,32 +1,24 @@
-<div class="sidenav">
-  <div class="card text-white bg-dark m-5" style="max-width: 18rem;">
-    <div class="card-header"></div>
-    <div class="card-body">
-      <h5 class="card-title">Info</h5>
-      <p class="card-text">Total {{total}}</p>
-    </div>
-  </div>
-  <button type="button" class="btn btn-dark m-5" (click)="onCreate()">Create</button>
-</div>
-<div class="container-fluid p-0 vh-100">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-12" >
-      <br>
-      <br>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col" >
-     <br>
-     <br>
+    <div class="col">
+      <div class="card text-white bg-dark m-5" >
+        <div class="card-header"></div>
+        <div class="card-body">
+          <h5 class="card-title">Info</h5>
+          <p class="card-text">Total {{total}}</p>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-dark m-5" (click)="onCreate()">Create</button>
+      <button type="button" class="btn btn-dark m-5" (click)="onSearch()">Buscar</button>
     </div>
     <div class="col">
       <div class="card-columns">
-        <div class="card m-1 " style="width: 19rem;" *ngFor="let publicidad of publicidades">
-            <img class="card-img-top" src="https://pmcdeadline2.files.wordpress.com/2018/02/tv-ads-advertising.jpg?w=681&h=383&crop=1" alt="Card image">
+        <div class="card m-1" style="width: 20rem;" *ngFor="let publicidad of publicidades">
+          <img class="card-img-top" src="https://pmcdeadline2.files.wordpress.com/2018/02/tv-ads-advertising.jpg?w=681&h=383&crop=1" alt="Card image">
           <div class="card-body">
             <h5 class="card-title">{{publicidad.id}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{costo}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">{{publicidad.getCosto()}}</h6>
             <p class="card-text"> {{publicidad.mensaje}} </p>
           </div>
           <ul class="list-group list-group-flush">

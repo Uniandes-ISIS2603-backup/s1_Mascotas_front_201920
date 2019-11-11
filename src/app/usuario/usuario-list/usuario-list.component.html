@@ -1,12 +1,12 @@
-<table>
+<table class="table">
   <thead>
-    <th>Nombre</th>
-    <th>Ciudad</th>
-    <th>Celular</th>
-    <th>Correo</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Ciudad</th>
+    <th scope="col">Celular</th>
+    <th scope="col">Correo</th>
   </thead>
   <tbody>
-    <tr *ngFor = "let u of usuarios">
+    <tr scope="row" *ngFor = "let u of usuarios">
       <td>{{u.nombre}}</td>
       <td>{{u.ciudad}}</td>
       <td>{{u.celular}}</td>
