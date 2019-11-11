@@ -15,11 +15,8 @@
             <mat-card-subtitle class="mat-card-subtitle">{{m.especie | especie}}</mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
-            <p class="h-100">
-              {{m.descripcion}}
-            </p>
           </mat-card-content>
-          <mat-card-actions class="my-0 d-block">
+          <mat-card-actions class="mx-auto d-block">
             <button mat-button class="text-primary" [routerLink]="['/mascotasEncontradas', m.id]" routerLinkActive="router-link-active">Ver</button>
             <button mat-button>Compartir</button>
           </mat-card-actions>

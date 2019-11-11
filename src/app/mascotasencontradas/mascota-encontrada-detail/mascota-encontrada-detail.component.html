@@ -20,4 +20,10 @@
     <h2 class="pt-2">Descripción</h2><hr/>
     <p class="subtitle ml-0 mr-auto">{{data.descripcion}}</p>
   </div>
+
+  <div class="row text-center d-block m-4 mx-auto">
+    <a mat-button class="mr-3" [routerLink]="['/mascotasEncontradas/list']">Cancelar</a>
+    <button mat-button class="btn btn-danger ml-3" (click)="deleteMascota()">Borrar</button>
+  </div>
+
 </div>
