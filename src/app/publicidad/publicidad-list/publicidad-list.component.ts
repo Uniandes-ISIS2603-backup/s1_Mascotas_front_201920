@@ -24,7 +24,7 @@ export class PublicidadListComponent implements OnInit {
     this.publicidadService.getPublicidades().subscribe(
       publicidades => 
       { 
-        this.publicidades = publicidades; 
+        this.publicidades = publicidades.map(x => Object.assign(new Publicidad(), x));;
         this.getTotal()
       });
   }
@@ -61,29 +61,6 @@ export class PublicidadListComponent implements OnInit {
         res+= aux.charAt(i);
     }
     this.total = "$"+res;
-  }
-//1.23
-  getCosto(publicidad:Publicidad): string
-  {
-    let t: number = publicidad.costo;
-
-    let str: string = String(t);
-    let aux: string = str.charAt(str.length-1);
-
-    for (var i = str.length-2; i >= 0; i--) {
-
-      if (i % 3 == 0 )
-      {
-        aux += "." + str.charAt(i);
-      }
-      else aux += str.charAt(i);
-    }
-    let res: string ="";
-    for (var e = aux.length -1; i >=0; e--) {
-      res+= aux.charAt(e);
-    }
-    return  "$"+res;
-
   }
 
   onSearch() {

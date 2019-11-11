@@ -1,8 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {Publicidad} from "../publicidad";
-import {PublicidadService} from "../publicidad.service";
-import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
-import {ModalDialogService} from "ngx-modal-dialog";
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Publicidad } from '../publicidad';
+import { PublicidadService } from '../publicidad.service';
 
 @Component({
   selector: 'app-publicidad-detail',
@@ -11,62 +10,39 @@ import {ModalDialogService} from "ngx-modal-dialog";
 })
 export class PublicidadDetailComponent implements OnInit {
 
-  id: number;
+  publicidad: Publicidad;
+  costo : string;
 
-  publicidad: Publicidad = new Publicidad();
+  @Input() id: number;
 
-  navigationSubscription;
+  loader: any;
 
-  constructor(
-      private service: PublicidadService,
-      private route: ActivatedRoute,
-      private modalDialogService: ModalDialogService,
-      private router: Router
-  )
+  constructor(private publicidadService: PublicidadService,
+              private route: ActivatedRoute
+  ) { }
+
+  ngOnInit() {
+    this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+  }
+
+  ngOnDestroy() {
+    this.loader.unsubscribe();
+  }
+
+  onLoad(params) {
+
+    this.id = parseInt(params['id']);
+    this.publicidad = new Publicidad();
+    this.getPublicidad();
+  }
+
+  getPublicidad():void
   {
-    this.navigationSubscription = this.router.events.subscribe((e: any) => {
-      if (e instanceof NavigationEnd) {
-        this.ngOnInit();
-      }
+    this.publicidadService.getPublicidad(this.id).subscribe(publicidades =>
+    {
+      this.publicidad =  Object.assign(new Publicidad(), publicidades);
     });
   }
 
 
-  getPublicidad() {
-    this.service.getPublicidad(this.id)
-        .subscribe(p => {
-          this.publicidad = p;
-        })
-  }
-
-
-
-  ngOnInit() {
-    this.id = +this.route.snapshot.paramMap.get('id');
-    this.getPublicidad();
-  }
-
-  getCosto(publicidad:Publicidad): string
-  {
-    let t: number = publicidad.costo;
-
-    let str: string = String(t);
-    let aux: string = str.charAt(str.length-1);
-
-    for (var i = str.length-2; i >= 0; i--) {
-
-      if (i % 3 == 0 )
-      {
-        aux += "." + str.charAt(i);
-      }
-      else aux += str.charAt(i);
-    }
-    let res: string ="";
-    for (var e = aux.length -1; i >=0; e--) {
-      res+= aux.charAt(e);
-    }
-    return  "$"+res;
-  }
-
 }
-
