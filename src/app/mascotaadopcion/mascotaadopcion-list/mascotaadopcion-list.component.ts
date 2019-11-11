@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PipeTransform, Pipe } from '@angular/core';
 import { MascotaAdopcion } from '../mascotaadopcion';
 import { MascotaAdopcionService } from '../mascotaadopcion.service';
 import { Router, ActivatedRoute } from '@angular/router';
+
+
 
 
 @Component({
@@ -10,6 +12,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./mascotaadopcion-list.component.css']
 })
 export class MascotaadopcionListComponent implements OnInit {
+
+  
 
 
   mascotas: MascotaAdopcion[];
@@ -30,7 +34,7 @@ export class MascotaadopcionListComponent implements OnInit {
       this.router.navigate(["mascotasAdopcion", "create"])
     }
 
-    onDetail(id:number){
+    onDetail(id: number){
       this.router.navigate(["mascotasAdopcion", id])
     }
 

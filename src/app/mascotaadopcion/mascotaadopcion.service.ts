@@ -32,7 +32,7 @@ export class MascotaAdopcionService {
     /** GET mascotas by id. Will 404 if id not found */
     getMascotaDetail(id: number): Observable<MascotaAdopcionDetail> {
       const url = `${this.mascotasURL}/${id}`;
-      return this.http.get<MascotaAdopcionDetail>(url, this.httpOptions);
+      return this.http.get<MascotaAdopcionDetail>(url);
     }
     /** POST: add a new mascota to the server */
     createMascota(mascota: MascotaAdopcion): Observable<MascotaAdopcion> {
