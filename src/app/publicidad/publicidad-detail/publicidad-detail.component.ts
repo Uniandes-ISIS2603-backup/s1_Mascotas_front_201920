@@ -83,8 +83,8 @@ export class PublicidadDetailComponent implements OnInit {
       else aux += str.charAt(i);
     }
     let res: string ="";
-    for (var i = aux.length -1; i >=0; i--) {
-      res+= aux.charAt(i);
+    for (var e = aux.length -1; i >=0; e--) {
+      res+= aux.charAt(e);
     }
     return  "$"+res;
   }
