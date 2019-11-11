@@ -7,12 +7,15 @@
 #btn {
     padding: 2% 10% 0 10%;
 }
+
 .card {
     max-width: 400px;
 }
   
 .header-image {
     background-size: cover;
+    width: 20%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+  height: 20%;
 }
 
 .mat-grid-list {

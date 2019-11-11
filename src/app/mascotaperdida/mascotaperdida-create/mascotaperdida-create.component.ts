@@ -6,7 +6,9 @@ import { ToastrService } from 'ngx-toastr';
 import { MascotaPerdidaDetail } from "../mascotaperdida-detail";
 import { Router } from '@angular/router';
 
-
+/**
+ * Interfaz de especie
+ */
 export interface Especie {
   id: number;
   nombre: string;
@@ -17,19 +19,39 @@ export interface Especie {
   templateUrl: './mascotaperdida-create.component.html',
   styleUrls: ['./mascotaperdida-create.component.css']
 })
-export class MascotaPerdidaCreateComponent{
+export class MascotaPerdidaCreateComponent {
+  /**
+   * Especies: perro y gato
+   */
   especies: Especie[] = [
-    {id: 0, nombre: 'Perro'},
-    {id: 1, nombre: 'Gato'}
+    { id: 0, nombre: 'Perro' },
+    { id: 1, nombre: 'Gato' }
   ]
+  /**
+   * Fecha
+   */
   current: Date = new Date();
+  /**
+   * Formato de fecha
+   */
   maxDate = {
     year: this.current.getFullYear(),
     month: this.current.getMonth() + 1,
     day: this.current.getDate()
   };
+
+  /**
+   * Especificaciones de la mascota
+   */
   mascotaPerdidaForm: FormGroup;
 
+  /**
+   * Constructor de mascota perdida create
+   * @param mascotaPerdidaService Servicio de mascota perdida
+   * @param formBuilder 
+   * @param toastr El toastr para mostrar los mensajes al usuario
+   * @param router La ruta
+   */
   constructor(
     private mascotaPerdidaService: MascotaPerdidaService,
     private formBuilder: FormBuilder,
@@ -46,8 +68,10 @@ export class MascotaPerdidaCreateComponent{
       videos: [""]
     });
   }
-
-  createMascotaPerdida(): MascotaPerdida{
+  /**
+   * Crea una mascota perdida 
+   */
+  createMascotaPerdida(): MascotaPerdida {
 
     let fechaPerdida: Date = this.mascotaPerdidaForm.controls.fecha.value;
     let especie: number = this.mascotaPerdidaForm.controls.especie.value;
@@ -65,32 +89,37 @@ export class MascotaPerdidaCreateComponent{
 
     console.log(fechaPerdida.toDateString());
     this.showSuccess();
-     // Process checkout data here
-     console.warn("La mascota perdida se ha enviado", mascota);
- 
-     this.mascotaPerdidaService.createMascotaPerdida(mascota).subscribe(o => {
-       this.showSuccess();
-     })
- 
+    // Process checkout data here
+    console.warn("La mascota perdida se ha enviado", mascota);
+
+    this.mascotaPerdidaService.createMascotaPerdida(mascota).subscribe(o => {
+      this.showSuccess();
+    })
+
     this.mascotaPerdidaForm.reset();
     this.router.navigate(['/mascotasPerdidas/list']);
     return mascota;
-    
-   }
 
-   /**
-    * Cancels the creation of the new Mascota
-    * Redirects to the Mascotas' list page
-    */
-   cancelCreation(): void {
-    this.toastr.warning('La mascota no se creó', 'Registro de Mascota');
-    this.router.navigate(['/mascotasPerdidas/list']);
-}
-
-   showSuccess() {
-    this.toastr.success("Mascota Perdida", "Has perdido una mascota", {"progressBar": true,timeOut:3000});
   }
 
+  /**
+   * Cancels the creation of the new Mascota
+   * Redirects to the Mascotas' list page
+   */
+  cancelCreation(): void {
+    this.toastr.warning('La mascota no se creó', 'Registro de Mascota');
+    this.router.navigate(['/mascotasPerdidas/list']);
+  }
+  /**
+   * Mensaje de exito de crear una nueva mascota
+   */
+  showSuccess() {
+    this.toastr.success("Mascota Perdida", "Has perdido una mascota", { "progressBar": true, timeOut: 3000 });
+  }
+
+  /**
+    * This function will initialize the component
+    */
   ngOnInit() {
   }
 

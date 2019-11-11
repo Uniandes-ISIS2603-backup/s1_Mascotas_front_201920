@@ -10,9 +10,17 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./recompensa-create.component.css']
 })
 export class RecompensaCreateComponent{
-
+  /**
+   * Formato de la recompensa
+   */
   recompensaForm: FormGroup;
 
+  /**
+   * Constructor de la recompensa
+   * @param recompensaService  Servicio de recompensa
+   * @param formBuilder 
+   * @param toastr 
+   */
   constructor(
     private recompensaService: RecompensaService,
     private formBuilder: FormBuilder,
@@ -24,6 +32,10 @@ export class RecompensaCreateComponent{
     });
   }
 
+  /**
+   * Crea una recompensa 
+   * @param newRecompensa Recompensa
+   */
   createRecompensa(newRecompensa: Recompensa) {
    this.showSuccess();
     // Process checkout data here
@@ -37,6 +49,9 @@ export class RecompensaCreateComponent{
    
   }
 
+  /**
+   * Muestra que se pudo crear
+   */
   showSuccess() {
     this.toastr.success("Recompensa", "Creada exitosamente!", {"progressBar": true,timeOut:3000});
   }

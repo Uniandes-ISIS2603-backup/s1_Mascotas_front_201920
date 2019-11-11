@@ -3,6 +3,8 @@
 	<div class="container-fluid">
 		<div class="card" style="width: 18rem;">
 			<div class="card-body">
+				<img class="card-img-top"  src={{getImageSrc(mascotaperdida)}} alt={{mascotaperdida.raza}}>
+				<!-- <img mat-card-image src={{getImageSrc(m)}} alt={{m.raza}}> -->
 				<h5 class="card-title">Mascota Perdida: {{mascotaperdida.id}}</h5>
 				<h6 class="card-subtitle mb-2 text-muted">{{mascotaperdida.raza}}</h6>
 				<p class="card-text">  {{mascotaperdida.descripcion}} </p>
@@ -13,5 +15,6 @@
 			</ul>
 		</div>
 	</div>
+	
 </div>
 <button type="button" class="btn btn-primary" (click)="onBack()">atrás</button>
