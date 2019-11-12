@@ -5,6 +5,7 @@ import { Observable, of } from "rxjs";
 import { catchError, map, tap } from "rxjs/operators";
 
 import { Usuario } from './usuario';
+import { UsuarioDetail } from './usuario-detail';
 
 @Injectable({ providedIn: "root" })
 export class UsuarioService {
@@ -18,22 +19,23 @@ private usuariosURL = "http://localhost:8080/s1_mascotas-api/api/usuarios"; // U
   constructor(private http: HttpClient) {}
 
   /** GET clientes from the server */
-  getUsuarios(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(this.usuariosURL);
+  getUsuarios(): Observable<UsuarioDetail[]> {
+    return this.http.get<UsuarioDetail[]>(this.usuariosURL);
   }
 
   /** GET client by id. Will 404 if id not found */
-  getUsuario(id: number): Observable<Usuario> {
+  getUsuario(id: number): Observable<UsuarioDetail> {
     const url = `${this.usuariosURL}/${id}`;
-    return this.http.get<Usuario>(url);
+    return this.http.get<UsuarioDetail>(url);
   }
+
   /** POST: add a new client to the server */
-  createUsuario(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(this.usuariosURL, usuario, this.httpOptions).pipe(tap((usuario: Usuario) => console.log(`added usuario w/ ${usuario.nombre} id=${usuario.id}`)));
+  createUsuario(usuario: UsuarioDetail): Observable<UsuarioDetail> {
+    return this.http.post<UsuarioDetail>(this.usuariosURL, usuario, this.httpOptions).pipe(tap((usuario: UsuarioDetail) => console.log(`added usuario w/ ${usuario.correo} id=${usuario.id}`)));
   }
 
   /** DELETE: delete the client from the server */
-  deleteUsuario(usuario: Usuario | number): Observable<Usuario> {
+  deleteUsuario(usuario: UsuarioDetail | number): Observable<Usuario> {
     const id = typeof usuario === "number" ? usuario : usuario.id;
     const url = `${this.usuariosURL}/${id}`;
 

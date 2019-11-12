@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Usuario} from '../iusuario';
 import {UsuarioService } from '../usuario.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-usuario-list',
@@ -13,7 +14,7 @@ export class UsuarioListComponent implements OnInit {
      * Constructor for the component
      * @param usuarioService
      */
-    constructor(private usuarioService: UsuarioService) { }
+    constructor(private usuarioService: UsuarioService, private router: Router) { }
     
     /**
      * Lista de usuarios
@@ -25,6 +26,10 @@ export class UsuarioListComponent implements OnInit {
      */
     getUsuarios(): void {
         this.usuarioService.getUsuarios().subscribe(usuarios => this.usuarios = usuarios);
+    }
+
+    onDetail(id: number){
+      this.router.navigate(["usuarios", id])
     }
 
     /**

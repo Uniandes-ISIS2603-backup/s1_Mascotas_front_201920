@@ -22,6 +22,7 @@ import { MascotaEncontradaCreateComponent } from '../mascotasencontradas/mascota
 
 import { UsuarioListComponent } from '../usuario/usuario-list/usuario-list.component';
 import { UsuarioCreateComponent } from '../usuario/usuario-create/usuario-create.component';
+import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail.component';
 import { MascotaEncontradaDetailComponent } from '../mascotasencontradas/mascota-encontrada-detail/mascota-encontrada-detail.component';
 
 import { RecompensaListComponent } from '../recompensa/recompensa-list/recompensa-list.component';
@@ -137,8 +138,10 @@ const routes: Routes = [
         path: 'sign-up',
         component: UsuarioCreateComponent
       },
-
-
+      {
+        path: ':id',
+        component: UsuarioDetailComponent
+      }
     ]
   },
   {
