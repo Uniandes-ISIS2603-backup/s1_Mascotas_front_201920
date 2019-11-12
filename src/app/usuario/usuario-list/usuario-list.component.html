@@ -1,16 +1,15 @@
-<table class="table">
-  <thead>
-    <th scope="col">Nombre</th>
-    <th scope="col">Ciudad</th>
-    <th scope="col">Celular</th>
-    <th scope="col">Correo</th>
-  </thead>
-  <tbody>
-    <tr scope="row" *ngFor = "let u of usuarios">
-      <td>{{u.nombre}}</td>
-      <td>{{u.ciudad}}</td>
-      <td>{{u.celular}}</td>
-      <td>{{u.correo}}</td>
-    </tr>
-  </tbody>
-</table>
+      <table class="table">
+        <thead>
+          <th scope="col">Nombre</th>
+          <th scope="col">Correo</th>
+        </thead>
+        <tbody>
+          <tr scope="row" *ngFor = "let u of usuarios">
+            <td>{{u.nombre}}</td>
+            <td>{{u.correo}}</td>
+            <td>
+              <button (click)="onDetail(u.id)">Ver más</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>

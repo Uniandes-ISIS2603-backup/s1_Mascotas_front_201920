@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import  {UsuarioService } from '../usuario.service';
-import { Usuario } from "../usuario";
+import { UsuarioDetail } from "../usuario-detail";
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class UsuarioCreateComponent implements OnInit {
 
 usuarioForm: FormGroup;
-usuarios: Usuario[];
+usuarios: UsuarioDetail[];
 
  constructor(
     private usuarioService: UsuarioService,
@@ -28,7 +28,7 @@ usuarios: Usuario[];
     });
   }
   
-  createUsuario(newUsuario: Usuario) {
+  createUsuario(newUsuario: UsuarioDetail) {
 
     console.warn("usuario creado", newUsuario);
 

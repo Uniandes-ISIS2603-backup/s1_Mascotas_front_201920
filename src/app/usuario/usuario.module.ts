@@ -5,6 +5,7 @@ import { UsuarioService } from './usuario.service';
 import { UsuarioCreateComponent } from './usuario-create/usuario-create.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UsuarioDetailComponent } from './usuario-detail/usuario-detail.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [UsuarioListComponent, UsuarioCreateComponent],
+  declarations: [UsuarioListComponent, UsuarioCreateComponent, UsuarioDetailComponent],
   exports: [UsuarioListComponent],
   providers: [UsuarioService]
 })
