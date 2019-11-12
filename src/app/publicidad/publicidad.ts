@@ -1,3 +1,4 @@
+//German Rozo
 export class Publicidad
 {
   id: number;

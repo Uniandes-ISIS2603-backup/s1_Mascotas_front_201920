@@ -3,7 +3,7 @@ import { Publicidad } from '../publicidad';
 import { PublicidadService } from '../publicidad.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
-
+//German Rozo
 @Component({
   selector: 'app-publicidad-list',
   templateUrl: './publicidad-list.component.html',
