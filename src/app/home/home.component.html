@@ -1,0 +1,42 @@
+<div class="container-fluid w-100 mx-auto text-center">
+  <h1 class="display-1">¡Bienvenido!</h1>
+  <div class="row d-block" style="margin-top: 4%;">
+    <h2>
+      <img src="../assets/images/logo.png" width="50" height="50" class="d-inline-block align-center" alt="">
+        Mascotas Felices
+    </h2>
+  </div>
+  <img class="d-inline-block" style="width: 700px; margin-top: 4%;" src="../../assets/images/home.png" alt="home">
+  <div class="card-deck w-50 mx-auto" style="margin-top: 4%; margin-bottom: 4%;">
+      <div class="card">
+        <img src="../../assets/images/adoptame.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Mascotas en Adopción</h5>
+          <p class="card-text">Quieres adoptar una? o quieres dar una mascota en adopción?</p>
+        </div>
+        <div class="card-footer">
+            <a href="#" [routerLink]="['/mascotasAdopcion']">Entra</a>
+          </div>
+      </div>
+      <div class="card">
+        <img src="../../assets/images/perdido.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Mascotas Perdidas</h5>
+          <p class="card-text">Si perdiste una mascota o quieres ver cuales se han perdido, entra!</p>
+        </div>
+        <div class="card-footer">
+            <a href="#" [routerLink]="['/mascotasPerdidas/list']">Entra</a>
+          </div>
+      </div>
+      <div class="card">
+        <img src="../../assets/images/encontrado.png" class="card-img-top mx-auto d-block" style="margin-top: 5%; margin-bottom: 0%; width: 120px;" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Mascotas Encontradas</h5>
+          <p class="card-text">Encontraste una mascota? Quieres ver si tu mascota la han encontrado? Entra!</p>
+        </div>
+        <div class="card-footer">
+            <a href="#" [routerLink]="['/mascotasEncontradas']">Entra</a>
+          </div>
+      </div>
+    </div>
+</div>

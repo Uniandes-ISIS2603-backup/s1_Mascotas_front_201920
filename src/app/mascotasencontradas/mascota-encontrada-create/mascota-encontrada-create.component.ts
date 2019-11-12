@@ -99,10 +99,12 @@ export class MascotaEncontradaCreateComponent implements OnInit {
           this.mascotaEncontradaService.createMultimedia(result.id, m).subscribe();
         }
       }
+      this.mascotaEncontradaForm.reset();
+      this.router.navigate(['/mascotasEncontradas/list']).then(() => {
+        window.location.reload();
+      });
     });
 
-    this.mascotaEncontradaForm.reset();
-    this.router.navigate(['/mascotasEncontradas/list']);
     return mascota;
 
   }

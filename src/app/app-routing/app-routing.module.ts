@@ -29,6 +29,7 @@ import { RecompensaDetailComponent } from '../recompensa/recompensa-detail/recom
 import { RecompensaCreateComponent } from '../recompensa/recompensa-create/recompensa-create.component';
 import {PublicidadSearchComponent} from "../publicidad/publicidad-search/publicidad-search.component";
 import {PublicidadDetailComponent} from "../publicidad/publicidad-detail/publicidad-detail.component";
+import { HomeComponent } from '../home/home.component';
 
 
 
@@ -167,7 +168,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: UsuarioCreateComponent
+    component: HomeComponent
   },
   {
     path: '**',

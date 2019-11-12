@@ -5,12 +5,14 @@ import { UsuarioService } from './usuario.service';
 import { UsuarioCreateComponent } from './usuario-create/usuario-create.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from '../app-routing/app-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   declarations: [UsuarioListComponent, UsuarioCreateComponent],
   exports: [UsuarioListComponent],

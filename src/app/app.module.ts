@@ -23,10 +23,12 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import { MascotaperdidaModule } from './mascotaperdida/mascotaperdida.module';
 import { RecompensaModule } from './recompensa/recompensa.module';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        HomeComponent
     ],
     imports: [
         BrowserModule,
