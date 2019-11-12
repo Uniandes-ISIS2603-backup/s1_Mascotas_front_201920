@@ -5,9 +5,6 @@ import { PublicidadService } from "../publicidad.service";
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
-/**
- * @author German Rozo
- */
 @Component({
   selector: 'app-publicidad-create',
   templateUrl: './publicidad-create.component.html',

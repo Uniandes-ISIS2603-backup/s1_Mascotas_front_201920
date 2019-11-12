@@ -1,6 +1,3 @@
-/**
- * @author German Rozo
- */
 export class Publicidad
 {
   id: number;
@@ -12,8 +9,6 @@ export class Publicidad
   multimedia:string
 
   getCosto(): string {
-
-    console.log(this.costo+" costo");
 
     let str: string = String(this.costo);
     let aux: string = str.charAt(str.length-1);

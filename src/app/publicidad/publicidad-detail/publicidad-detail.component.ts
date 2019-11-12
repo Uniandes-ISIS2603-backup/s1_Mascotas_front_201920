@@ -3,9 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Publicidad } from '../publicidad';
 import { PublicidadService } from '../publicidad.service';
 
-/**
- * @author German Rozo
- */
+
 @Component({
   selector: 'app-publicidad-detail',
   templateUrl: './publicidad-detail.component.html',

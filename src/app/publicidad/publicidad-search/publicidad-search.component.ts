@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl} from "@angular/forms";
 
-/**
- * @author German Rozo
- */
+
 @Component({
   selector: 'app-publicidad-search',
   templateUrl: './publicidad-search.component.html',

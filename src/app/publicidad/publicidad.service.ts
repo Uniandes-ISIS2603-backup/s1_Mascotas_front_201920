@@ -9,9 +9,7 @@ const editorials = 'publicidades';
 //const API_URL = "../../assets/";
 //const editorials = "publicidades.json";
 
-/**
- * @author German Rozo
- */
+
 @Injectable()
 export class PublicidadService {
   
