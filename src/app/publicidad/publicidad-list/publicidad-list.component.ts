@@ -27,7 +27,7 @@ export class PublicidadListComponent implements OnInit {
       publicidades => 
       { 
         this.publicidades = publicidades;
-        this.publicidades.map(x => Object.assign(new PublicidadDetail(), x));
+        //this.publicidades.map(x => Object.assign(new PublicidadDetail(), x));
         this.getTotal()
         this.log();
       });
