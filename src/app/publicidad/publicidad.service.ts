@@ -3,6 +3,7 @@ import { Publicidad } from "./publicidad";
 import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { catchError, map, tap } from "rxjs/operators";
+import {PublicidadDetail} from "./publicidad-detail";
 
 const API_URL = 'http://localhost:8080/s1_mascotas-api/api/';
 const editorials = 'publicidades';
@@ -18,19 +19,20 @@ export class PublicidadService {
   };
   constructor(private http: HttpClient) {}
 
-  getPublicidades(): Observable<Publicidad[]> {
-    return this.http.get<Publicidad[]>(API_URL + editorials);
+  getPublicidades(): Observable<PublicidadDetail[]>
+  {
+    return this.http.get<PublicidadDetail[]>(API_URL + editorials);
   }
 
-  getPublicidad(id: number): Observable<Publicidad> 
+  getPublicidad(id: number): Observable<PublicidadDetail>
   {
     console.log("que pasa?")
     console.log(API_URL + editorials +"/"+ id);
-    return this.http.get<Publicidad>(API_URL + editorials +"/"+ id);
+    return this.http.get<PublicidadDetail>(API_URL + editorials +"/"+ id);
   }
 
-  createPublicidad(publicidad: Publicidad): Observable<Publicidad> {
+  createPublicidad(publicidad: PublicidadDetail): Observable<PublicidadDetail> {
     return this.http
-      .post<Publicidad>(API_URL + editorials, publicidad, this.httpOptions);
+      .post<PublicidadDetail>(API_URL + editorials, publicidad, this.httpOptions);
   }
 }

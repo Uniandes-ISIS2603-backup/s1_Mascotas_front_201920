@@ -31,7 +31,29 @@
     <div class="col">
       <div class="card-columns">
         <div class="card m-1" style="width: 20rem;" *ngFor="let publicidad of publicidades">
-          <img class="card-img-top" src="https://pmcdeadline2.files.wordpress.com/2018/02/tv-ads-advertising.jpg?w=681&h=383&crop=1" alt="Card image">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://bonduelle.es/media/zoo/images/patata_781da11b65e9c08ff1fa4c25079f5fdb.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" *ngFor="let multimedia of publicidad.multimedia">
+                <img src={{multimedia.url}} class="d-block w-100" alt="Hola">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
           <div class="card-body">
             <h5 class="card-title">{{publicidad.id}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{publicidad.costo}}</h6>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Publicidad } from '../publicidad';
+import { PublicidadDetail } from '../publicidad-detail';
 import { PublicidadService } from '../publicidad.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Multimedia } from "../../multimedia/multimedia";
 
 //German Rozo
 @Component({
@@ -13,7 +14,7 @@ export class PublicidadListComponent implements OnInit {
 
   total: string = "$0" ;
 
-  publicidades: Publicidad[];
+  publicidades: PublicidadDetail[];
 
   constructor(private publicidadService: PublicidadService, private router: Router, private route: ActivatedRoute) { }
 
@@ -26,12 +27,13 @@ export class PublicidadListComponent implements OnInit {
       publicidades => 
       { 
         this.publicidades = publicidades;
-        this.publicidades.map(x => Object.assign(new Publicidad(), x));
+        this.publicidades.map(x => Object.assign(new PublicidadDetail(), x));
         this.getTotal()
+        this.log();
       });
   }
 
-  onSelection(publicidad: Publicidad) {
+  onSelection(publicidad: PublicidadDetail) {
     this.router.navigate([publicidad.id + ""], { relativeTo: this.route });
   }
 
@@ -67,5 +69,11 @@ export class PublicidadListComponent implements OnInit {
 
   onSearch() {
     this.router.navigate(["publicidad", "search"])
+  }
+
+  private log()
+  {
+    //for (var i= 0; i< this.publicidades[0].multimedia.length; i++)
+      console.log("jiro");
   }
 }

@@ -4,6 +4,7 @@ import { Publicidad } from "../publicidad";
 import { PublicidadService } from "../publicidad.service";
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import {PublicidadDetail} from "../publicidad-detail";
 
 //German Rozo
 @Component({
@@ -29,7 +30,7 @@ export class PublicidadCreateComponent{
     });
   }
 
-  createPublicidad(newPublicidad: Publicidad) {
+  createPublicidad(newPublicidad: PublicidadDetail) {
    this.showSuccess();
    newPublicidad.fechaInicio= newPublicidad.fechaInicio+"T05:00:00Z[UTC]";
    newPublicidad.fechaFin= newPublicidad.fechaFin+"T05:00:00Z[UTC]";
