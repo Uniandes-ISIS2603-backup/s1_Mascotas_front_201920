@@ -19,9 +19,9 @@ export class PublicidadService {
   };
   constructor(private http: HttpClient) {}
 
-  getPublicidades(): Observable<PublicidadDetail[]>
+  getPublicidades(): Observable<Publicidad[]>
   {
-    return this.http.get<PublicidadDetail[]>(API_URL + editorials);
+    return this.http.get<Publicidad[]>(API_URL + editorials);
   }
 
   getPublicidad(id: number): Observable<PublicidadDetail>

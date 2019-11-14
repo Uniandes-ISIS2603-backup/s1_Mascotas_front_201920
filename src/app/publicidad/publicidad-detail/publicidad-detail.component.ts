@@ -32,9 +32,14 @@ export class PublicidadDetailComponent implements OnInit {
 
   onLoad(params) {
 
-    this.id = parseInt(params['id']);
+    let idAux = parseInt(params['id']);
+    if(idAux == NaN) 
+    {
+      this.id = parseInt(params['id']);
+    }
     this.publicidad = new Publicidad();
     this.getPublicidad();
+    
   }
 
   getPublicidad():void

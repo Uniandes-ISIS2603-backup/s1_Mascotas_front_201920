@@ -3,6 +3,7 @@ import { PublicidadDetail } from '../publicidad-detail';
 import { PublicidadService } from '../publicidad.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Multimedia } from "../../multimedia/multimedia";
+import { Publicidad } from '../publicidad';
 
 //German Rozo
 @Component({
@@ -26,8 +27,7 @@ export class PublicidadListComponent implements OnInit {
     this.publicidadService.getPublicidades().subscribe(
       publicidades => 
       { 
-        this.publicidades = publicidades;
-        //this.publicidades.map(x => Object.assign(new PublicidadDetail(), x));
+        publicidades.forEach( p => publicidades.push())
         this.getTotal()
         this.log();
       });
