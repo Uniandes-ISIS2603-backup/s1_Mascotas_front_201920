@@ -78,7 +78,7 @@ export class PublicidadListComponent implements OnInit {
 
     publicidades.forEach(p=>
     {
-      this.publicidadService.getPublicidad(p.id).subscribe(pd => {
+      this.publicidadService.getPublicidadDetail(p.id).subscribe(pd => {
         this.publicidades.push(pd);
       })
     });

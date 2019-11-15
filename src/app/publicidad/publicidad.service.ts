@@ -7,6 +7,7 @@ import {PublicidadDetail} from "./publicidad-detail";
 
 const API_URL = 'http://localhost:8080/s1_mascotas-api/api/';
 const editorials = 'publicidades';
+
 //const API_URL = "../../assets/";
 //const editorials = "publicidades.json";
 
@@ -21,12 +22,17 @@ export class PublicidadService {
 
   getPublicidades(): Observable<Publicidad[]>
   {
-    return this.http.get<Publicidad[]>(API_URL + editorials);
+    return this.http.get<Publicidad[]>(API_URL + editorials+"/all");
   }
 
-  getPublicidad(id: number): Observable<PublicidadDetail>
+  getPublicidadDetail(id: number): Observable<PublicidadDetail>
   {
     return this.http.get<PublicidadDetail>(API_URL + editorials +"/"+ id);
+  }
+
+  getPublicidad(): Observable<PublicidadDetail>
+  {
+    return this.http.get<PublicidadDetail>(API_URL + editorials);
   }
 
   createPublicidad(publicidad: PublicidadDetail): Observable<PublicidadDetail> {

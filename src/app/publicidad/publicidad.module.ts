@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import { PublicidadSearchComponent } from './publicidad-search/publicidad-search.component';
 import { PublicidadDetailComponent } from './publicidad-detail/publicidad-detail.component';
+import { PublicidadPanelComponent } from './publicidad-panel/publicidad-panel.component';
 
 
 @NgModule({
@@ -19,8 +20,8 @@ import { PublicidadDetailComponent } from './publicidad-detail/publicidad-detail
         ReactiveFormsModule,
         MatFormFieldModule
     ],
-  declarations: [PublicidadListComponent, PublicidadCreateComponent, PublicidadSearchComponent, PublicidadDetailComponent],
-  exports : [PublicidadListComponent],
+  declarations: [PublicidadListComponent, PublicidadCreateComponent, PublicidadSearchComponent, PublicidadDetailComponent, PublicidadPanelComponent],
+    exports: [PublicidadListComponent, PublicidadPanelComponent],
   providers: [PublicidadService]
 })
 export class PublicidadModule { }

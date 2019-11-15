@@ -46,7 +46,7 @@ export class PublicidadDetailComponent implements OnInit {
 
   getPublicidad():void
   {
-    this.publicidadService.getPublicidad(this.id).subscribe(publicidades =>
+    this.publicidadService.getPublicidadDetail(this.id).subscribe(publicidades =>
     {
       this.publicidad =  Object.assign(new PublicidadDetail(), publicidades);
     });

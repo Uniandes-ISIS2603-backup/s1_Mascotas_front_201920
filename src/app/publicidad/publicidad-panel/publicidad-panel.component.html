@@ -1,0 +1,20 @@
+<div id="carouselMain" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" >
+      <img src={{publicidad.multimedia[0].url}} class="d-block w-100" alt="Hola">
+    </div>
+    <ng-template ngFor let-multimedia [ngForOf]="publicidad.multimedia" let-f="first">
+      <div class="carousel-item" *ngIf="!f">
+        <img src={{multimedia.url}} class="d-block w-100" alt="Hola" >
+      </div>
+    </ng-template>
+  </div>
+  <a class="carousel-control-prev" href="#carouselMain" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselMain" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
