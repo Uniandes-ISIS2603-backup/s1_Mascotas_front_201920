@@ -5,7 +5,7 @@ export class Publicidad
   diasPorSemana: number;
   costo: number;
   mensaje:string;
-  fechaFin:string;
+  fechaFin?:string;
   fechaInicio:string;
 
   getCosto(): string {

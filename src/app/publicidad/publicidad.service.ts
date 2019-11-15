@@ -26,8 +26,6 @@ export class PublicidadService {
 
   getPublicidad(id: number): Observable<PublicidadDetail>
   {
-    console.log("que pasa?")
-    console.log(API_URL + editorials +"/"+ id);
     return this.http.get<PublicidadDetail>(API_URL + editorials +"/"+ id);
   }
 

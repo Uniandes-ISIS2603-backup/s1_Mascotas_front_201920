@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Publicidad } from '../publicidad';
 import { PublicidadService } from '../publicidad.service';
+import {PublicidadDetail} from "../publicidad-detail";
+import {Multimedia} from "../../multimedia/multimedia";
 
 //German Rozo
 @Component({
@@ -11,10 +13,11 @@ import { PublicidadService } from '../publicidad.service';
 })
 export class PublicidadDetailComponent implements OnInit {
 
-  publicidad: Publicidad;
+  publicidad: PublicidadDetail;
   costo : string;
+  inicial: Multimedia = null;
 
-  @Input() id: number;
+  @Input() id: number = -1;
 
   loader: any;
 
@@ -32,12 +35,11 @@ export class PublicidadDetailComponent implements OnInit {
 
   onLoad(params) {
 
-    let idAux = parseInt(params['id']);
-    if(idAux == NaN) 
+    if(this.id == -1)
     {
       this.id = parseInt(params['id']);
     }
-    this.publicidad = new Publicidad();
+    this.publicidad = new PublicidadDetail();
     this.getPublicidad();
     
   }
@@ -46,7 +48,7 @@ export class PublicidadDetailComponent implements OnInit {
   {
     this.publicidadService.getPublicidad(this.id).subscribe(publicidades =>
     {
-      this.publicidad =  Object.assign(new Publicidad(), publicidades);
+      this.publicidad =  Object.assign(new PublicidadDetail(), publicidades);
     });
   }
 
