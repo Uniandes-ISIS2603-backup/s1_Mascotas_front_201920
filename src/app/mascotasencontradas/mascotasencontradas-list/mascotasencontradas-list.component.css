@@ -1,8 +1,5 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-#btn {
-    padding: 2% 10% 0 10%;
-}
 
 .card {
     max-width: 400px;

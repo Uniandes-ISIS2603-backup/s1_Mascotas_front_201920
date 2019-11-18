@@ -91,8 +91,6 @@ export class MascotasencontradasListComponent implements OnInit {
   }
 
   filtrarMascotas(): void {
-    console.log("Entrado filtro");
-    console.log(this.mascotasEncontradas);
     this.mascotasFiltradas = this.mascotasEncontradas;
     this.filtrarEspecie();
     this.filtrarRaza();
@@ -100,15 +98,23 @@ export class MascotasencontradasListComponent implements OnInit {
   }
 
   filtrarEspecie() {
-    this.mascotasFiltradas = this.mascotasFiltradas.filter((x) => {return this.filtroForm.controls.especie.value == x.especie});
+    this.mascotasFiltradas = this.mascotasFiltradas.filter((x) => 
+    {
+      let val = this.filtroForm.controls.especie.value;
+      let c = val == x.especie;
+      return val != "" && val != -1 ? c : true });
   }
 
   filtrarRaza() {
-    this.mascotasFiltradas = this.mascotasFiltradas.filter((x) => {return x.raza.includes(this.filtroForm.controls.raza.value)});
+    this.mascotasFiltradas = this.mascotasFiltradas.filter((x) => {return x.raza.toLowerCase().includes(this.filtroForm.controls.raza.value.toLowerCase())});
   }
 
   filtrarFecha() {
-    this.mascotasFiltradas = this.mascotasFiltradas.filter((x) => {return this.filtroForm.controls.fecha.value <= x.fechaEncontrada});
+    this.mascotasFiltradas = this.mascotasFiltradas.filter((x) => {return (new Date(this.filtroForm.controls.fecha.value)).getTime() <= this.setDate(x.fechaEncontrada).getTime()});
+  }
+
+  refrescarFiltro() {
+    this.filtroForm.reset();
   }
 
   /**

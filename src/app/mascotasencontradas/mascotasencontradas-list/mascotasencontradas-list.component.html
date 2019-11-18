@@ -6,9 +6,9 @@
 </nav>
 
 <!-- Navbar para filtro -->
-<nav class="navbar navbar-light text-center" id="filterBar">
+<nav class="navbar navbar-light text-center w-75 mx-auto" id="filterBar">
   <form [formGroup]="filtroForm" class="form-inline mx-auto">
-    <mat-form-field class="mx-3 ml-5" id="filtroEspecie">
+    <mat-form-field class="mx-3" id="filtroEspecie">
       <mat-label>¿Qué especie es?</mat-label>
       <mat-select formControlName="especie" (selectionChange)="filtrarMascotas()">
         <mat-option *ngFor="let es of especies" [value]="es.id">
@@ -17,17 +17,18 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field class="mx-3" id="filtroRaza">
-      <input matInput placeholder="¿Qué raza es?" formControlName="raza" (keydown)="filtrarMascotas()">
+      <input matInput placeholder="¿Qué raza es?" formControlName="raza" (keyup)="filtrarMascotas()">
     </mat-form-field>
     <mat-form-field class="mx-3" id="filtroFecha">
         <input matInput placeholder="Fecha" ngbDatepicker #d="ngbDatepicker"
         [maxDate]="maxDate" (focus)="d.open()" name="date_start" formControlName="fecha" (dateSelect)="filtrarMascotas()"/>
     </mat-form-field>
   </form>
+  <a mat-button class="mx-auto" id="btn" (click)="refrescarFiltro()">Refrescar</a>
 </nav>
 
-<a mat-button [routerLink]="['/mascotasEncontradas/create']" routerLinkActive="router-link-active" id="btn">Crear</a>
-<div class="container-fluid h-100" id="Lista">
+<div class="container-fluid text-center h-100" id="Lista">
+    <a mat-button [routerLink]="['/mascotasEncontradas/create']" routerLinkActive="router-link-active" class="text-center mx-auto my-4" id="btn">Crear</a>
   <mat-grid-list cols="3" rowHeight="24em" gutterSize="15px" id="mscs" class="mat-grid-list">
     <mat-grid-tile *ngFor="let m of mascotasFiltradas">
       <mat-card class="card h-auto">
