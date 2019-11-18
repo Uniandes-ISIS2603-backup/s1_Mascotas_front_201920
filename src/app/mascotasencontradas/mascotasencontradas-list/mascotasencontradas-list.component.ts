@@ -102,19 +102,30 @@ export class MascotasencontradasListComponent implements OnInit {
     {
       let val = this.filtroForm.controls.especie.value;
       let c = val == x.especie;
-      return val != "" && val != -1 ? c : true });
+      return val !== "" && val != -1 ? c : true });
   }
 
   filtrarRaza() {
-    this.mascotasFiltradas = this.mascotasFiltradas.filter((x) => {return x.raza.toLowerCase().includes(this.filtroForm.controls.raza.value.toLowerCase())});
+    this.mascotasFiltradas = this.mascotasFiltradas.filter((x) => 
+    {
+      let val = this.filtroForm.controls.raza.value.toLowerCase();
+      let c = x.raza.toLowerCase().includes(val);
+      return c;
+    });
   }
 
   filtrarFecha() {
-    this.mascotasFiltradas = this.mascotasFiltradas.filter((x) => {return (new Date(this.filtroForm.controls.fecha.value)).getTime() <= this.setDate(x.fechaEncontrada).getTime()});
+    this.mascotasFiltradas = this.mascotasFiltradas.filter((x) => 
+    {
+      let val = this.filtroForm.controls.fecha.value;
+      let c = (new Date(val)).getTime() <= this.setDate(x.fechaEncontrada).getTime() 
+      return val !== "" ? c : true;
+    });
   }
 
   refrescarFiltro() {
     this.filtroForm.reset();
+    this.mascotasFiltradas = this.mascotasEncontradas;
   }
 
   /**
