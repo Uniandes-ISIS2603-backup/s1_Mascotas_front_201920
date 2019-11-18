@@ -1,4 +1,4 @@
-<div id="carouselMain" class="carousel slide" data-ride="carousel">
+<div id="carouselMain" class="carousel slide" data-ride="carousel" *ngIf="publicidad!=undefined">
   <div class="carousel-inner">
     <div class="carousel-item active" >
       <img src={{publicidad.multimedia[0].url}} class="d-block w-100" alt="Hola">

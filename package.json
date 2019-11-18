@@ -52,6 +52,7 @@
     "primeng": "^6.0.0",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.2.2",
+    "saturn-datepicker": "^6.1.0",
     "typescript": "^2.7.2",
     "zone.js": "^0.8.26"
   },

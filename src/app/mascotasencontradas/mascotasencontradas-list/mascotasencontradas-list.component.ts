@@ -4,6 +4,8 @@ import {MascotaEncontradaService} from '../mascotaencontrada.service';
 import {Pipe} from '@angular/core';
 import { stringify } from 'querystring';
 import { MascotaEncontradaDetail } from '../mascotaencontrada-detail';
+import { Especie } from '../mascota-encontrada-create/mascota-encontrada-create.component';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Pipe({name: 'especie'})
 export class EspeciePipe implements PipeTransform{
@@ -38,16 +40,44 @@ export class EspeciePipe implements PipeTransform{
 })
 export class MascotasencontradasListComponent implements OnInit {
 
+  especies: Especie[] = [
+    { id: -1, nombre: 'Cualquiera' },
+    { id: 0, nombre: 'Perro' },
+    { id: 1, nombre: 'Gato' }
+  ];
+
+  current: Date = new Date();
+  maxDate = {
+    year: this.current.getFullYear(),
+    month: this.current.getMonth() + 1,
+    day: this.current.getDate()
+  };
+
+  filtroForm: FormGroup;
+
   /**
    * Lista de las mascotas encontradas
    */
   mascotasEncontradas: MascotaEncontradaDetail[];
+  
+  /**
+   * Lista de mascotas filtradas
+   */
+  mascotasFiltradas: MascotaEncontradaDetail[];
 
   /**
-   * Constructor del componente
-   * @param mascotaEncontradaService Servicio para mascotas
+   * Constructor
+   * @param mascotaEncontradaService 
+   * @param formBuilder 
    */
-  constructor(private mascotaEncontradaService: MascotaEncontradaService) { }
+  constructor(private mascotaEncontradaService: MascotaEncontradaService,
+    private formBuilder: FormBuilder) { 
+      this.filtroForm = this.formBuilder.group({
+        especie: [""],
+        raza: [""],
+        fecha: [""]
+      });
+    }
 
   /**
    * Pide al servicio la lista de las mascotas encontradas
@@ -55,7 +85,30 @@ export class MascotasencontradasListComponent implements OnInit {
   getMascotas(): void {
     this.mascotaEncontradaService
       .getMascotasEncontradas()
-        .subscribe((mascotasEncontradas) => this.mascotasEncontradas = mascotasEncontradas);
+        .subscribe((mascotasEncontradas) =>{ this.mascotasEncontradas = mascotasEncontradas;
+          this.mascotasFiltradas = this.mascotasEncontradas;
+        });
+  }
+
+  filtrarMascotas(): void {
+    console.log("Entrado filtro");
+    console.log(this.mascotasEncontradas);
+    this.mascotasFiltradas = this.mascotasEncontradas;
+    this.filtrarEspecie();
+    this.filtrarRaza();
+    this.filtrarFecha();
+  }
+
+  filtrarEspecie() {
+    this.mascotasFiltradas = this.mascotasFiltradas.filter((x) => {return this.filtroForm.controls.especie.value == x.especie});
+  }
+
+  filtrarRaza() {
+    this.mascotasFiltradas = this.mascotasFiltradas.filter((x) => {return x.raza.includes(this.filtroForm.controls.raza.value)});
+  }
+
+  filtrarFecha() {
+    this.mascotasFiltradas = this.mascotasFiltradas.filter((x) => {return this.filtroForm.controls.fecha.value <= x.fechaEncontrada});
   }
 
   /**

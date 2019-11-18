@@ -1,4 +1,4 @@
-<div class="container-fluid w-50 h-100 mx-auto">
+<div class="container-fluid w-75 h-100 mx-auto">
   <div class="pt-5">
     <h1 class="display-4 text-uppercase">{{data.raza}}</h1>
     <div class="row">
@@ -8,7 +8,7 @@
   </div>
   <mat-carousel timings="250ms ease-in" [autoplay]="true" interval="5000" color="" maxWidth="auto" proportion="50" [loop]="true" [hideArrows]="false" [hideIndicators]="true" [useKeyboard]="true" [useMouseWheel]="false"
     orientation="ltr">
-    <mat-carousel-slide #matCarouselSlide [overlayColor]="FFFFFFFFFF" *ngFor="let m of data.multimedia; let i = index">
+    <mat-carousel-slide #matCarouselSlide [overlayColor]="FFFFFF" *ngFor="let m of data.multimedia; let i = index">
       <div class="h-25 w-25 mx-auto align-middle">
         <img src={{m.url}} height="300" width="auto">
       </div>

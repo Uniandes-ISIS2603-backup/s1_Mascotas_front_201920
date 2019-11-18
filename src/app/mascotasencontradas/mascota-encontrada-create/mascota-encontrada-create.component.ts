@@ -131,7 +131,8 @@ export class MascotaEncontradaCreateComponent implements OnInit {
     });**/
     this.multimedia.push({
       "nombre": "Prueba",
-      "url": "../../../assets/images/mascotaC.png",
+      //"url": "../../../assets/images/mascotaC.png",
+      "url": "https://picsum.photos/400",
       "tipo": "foto"
     });
   }

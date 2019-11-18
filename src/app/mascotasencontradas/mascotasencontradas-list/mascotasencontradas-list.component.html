@@ -1,29 +1,54 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+<nav class="navbar navbar-expand-sm navbar-light bg-transparent">
   <a class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25" href="#">
     <img src="/src/assets/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
     Mascotas Encontradas
   </a>
 </nav>
 
-<a mat-button [routerLink]="['/mascotasEncontradas/create']" routerLinkActive="router-link-active" id="btn">Crear</a>
-<mat-grid-list cols="3" rowHeight="4:6" gutterSize="15px" id="mscs" class="mat-grid-list">
-  <mat-grid-tile  *ngFor="let m of mascotasEncontradas">
-      <mat-card class="card h-100">
-        <img mat-card-image src={{getImageSrc(m)}} alt={{m.raza}}>
-          <mat-card-header class="header-image">
-            <mat-card-title class="mat-card-title">{{m.raza}}</mat-card-title>
-            <mat-card-subtitle class="mat-card-subtitle">{{m.especie | especie}}</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-          </mat-card-content>
-          <mat-card-actions class="mx-auto d-block">
-            <button mat-button class="text-primary" [routerLink]="['/mascotasEncontradas', m.id]" routerLinkActive="router-link-active">Ver</button>
-            <button mat-button>Compartir</button>
-          </mat-card-actions>
-          <mat-card-footer class="mat-card-footer text-center">
+<!-- Navbar para filtro -->
+<nav class="navbar navbar-light text-center" id="filterBar">
+  <form [formGroup]="filtroForm" class="form-inline mx-auto">
+    <mat-form-field class="mx-3 ml-5" id="filtroEspecie">
+      <mat-label>¿Qué especie es?</mat-label>
+      <mat-select formControlName="especie" (selectionChange)="filtrarMascotas()">
+        <mat-option *ngFor="let es of especies" [value]="es.id">
+          {{es.nombre}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="mx-3" id="filtroRaza">
+      <input matInput placeholder="¿Qué raza es?" formControlName="raza" (keydown)="filtrarMascotas()">
+    </mat-form-field>
+    <mat-form-field class="mx-3" id="filtroFecha">
+        <input matInput placeholder="Fecha" ngbDatepicker #d="ngbDatepicker"
+        [maxDate]="maxDate" (focus)="d.open()" name="date_start" formControlName="fecha" (dateSelect)="filtrarMascotas()"/>
+    </mat-form-field>
+  </form>
+</nav>
 
-            <small class="text-muted">{{(setDate(m.fechaEncontrada) | date:'mediumDate')}}</small>
-          </mat-card-footer>
-        </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+<a mat-button [routerLink]="['/mascotasEncontradas/create']" routerLinkActive="router-link-active" id="btn">Crear</a>
+<div class="container-fluid h-100" id="Lista">
+  <mat-grid-list cols="3" rowHeight="24em" gutterSize="15px" id="mscs" class="mat-grid-list">
+    <mat-grid-tile *ngFor="let m of mascotasFiltradas">
+      <mat-card class="card h-auto">
+        <img mat-card-image src={{getImageSrc(m)}} alt={{m.raza}}>
+        <mat-card-header class="header-image">
+          <mat-card-title class="mat-card-title">{{m.raza}}</mat-card-title>
+          <mat-card-subtitle class="mat-card-subtitle">{{m.especie | especie}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+        </mat-card-content>
+        <mat-card-actions class="mx-auto d-block w-100">
+          <div class="row">
+            <button mat-button class="text-primary" [routerLink]="['/mascotasEncontradas', m.id]"
+              routerLinkActive="router-link-active">Ver</button>
+            <button mat-button>Compartir</button>
+          </div>
+        </mat-card-actions>
+        <mat-card-footer class="mat-card-footer text-center">
+          <small class="text-muted text-center">{{(setDate(m.fechaEncontrada) | date:'mediumDate')}}</small>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

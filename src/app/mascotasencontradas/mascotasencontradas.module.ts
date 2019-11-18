@@ -13,7 +13,7 @@ import {UploadFotoComponent} from '../multimedia/upload-foto/upload-foto.compone
 
 import { MascotaEncontradaService } from './mascotaencontrada.service';
 import { MascotaEncontradaCreateComponent} from './mascota-encontrada-create/mascota-encontrada-create.component';
-import { MatInputModule, MatFormFieldModule, MatSelectModule, MatButtonModule, MatGridListModule, MatDialogModule, MatDialog, MatCardModule } from '@angular/material';
+import { MatInputModule, MatFormFieldModule, MatSelectModule, MatButtonModule, MatGridListModule, MatDialogModule, MatDialog, MatCardModule, MatNativeDateModule } from '@angular/material';
 import { MultimediaModule } from '../multimedia/multimedia.module';
 import { MascotaEncontradaDetailComponent } from './mascota-encontrada-detail/mascota-encontrada-detail.component';
 import { ModalDialogModule, ModalDialogService } from 'ngx-modal-dialog';
