@@ -1,36 +1,8 @@
-import { Component, OnInit, PipeTransform } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {MascotaAdopcionService} from '../mascotaadopcion.service';
-import {Pipe} from '@angular/core';
-import { stringify } from 'querystring';
 import { MascotaAdopcionDetail } from '../mascotaadopcion-detail';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Especie } from '../../mascotasencontradas/mascota-encontrada-create/mascota-encontrada-create.component';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-
-@Pipe({name: 'especie'})
-export class EspeciePipe implements PipeTransform{
-  transform(idEspecie : number) {
-    let especie: string;
-    switch(idEspecie)
-    {
-      case 0: {
-        especie = 'Perro';
-        break;
-      }
-      case 1: {
-        especie = 'Gato';
-        break;
-      }
-      default: {
-        especie = 'Animal Mistico';
-        break;
-      }
-    }
-    return especie;
-  }
-
-
-
-}
 
 @Component({
   selector: 'app-mascotaadopcion-list',

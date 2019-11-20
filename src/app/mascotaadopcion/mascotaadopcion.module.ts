@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MascotaadopcionListComponent, EspeciePipe } from './mascotaadopcion-list/mascotaadopcion-list.component';
+import { MascotaadopcionListComponent } from './mascotaadopcion-list/mascotaadopcion-list.component';
 import { MascotaAdopcionService } from './mascotaadopcion.service';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -16,32 +16,35 @@ import { MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, M
 import { MultimediaModule } from '../multimedia/multimedia.module';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { EspeciePipe } from '../mascotasencontradas/mascotasencontradas-list/mascotasencontradas-list.component';
+import { MascotasencontradasModule } from '../mascotasencontradas/mascotasencontradas.module';
 
 
 @NgModule({
-    imports: [       
+    imports: [
         BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    CommonModule,
-    FormsModule,
-    NgbModule.forRoot(),
-    ReactiveFormsModule,
-    NgxPermissionsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatGridListModule,
-    MatDialogModule,
-    MultimediaModule,
-    MatCardModule,
-    ModalDialogModule,
-    MatCarouselModule
+        AppRoutingModule,
+        HttpClientModule,
+        CommonModule,
+        FormsModule,
+        NgbModule.forRoot(),
+        ReactiveFormsModule,
+        NgxPermissionsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatButtonModule,
+        MatGridListModule,
+        MatDialogModule,
+        MultimediaModule,
+        MatCardModule,
+        ModalDialogModule,
+        MatCarouselModule,
+        MascotasencontradasModule
     ],
-    declarations: [EspeciePipe, MascotaadopcionListComponent, MascotaCreateComponent, MascotaAdopcionDetailComponent],
-    providers: [ MascotaAdopcionService],
-    exports:[EspeciePipe, MascotaadopcionListComponent, MascotaCreateComponent, MascotaAdopcionDetailComponent]
+    declarations: [MascotaadopcionListComponent, MascotaCreateComponent, MascotaAdopcionDetailComponent],
+    providers: [MascotaAdopcionService],
+    exports: [MascotaadopcionListComponent, MascotaCreateComponent, MascotaAdopcionDetailComponent]
 })
 /**
  * Modulo principal de la MascotaAdopcion
