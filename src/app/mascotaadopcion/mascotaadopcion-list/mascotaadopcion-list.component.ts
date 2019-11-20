@@ -1,65 +1,147 @@
-import { Component, OnInit, PipeTransform, Pipe } from '@angular/core';
-import { MascotaAdopcion } from '../mascotaadopcion';
-import { MascotaAdopcionService } from '../mascotaadopcion.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, PipeTransform } from '@angular/core';
+import {MascotaAdopcionService} from '../mascotaadopcion.service';
+import {Pipe} from '@angular/core';
+import { stringify } from 'querystring';
+import { MascotaAdopcionDetail } from '../mascotaadopcion-detail';
+import { Especie } from '../../mascotasencontradas/mascota-encontrada-create/mascota-encontrada-create.component';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+@Pipe({name: 'especie'})
+export class EspeciePipe implements PipeTransform{
+  transform(idEspecie : number) {
+    let especie: string;
+    switch(idEspecie)
+    {
+      case 0: {
+        especie = 'Perro';
+        break;
+      }
+      case 1: {
+        especie = 'Gato';
+        break;
+      }
+      default: {
+        especie = 'Animal Mistico';
+        break;
+      }
+    }
+    return especie;
+  }
 
 
 
+}
 
 @Component({
   selector: 'app-mascotaadopcion-list',
   templateUrl: './mascotaadopcion-list.component.html',
-  styleUrls: ['./mascotaadopcion-list.component.css']
+  styleUrls: ['./mascotaadopcion-list.component.css'],
 })
-/**
- * Clase del componente de listar
- */
 export class MascotaadopcionListComponent implements OnInit {
 
+  especies: Especie[] = [
+    { id: -1, nombre: 'Cualquiera' },
+    { id: 0, nombre: 'Perro' },
+    { id: 1, nombre: 'Gato' }
+  ];
+
+  filtroForm: FormGroup;
+
+  /**
+   * Lista de las mascotas adopcion
+   */
+  mascotasAdopcion: MascotaAdopcionDetail[];
   
   /**
-   * Lista para las MascotaAdopcion
+   * Lista de mascotas filtradas
    */
-  mascotas: MascotaAdopcion[];
-/**
- * Contructor
- * @param mascotaAdopcionService servicio para acceder al recurso de las mascotas
- * @param router router de navegacion para la ruta
- */
-  constructor(private mascotaAdopcionService: MascotaAdopcionService, private router: Router, private route: ActivatedRoute) { 
-    this.mascotas=[];
+  mascotasFiltradas: MascotaAdopcionDetail[];
+
+  /**
+   * Constructor
+   * @param mascotaAdopcionService 
+   * @param formBuilder 
+   */
+  constructor(private mascotaAdopcionService: MascotaAdopcionService,
+    private formBuilder: FormBuilder) { 
+      this.filtroForm = this.formBuilder.group({
+        especie: [""],
+        raza: [""]
+      });
+    }
+
+  /**
+   * Pide al servicio la lista de las mascotas adopcion
+   */
+  getMascotas(): void {
+    this.mascotaAdopcionService
+      .getMascotas()
+        .subscribe((mascotas) =>{ this.mascotasAdopcion = mascotas;
+          this.mascotasFiltradas = this.mascotasAdopcion;
+        });
+  }
+
+  filtrarMascotas(): void {
+    this.mascotasFiltradas = this.mascotasAdopcion;
+  }
+
+  filtrarEspecie() {
+    this.mascotasFiltradas = this.mascotasFiltradas.filter((x) => 
+    {
+      let val = this.filtroForm.controls.especie.value;
+      let c = val == x.especie;
+      return val !== "" && val != -1 ? c : true });
+  }
+
+  filtrarRaza() {
+    this.mascotasFiltradas = this.mascotasFiltradas.filter((x) => 
+    {
+      let val = this.filtroForm.controls.raza.value.toLowerCase();
+      let c = x.raza.toLowerCase().includes(val);
+      return c;
+    });
+  }
+
+  refrescarFiltro() {
+    this.filtroForm.reset();
+    this.mascotasFiltradas = this.mascotasAdopcion;
   }
 
   /**
-   * Tre las macotas al inicializar
+   * Pide la ruta de la imagen de la mascota para mostrar
+   * @param m La mascota
+   * @return string La ruta
+   */
+  getImageSrc(m: MascotaAdopcionDetail): string
+  {
+    let src = "../../../assets/images/mascota.png";
+    if(m != undefined && m.multimedia != undefined)
+    {
+      for(let mul of m.multimedia)
+      {
+        if(mul.tipo == 'foto'){
+          src = mul.url;
+          break;
+        }
+      }
+    }
+    return src;
+  }
+
+  /**
+   * 
+   * @param ob 
+   */
+  setDate(ob: Date): Date{
+    return new Date(ob.toString().split('[UTC]')[0]);
+  }
+
+  /**
+   * This will initialize the component by retrieving the list of mascotas from the service
+   * This method will be called when the component is created
    */
   ngOnInit() {
-     this.getMascotas();
+    this.getMascotas();
   }
-/**
- * Metodo para la subscripcion al servicio de las mascotas 
- */
-  getMascotas(): void {
-   this.mascotaAdopcionService.getMascotas().subscribe(mascotas => this.mascotas = mascotas);
-    }
-/**
- * Metodo para la ruta del get all
- */
-    onCreate() {
-      this.router.navigate(["mascotasAdopcion", "create"])
-    }
-/**
- * 
- * @param id Metodo para la ruta del get
- */
-    onDetail(id: number){
-      this.router.navigate(["mascotasAdopcion", id])
-    }
-
-
-
-
-   
-
 
 }

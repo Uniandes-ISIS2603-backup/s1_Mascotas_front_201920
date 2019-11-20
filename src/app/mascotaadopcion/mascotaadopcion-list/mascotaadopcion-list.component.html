@@ -1,39 +1,52 @@
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-        <a class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25" href="#">
-          <img src="/src/assets/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-          Mascotas en Adopcion
-        </a>
-        <button type="button" class="btn btn-success" (click)="onCreate()"> Crear Mascota</button>
-        
-      </nav>
-
-
-<div class="container-fluid">
-   
-    <div class="col-md-2">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Mascota Especie</th>    
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let i of mascotas">
-                        <div class="card" style="width: 18rem;">
-                                <img src="../../../assets/images/gato.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                  <h5 class="card-title">Especie: {{i.especie}}, Raza: {{i.raza}} </h5>
-                                  <p class="card-text">{{i.descripcion}}</p>
-          
-                                   <button type="button" class="btn btn-primary" (click)="onDetail(i.id)" >Perfil</button>
-
-                                   
-                                </div>
-                              </div>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<nav class="navbar navbar-expand-sm navbar-light bg-transparent">
+    <a class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25" href="#">
+      <img src="/src/assets/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      Mascotas En Adopción
+    </a>
+  </nav>
+  
+  <!-- Navbar para filtro -->
+  <nav class="navbar navbar-light text-center w-75 mx-auto" id="filterBar">
+    <form [formGroup]="filtroForm" class="form-inline mx-auto">
+      <mat-form-field class="mx-3" id="filtroEspecie">
+        <mat-label>¿Qué especie es?</mat-label>
+        <mat-select formControlName="especie" (selectionChange)="filtrarMascotas()">
+          <mat-option *ngFor="let es of especies" [value]="es.id">
+            {{es.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="mx-3" id="filtroRaza">
+        <input matInput placeholder="¿Qué raza es?" formControlName="raza" (keyup)="filtrarMascotas()">
+      </mat-form-field>
+    </form>
+    <a mat-button class="mx-auto" id="btn" (click)="refrescarFiltro()">Refrescar</a>
+  </nav>
+  
+  <div class="container-fluid text-center h-100" id="Lista">
+      <a mat-button [routerLink]="['/mascotasAdopcion/create']" routerLinkActive="router-link-active" class="text-center mx-auto my-4" id="btn">Crear</a>
+    <mat-grid-list cols="3" rowHeight="24em" gutterSize="15px" id="mscs" class="mat-grid-list">
+      <mat-grid-tile *ngFor="let m of mascotasFiltradas">
+        <mat-card class="card h-auto">
+          <img mat-card-image src={{getImageSrc(m)}} alt={{m.raza}}>
+          <mat-card-header class="header-image">
+            <mat-card-title class="mat-card-title">{{m.raza}}</mat-card-title>
+            <mat-card-subtitle class="mat-card-subtitle">{{m.especie | especie}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+          </mat-card-content>
+          <mat-card-actions class="mx-auto d-block w-100">
+            <div class="row">
+              <button mat-button class="text-primary" [routerLink]="['/mascotasAdopcion', m.id]"
+                routerLinkActive="router-link-active">Ver</button>
+              <button mat-button>Compartir</button>
+            </div>
+          </mat-card-actions>
+          <mat-card-footer class="mat-card-footer text-center">
+            <small class="text-muted text-center">Hola</small>
+          </mat-card-footer>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>

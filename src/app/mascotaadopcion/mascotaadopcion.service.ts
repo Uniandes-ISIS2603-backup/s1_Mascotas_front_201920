@@ -25,8 +25,8 @@ export class MascotaAdopcionService {
     constructor(private http: HttpClient) {}
   
     /** GET mascotas from the server */
-    getMascotas(): Observable<MascotaAdopcion[]> {
-      return this.http.get<MascotaAdopcion[]>(this.mascotasURL);
+    getMascotas(): Observable<MascotaAdopcionDetail[]> {
+      return this.http.get<MascotaAdopcionDetail[]>(this.mascotasURL);
     }
   
     /** GET mascotas by id. Will 404 if id not found */

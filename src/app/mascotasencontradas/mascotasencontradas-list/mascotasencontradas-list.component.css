@@ -21,6 +21,9 @@
     font-weight: 500;
     margin-top: 0;
     margin-bottom: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .mat-card-header .mat-card-title {
     font-size: 24px;
@@ -38,7 +41,8 @@
 .mat-card-subtitle {
     margin-top: 0%;
     margin-bottom: 5px;
-    font-size: 14px
+    font-size: 14px;
+    text-align: left;
 }
 
 .mat-card-content{

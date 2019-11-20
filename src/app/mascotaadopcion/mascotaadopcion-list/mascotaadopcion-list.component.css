@@ -1,0 +1,79 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+.card {
+    max-width: 400px;
+}
+  
+.header-image {
+    background-size: cover;
+}
+
+.mat-grid-list {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.mat-card-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mat-card-header .mat-card-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.mat-card-header {
+    margin: 1% 0 0 0;
+    padding: 1% 0 0 0;
+    width: 100%;
+}
+
+.mat-card-subtitle {
+    margin-top: 0%;
+    margin-bottom: 5px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.mat-card-content{
+    margin: 0 0 10px 0;
+    height: 100%;
+    font-size: 14px
+}
+
+.mat-card-footer {
+    height: auto;
+    margin-top: -10px;
+}
+
+#filterBar{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: #e3e3e3;
+}
+
+#filtroEspecie{
+    margin-top: 0px;
+    margin-bottom: -15px;
+}
+
+#filtroRaza{
+    margin-top: 0px;
+    margin-bottom: -15px;
+}
+#filtroFecha{
+    margin-top: 0px;
+    margin-bottom: -15px;
+}
