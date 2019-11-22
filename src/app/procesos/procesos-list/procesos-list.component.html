@@ -1,0 +1,26 @@
+<p>
+  procesos-list works!
+</p>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<nav class="navbar navbar-expand-sm navbar-light bg-transparent">
+    <a class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25" href="#">
+      <img src="/src/assets/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      Procesos de Adopcion
+    </a>
+  </nav>
+
+  
+<div class="card" style="width: 18rem;" *ngFor = "let p of procesos">
+    <img src= let src = "../../../assets/images/mascota.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{p.id}}</h5>
+      <p class="card-text">Comentario: {{p.comentario}}</p>
+      <p>Calificacion: {{p.calificacion}}</p>
+      <button mat-button class="text-primary" [routerLink]="['/procesos', p.id]"
+              routerLinkActive="router-link-active">Ver Detalles</button>
+    </div>
+  </div>
+
+
+ 

@@ -10,6 +10,7 @@ import {MascotaAdopcionModule} from './mascotaadopcion/mascotaadopcion.module'
 import {MascotasencontradasModule} from './mascotasencontradas/mascotasencontradas.module';
 import {UsuarioModule} from './usuario/usuario.module';
 import {PublicidadModule} from './publicidad/publicidad.module';
+import {ProcesosModule} from './procesos/procesos.module';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -54,7 +55,9 @@ import { HomeComponent } from './home/home.component';
         NgbModule,
         MatFormFieldModule,
         MatInputModule,
-        RecompensaModule
+        RecompensaModule,
+        ProcesosModule 
+
 
     ],
     bootstrap: [AppComponent],
