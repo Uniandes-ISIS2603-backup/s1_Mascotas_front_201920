@@ -13,7 +13,7 @@
 				</a>
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 					<li class="nav-item">
-						<a class="nav-link" href="#" [routerLink]="['/usuarios/list']">Usuarios</a>
+						<a class="nav-link" href="#" [routerLink]="['/usuarios']">Usuarios</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -35,11 +35,11 @@
 					<li class="nav-item">
 						<a class="nav-link" href="#" [routerLink]="['/recompensa/list']">Recompensas</a>
 					</li>
-					<!--<li class="nav-item">
-						<a class="nav-link" href="#" [routerLink]="['/usuarios/login']">Login</a>
-					</li>-->
 					<li class="nav-item">
-						<a class="nav-link" href="#" [routerLink]="['/usuarios/sign-up']">Signup</a>
+						<a class="nav-link" href="#" [routerLink]="['/auth/login']">Login</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" [routerLink]="['/auth/sign-up']">Signup</a>
 					</li>
 				</ul>
 				<form class="form-inline my-2 my-lg-0">
@@ -48,7 +48,7 @@
 				</form>
 			</div>
 		</nav>
-		<div class="container-fluid">
+		<div class="content-wrap">
 			<div class="row">
 				<div class="col-2">
 					<app-publicidad-panel class="vertical-center"></app-publicidad-panel>

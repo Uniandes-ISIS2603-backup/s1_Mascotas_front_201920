@@ -143,7 +143,7 @@ const routes: Routes = [
         }
       },
       {
-        path: ':sign-up',
+        path: 'sign-up',
         component: AuthSignUpComponent,
         canActivate: [NgxPermissionsGuard],
         data: {
