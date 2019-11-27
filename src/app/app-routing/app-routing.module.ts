@@ -31,6 +31,7 @@ import { RecompensaCreateComponent } from '../recompensa/recompensa-create/recom
 import {PublicidadSearchComponent} from "../publicidad/publicidad-search/publicidad-search.component";
 import {PublicidadDetailComponent} from "../publicidad/publicidad-detail/publicidad-detail.component";
 import { HomeComponent } from '../home/home.component';
+import { Page404Component } from '../page404/page404.component';
 
 
 
@@ -174,8 +175,13 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: '**',
+    path: '',
+    pathMatch: 'full',
     redirectTo: 'home',
+  },
+  {
+    path: '**',
+    component: Page404Component,
   }
 ];
 

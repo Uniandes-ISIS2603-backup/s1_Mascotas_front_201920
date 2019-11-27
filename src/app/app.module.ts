@@ -24,11 +24,13 @@ import { MascotaperdidaModule } from './mascotaperdida/mascotaperdida.module';
 import { RecompensaModule } from './recompensa/recompensa.module';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
+import { Page404Component } from './page404/page404.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        HomeComponent
+        HomeComponent,
+        Page404Component
     ],
     imports: [
         BrowserModule,
