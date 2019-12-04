@@ -3,6 +3,7 @@ import { MascotaPerdida } from "./mascotaperdida";
 import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { catchError, map, tap } from "rxjs/operators";
+import { MascotaPerdidaDetail} from "./mascotaperdida-detail";
 
 const API_URL = 'http://localhost:8080/s1_mascotas-api/api/';
 const editorials = 'mascotasperdidas/';
@@ -28,4 +29,8 @@ export class MascotaPerdidaService {
     return this.http
       .post<MascotaPerdida>(API_URL + editorials, mascotaperdida, this.httpOptions);
   }
+  /*updateMascotaPerdida(mascotaPerdida:MascotaPerdidaDetail): Observable<MascotaPerdida> {
+    return this.http.put<MascotaPerdida>(API_URL + '/' + editorials + mascotaPerdida.id, mascotaPerdida);
+  }
+*/
 }

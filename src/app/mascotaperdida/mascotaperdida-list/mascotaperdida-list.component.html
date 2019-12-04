@@ -7,7 +7,30 @@
 
 <button type="button" class="btn btn-link" (click)="onCreate()">Crear</button>
 <div class="card-columns" id="mscs">
-  <div class="card" style="width:500" *ngFor="let m of mascotasPerdidas">
+  <div class="card" style="width:500" *ngFor="let m of filtrarMascotasPerdidas()">
+    <!-- <img class="card-img-top" *ngIf="m.fotos[0] != undefined" src={{m.fotos[0].url}} alt={{m.raza}}>
+    <img class="card-img-top" *ngIf="m.fotos[0] == undefined" src="../../../assets/images/mascota.png" alt={{m.raza}}> -->
+    <div class="card-body">
+        <img class="card-img-top"  src={{getImageSrc(m)}} alt={{m.raza}}>
+      <h4 class="card-title">{{m.raza + ", " + (m.especie | especie)}}</h4>
+      <p class="card-text">{{m.descripcion}}</p>
+      <button type="button" class="btn btn-primary" (click)="onInfo(m.id)">info</button>
+      <button type="button" class="btn btn-primary" (click)="setEncontrado(m,true)">La encontre!</button>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">{{"Fecha: " + (setDate(m.fechaPerdida) | date:'shortDate')}}</small>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+  <a class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25" href="#">
+    <img src="/src/assets/images/logoPerdida.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Mascotas Recientemente Encontradas
+  </a>
+</nav>
+<div class="card-columns" id="mscs">
+  <div class="card" style="width:500" *ngFor="let m of filtrarMascotasEncontradas()">
     <!-- <img class="card-img-top" *ngIf="m.fotos[0] != undefined" src={{m.fotos[0].url}} alt={{m.raza}}>
     <img class="card-img-top" *ngIf="m.fotos[0] == undefined" src="../../../assets/images/mascota.png" alt={{m.raza}}> -->
     <div class="card-body">
