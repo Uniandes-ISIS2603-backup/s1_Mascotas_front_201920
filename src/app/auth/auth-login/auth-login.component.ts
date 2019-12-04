@@ -20,7 +20,7 @@ export class AuthLoginComponent implements OnInit {
     */
     constructor(
         private authService: AuthService,
-        private toastrService: ToastrService,
+        private toastrService: ToastrService
     ) { }
 
     user: User;

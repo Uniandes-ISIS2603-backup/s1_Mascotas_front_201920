@@ -33,6 +33,7 @@ import { Page404Component } from '../page404/page404.component';
 import { MascotaCreateComponent } from '../mascotaadopcion/mascota-create/mascota-create.component';
 import { MascotaPerdidaCreateComponent } from '../mascotaperdida/mascotaperdida-create/mascotaperdida-create.component';
 import { MascotaEncontradaCreateComponent } from '../mascotasencontradas/mascota-encontrada-create/mascota-encontrada-create.component';
+import {AuthLogoutComponent} from "../auth/auth-logout/auth-logout.component";
 
 
 const routes: Routes = [
@@ -149,6 +150,16 @@ const routes: Routes = [
         data: {
           permissions: {
             only: ['GUEST']
+          }
+        }
+      },
+      {
+        path: 'logout',
+        component: AuthLogoutComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+          permissions: {
+            only: ['CLIENT', 'ADMIN']
           }
         }
       }

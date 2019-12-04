@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { AuthSignUpComponent } from './auth-sign-up/auth-sign-up.component';
+import { AuthLogoutComponent } from './auth-logout/auth-logout.component';
 
 @NgModule({
     imports: [
@@ -18,7 +19,7 @@ import { AuthSignUpComponent } from './auth-sign-up/auth-sign-up.component';
         FormsModule,
         NgbModule
     ],
-    declarations: [AuthLoginComponent, AuthSignUpComponent],
+    declarations: [AuthLoginComponent, AuthSignUpComponent, AuthLogoutComponent],
     providers: [AuthService],
     bootstrap: [AuthLoginComponent]
 })
