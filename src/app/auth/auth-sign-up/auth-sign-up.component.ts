@@ -31,6 +31,7 @@ export class AuthSignUpComponent implements OnInit {
     signUp(): void {
         this.authService.login(this.user.role);
         this.toastrService.success('Successfully signed up')
+        window.location.reload();
     }
 
     /**

@@ -50,6 +50,11 @@ export class AuthService {
         localStorage.setItem('role', 'ADMIN');
     }
 
+    getRole (): string
+    {
+        return localStorage.getItem('role');
+    }
+
     printRole (): void {
         console.log(this.roleService.getRoles());
     }

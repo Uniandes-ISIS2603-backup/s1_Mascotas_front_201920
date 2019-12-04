@@ -1,0 +1,22 @@
+[
+  {
+    "nombre" : "Mascotas perdidas",
+    "route" : "/mascotasPerdidas/list"
+  },
+  {
+    "nombre" : "Mascotas encontradas",
+    "route" : "/mascotasPerdidas/list"
+  },
+  {
+    "nombre" : "Mascotas adopcion",
+    "route" : "/mascotasAdopcion/list"
+  },
+  {
+    "nombre" : "Login",
+    "route" : "/auth/login"
+  },
+  {
+    "nombre" : "Signup",
+    "route" : "/auth/sign-up"
+  }
+]

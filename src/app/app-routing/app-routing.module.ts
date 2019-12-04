@@ -37,156 +37,163 @@ import {AuthLogoutComponent} from "../auth/auth-logout/auth-logout.component";
 
 
 const routes: Routes = [
-  {
-    path: 'mascotasAdopcion',
-    //component: MascotaadopcionListComponent,
-    children: [
-      {
-        path: 'list',
-        component: MascotaadopcionListComponent
-      },
     {
-      path: 'create',
-      component: MascotaCreateComponent
+        path: 'mascotasAdopcion',
+        //component: MascotaadopcionListComponent,
+        children: [
+            {
+                path: 'list',
+                component: MascotaadopcionListComponent
+            },
+            {
+                path: 'create',
+                component: MascotaCreateComponent
+            },
+            {
+                path: ':id',
+                component: MascotaAdopcionDetailComponent,
+                outlet: "detail"
+            }
+        ]
     },
     {
-      path: ':id',
-      component: MascotaAdopcionDetailComponent,
-      outlet: "detail"
-    }
-    ]
-  },
-  {
-    path: 'mascotasPerdidas',
-    //component: MascotaPerdidaListComponent,
-    children: [{
-      path: 'list',
-      component: MascotaPerdidaListComponent
+        path: 'mascotasPerdidas',
+        //component: MascotaPerdidaListComponent,
+        children: [{
+            path: 'list',
+            component: MascotaPerdidaListComponent
+        },
+            {
+                path: 'create',
+                component: MascotaPerdidaCreateComponent
+            },
+            {
+                path: ':id',
+                component: MascotaPerdidaDetailComponent
+            }
+        ]
     },
     {
-      path: 'create',
-      component: MascotaPerdidaCreateComponent
+        path: 'mascotasEncontradas',
+        children: [{
+            path: 'list',
+            component: MascotasencontradasListComponent
+        },
+            {
+                path: 'create',
+                component: MascotaEncontradaCreateComponent
+            },
+            {
+                path: ':id',
+                //component: MascotaEncontradaDetailComponent
+                redirectTo: 'mascotasEncontradas/list'
+            }
+        ]
     },
     {
-      path: ':id',
-      component: MascotaPerdidaDetailComponent
-    }
-    ]
-  },
-  {
-    path: 'mascotasEncontradas',
-    children: [{
-      path: 'list',
-      component: MascotasencontradasListComponent
+        path: 'publicidad',
+        children: [
+            {
+                path: 'list',
+                component: PublicidadListComponent
+            },
+            {
+                path: 'create',
+                component: PublicidadCreateComponent
+            },
+            {
+                path: 'search',
+                component: PublicidadSearchComponent
+            },
+            {
+                path: ':id',
+                component: PublicidadDetailComponent
+            }
+        ]
     },
     {
-      path: 'create',
-      component: MascotaEncontradaCreateComponent
-    },
-    {
-      path: ':id',
-      //component: MascotaEncontradaDetailComponent
-      redirectTo: 'mascotasEncontradas/list'
-    }
-    ]
-  },
-  {
-    path: 'publicidad',
-    component: PublicidadListComponent,
-    children: [
-      {
-        path: 'create',
-        component: PublicidadCreateComponent
-      },
-      {
-        path: ':id',
-        component: PublicidadDetailComponent
-      }
-    ]
-  },
-  {
-    path: 'usuarios',
-    component: UsuarioListComponent,
-    children: [
-      {
-        path: 'create',
-        component: UsuarioCreateComponent
-      }
+        path: 'usuarios',
+        component: UsuarioListComponent,
+        children: [
+            {
+                path: 'create',
+                component: UsuarioCreateComponent
+            }
 
-    ]
-  },
-   {
-    path: 'procesos',
-    component: ProcesosListComponent,
-    children: [
-      {
-        path: 'create',
-        component: ProcesoCreateComponent
-      },
-      {
-        path: ':id',
-        component: ProcesosDetailComponent
-      }
+        ]
+    },
+    {
+        path: 'procesos',
+        component: ProcesosListComponent,
+        children: [
+            {
+                path: 'create',
+                component: ProcesoCreateComponent
+            },
+            {
+                path: ':id',
+                component: ProcesosDetailComponent
+            }
 
-    ]
-  }, 
-  {
-    path: 'auth',
-    children: [
-      {
-        path: 'login',
-        component: AuthLoginComponent,
-        canActivate: [NgxPermissionsGuard],
-        data: {
-          permissions: {
-            only: ['GUEST']
-          }
-        }
-      },
-      {
-        path: 'sign-up',
-        component: AuthSignUpComponent,
-        canActivate: [NgxPermissionsGuard],
-        data: {
-          permissions: {
-            only: ['GUEST']
-          }
-        }
-      },
-      {
-        path: 'logout',
-        component: AuthLogoutComponent,
-        canActivate: [NgxPermissionsGuard],
-        data: {
-          permissions: {
-            only: ['CLIENT', 'ADMIN']
-          }
-        }
-      }
-    ]
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'home',
-  },
-  {
-    path: '**',
-    component: Page404Component,
-  }
+        ]
+    },
+    {
+        path: 'auth',
+        children: [
+            {
+                path: 'login',
+                component: AuthLoginComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
+            },
+            {
+                path: 'sign-up',
+                component: AuthSignUpComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
+            },
+            {
+                path: 'logout',
+                component: AuthLogoutComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['CLIENT', 'ADMIN']
+                    }
+                }
+            }
+        ]
+    },
+    {
+        path: 'home',
+        component: HomeComponent
+    },
+    {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'home',
+    },
+    {
+        path: '**',
+        component: Page404Component,
+    }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })
-  ],
-  exports: [RouterModule],
-  declarations: []
+    imports: [
+        CommonModule,
+        RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })
+    ],
+    exports: [RouterModule],
+    declarations: []
 })
 export class AppRoutingModule {
 
