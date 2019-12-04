@@ -5,7 +5,6 @@ import { NgxPermissionsGuard } from 'ngx-permissions';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
-
 import { PublicidadListComponent } from '../publicidad/publicidad-list/publicidad-list.component';
 import { PublicidadDetailComponent } from '../publicidad/publicidad-detail/publicidad-detail.component';
 import { PublicidadCreateComponent } from '../publicidad/publicidad-create/publicidad-create.component';
