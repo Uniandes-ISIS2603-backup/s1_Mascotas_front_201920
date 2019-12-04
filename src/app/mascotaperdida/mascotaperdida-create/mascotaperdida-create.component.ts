@@ -78,6 +78,7 @@ export class MascotaPerdidaCreateComponent {
     let raza: string = this.mascotaPerdidaForm.controls.raza.value;
     let lugar: string = this.mascotaPerdidaForm.controls.lugar.value;
     let desc: string = this.mascotaPerdidaForm.controls.descripcion.value;
+    let enc: boolean = false;
 
     let mascota: MascotaPerdidaDetail = {
       "especie": especie,
@@ -85,6 +86,7 @@ export class MascotaPerdidaCreateComponent {
       "lugar": lugar,
       "descripcion": desc,
       "fechaPerdida": fechaPerdida,
+      "encontrado": enc
     }
 
     console.log(fechaPerdida.toDateString());

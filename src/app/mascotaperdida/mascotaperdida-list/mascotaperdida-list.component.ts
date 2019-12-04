@@ -4,6 +4,7 @@ import { MascotaPerdidaService } from '../mascotaperdida.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MascotaPerdidaDetail } from '../mascotaperdida-detail';
 import {Pipe} from '@angular/core';
+import { forEach } from '@angular/router/src/utils/collection';
 /**
  * Especie
  */
@@ -60,7 +61,30 @@ export class MascotaPerdidaListComponent implements OnInit {
   getMascotaPerdidas():void
   {
     this.mascotaperdidaService.getMascotaPerdidas().subscribe(mascotaperdidas => {this.mascotasPerdidas =  mascotaperdidas; console.log('cargado')});
+    this.mascotasPerdidas.forEach(m =>
+      {
+        if(m.encontrado==undefined){
+          m.encontrado=false;
+        }
+      }
+      )
   }
+
+/**
+ * Filtra las mascotas que siguen sin ser encontradas(encontrado=false)
+ */
+  filtrarMascotasPerdidas():MascotaPerdidaDetail[]{
+    return this.mascotasPerdidas.filter(mascota =>!mascota.encontrado);
+  }
+
+  filtrarMascotasEncontradas():MascotaPerdidaDetail[]{
+    return this.mascotasPerdidas.filter(mascota =>mascota.encontrado);
+  }
+
+  setEncontrado(mascota:MascotaPerdidaDetail,b:boolean):void{
+    mascota.encontrado=b;
+  }
+
   /**
    * Modifica la fecha
    * @param ob Fecha
@@ -105,6 +129,8 @@ export class MascotaPerdidaListComponent implements OnInit {
     console.log(src);
     return src;
   }
+
+  
 
 
 }
