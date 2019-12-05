@@ -1,5 +1,5 @@
 import { Usuario } from "../usuario/usuario";
-import { Recompensa } from "../recompensa/recompensa";
+import { Recompensa } from "./recompensa";
 export class MascotaPerdida {
   /**
     * El usuario asociado a la mascota
@@ -41,6 +41,8 @@ export class MascotaPerdida {
    * Booleano que describe si la mascota ha sido encontrada o no (inicializado en False)
    */
   encontrado: boolean;
+
+ 
 
 
 }
