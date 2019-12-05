@@ -3,6 +3,7 @@ import {MascotaAdopcionService} from '../mascotaadopcion.service';
 import { MascotaAdopcionDetail } from '../mascotaadopcion-detail';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Especie } from '../../mascotasencontradas/mascota-encontrada-create/mascota-encontrada-create.component';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-mascotaadopcion-list',
@@ -34,7 +35,8 @@ export class MascotaadopcionListComponent implements OnInit {
    * @param mascotaAdopcionService 
    * @param formBuilder 
    */
-  constructor(private mascotaAdopcionService: MascotaAdopcionService,
+  constructor(private mascotaAdopcionService: MascotaAdopcionService, private router: Router, 
+    private route: ActivatedRoute,
     private formBuilder: FormBuilder) { 
       this.filtroForm = this.formBuilder.group({
         especie: [""],
@@ -114,6 +116,11 @@ export class MascotaadopcionListComponent implements OnInit {
    */
   ngOnInit() {
     this.getMascotas();
+  }
+  onInfo( id: number)
+  {
+    console.log(id)
+    this.router.navigate(["mascotasAdopcion", id])
   }
 
 }

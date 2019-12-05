@@ -33,8 +33,13 @@
           <mat-card-header class="header-image">
             <mat-card-title class="mat-card-title">{{m.raza}}</mat-card-title>
             <mat-card-subtitle class="mat-card-subtitle">{{m.especie | especie}}</mat-card-subtitle>
+            <button mat-button class="text-primary" [routerLink]="['/mascotasAdopcion', m.id]"
+            routerLinkActive="router-link-active">Ver</button>
+          <button mat-button>Compartir</button>
+          <button type="button" class="btn btn-link" (click)="onInfo(m.id)">info</button>
           </mat-card-header>
           <mat-card-content>
+            
           </mat-card-content>
           <mat-card-actions class="mx-auto d-block w-100">
             <div class="row">

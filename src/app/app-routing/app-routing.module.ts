@@ -52,7 +52,7 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: MascotaAdopcionDetailComponent,
-                outlet: "detail"
+                
             }
         ]
     },
@@ -85,8 +85,8 @@ const routes: Routes = [
             },
             {
                 path: ':id',
-                //component: MascotaEncontradaDetailComponent
-                redirectTo: 'mascotasEncontradas/list'
+                component: MascotaEncontradaDetailComponent
+                //redirectTo: 'mascotasEncontradas/list'
             }
         ]
     },
