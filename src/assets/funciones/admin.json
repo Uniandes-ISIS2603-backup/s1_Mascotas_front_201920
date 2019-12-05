@@ -5,7 +5,7 @@
   },
   {
     "nombre" : "Mascotas encontradas",
-    "route" : "/mascotasPerdidas/list"
+    "route" : "/mascotasEncontradas/list"
   },
   {
     "nombre" : "Mascotas adopcion",
