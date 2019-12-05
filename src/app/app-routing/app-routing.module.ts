@@ -103,12 +103,13 @@ const routes: Routes = [
             },
             {
                 path: 'search',
-                component: PublicidadSearchComponent
-            },
-            {
-                path: ':id',
-                component: PublicidadDetailComponent
+                component: PublicidadSearchComponent,
+                children: [{
+                    path: ':id',
+                    component: PublicidadDetailComponent
+                }]
             }
+
         ]
     },
     {
