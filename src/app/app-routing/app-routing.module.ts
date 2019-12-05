@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes, OutletContext } from '@angular/router';
@@ -136,6 +137,36 @@ const routes: Routes = [
 
         ]
     },
+    {
+      path: 'recompensa',
+      //component: RecompensaCreateComponent,
+      children: [
+          {
+              path: 'create',
+              component: RecompensaCreateComponent
+          },
+          {
+              path: ':id',
+              component:  RecompensaCreateComponent
+          }
+
+      ]
+  },
+  {
+    path: 'recompensas',
+    component: RecompensaListComponent,
+    children: [
+        {
+            path: 'create',
+            component: RecompensaCreateComponent
+        },
+        {
+            path: ':id',
+            component:  RecompensaCreateComponent
+        }
+
+    ]
+},
     {
         path: 'auth',
         children: [
