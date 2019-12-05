@@ -5,6 +5,7 @@ import { PublicidadService } from "../publicidad.service";
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {PublicidadDetail} from "../publicidad-detail";
+import {Multimedia} from "../../multimedia/multimedia";
 
 //German Rozo
 @Component({
@@ -26,11 +27,19 @@ export class PublicidadCreateComponent{
       costo: ["", Validators.required],
       mensaje: ["", Validators.required],
       fechaInicio: ["", Validators.required],
-      fechaFin: ["", Validators.required]
+      fechaFin: ["", Validators.required],
+      imagenes: ["", Validators.required]
     });
   }
 
-  createPublicidad(newPublicidad: PublicidadDetail) {
+  createPublicidad(newPublicidad: PublicidadDetail)
+  {
+      let multimedia: Multimedia = new Multimedia();
+      multimedia.url = newPublicidad.imagenes;
+      multimedia.nombre = '-';
+      multimedia.tipo = 'imagen';
+      newPublicidad.multimedia = [multimedia];
+      console.log(newPublicidad.multimedia);
    this.showSuccess();
    newPublicidad.fechaInicio= newPublicidad.fechaInicio+"T05:00:00Z[UTC]";
    newPublicidad.fechaFin= newPublicidad.fechaFin+"T05:00:00Z[UTC]";

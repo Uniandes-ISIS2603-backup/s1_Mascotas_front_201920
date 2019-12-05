@@ -3,7 +3,7 @@
     <div id="carouselExampleIndicators{{publicidad.id}}" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active" >
-          <img src={{publicidad.multimedia[0].url}} class="d-block w-100" alt="Hola">
+          <img *ngIf="publicidad.multimedia != undefined" src={{publicidad.multimedia[0].url}} class="d-block w-100" alt="Hola">
         </div>
 
         <ng-template ngFor let-multimedia [ngForOf]="publicidad.multimedia" let-f="first">

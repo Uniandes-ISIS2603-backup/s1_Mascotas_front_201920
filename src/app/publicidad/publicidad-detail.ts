@@ -4,6 +4,6 @@ import {Multimedia} from "../multimedia/multimedia";
 export class PublicidadDetail extends Publicidad
 {
 
-    multimedia: Multimedia[] = [ new Multimedia()];
-
+    multimedia: Multimedia[];
+    imagenes: string;
 }

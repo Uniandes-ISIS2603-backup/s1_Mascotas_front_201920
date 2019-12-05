@@ -67,6 +67,19 @@
 			</div>
 		</div>
 
+		<div class="form-group  mx-sm-3 mb-2">
+			<label for="fechaFin">
+				Fecha fin
+			</label>
+			<input id="imagenes" type="text" class="form-control" formControlName="imagenes"
+				   placeholder="imagen">
+
+			<div class="alert alert-danger alert-dismissible fade show"
+				 *ngIf="publicidadForm.get('imagenes').hasError('required') && publicidadForm.get('imagenes').touched">
+				Campo requerido
+			</div>
+		</div>
+
 		<button type="button" class="btn btn-success mx-sm-3 mb-2" type="submit" [disabled]="publicidadForm.invalid">Create</button>
 
 	</form>
