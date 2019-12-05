@@ -21,6 +21,6 @@ import { AuthLogoutComponent } from './auth-logout/auth-logout.component';
     ],
     declarations: [AuthLoginComponent, AuthSignUpComponent, AuthLogoutComponent],
     providers: [AuthService],
-    bootstrap: [AuthLoginComponent]
+    bootstrap: [AuthLoginComponent, AuthLogoutComponent]
 })
 export class AuthModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../auth.service";
 import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-auth-logout',
@@ -10,12 +11,15 @@ import {ToastrService} from "ngx-toastr";
 export class AuthLogoutComponent implements OnInit {
 
   constructor(private authService: AuthService,
-              private toastrService: ToastrService) { }
+              private toastrService: ToastrService,
+              private router: Router) { }
 
   ngOnInit()
   {
       this.authService.logout();
-    this.toastrService.success('Logged out')
+      this.toastrService.success('Logged out');
+      window.location.reload();
+
   }
 
 }

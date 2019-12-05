@@ -1,0 +1,30 @@
+[
+  {
+    "nombre" : "Mascotas perdidas",
+    "route" : "/mascotasPerdidas/list"
+  },
+  {
+    "nombre" : "Mascotas encontradas",
+    "route" : "/mascotasEncontradas/list"
+  },
+  {
+    "nombre" : "Mascotas adopcion",
+    "route" : "/mascotasAdopcion/list"
+  },
+  {
+    "nombre" : "Publicidad",
+    "route" : "/publicidad/list/"
+  },
+  {
+    "nombre" : "Procesos",
+    "route" : "/procesos"
+  },
+  {
+    "nombre" : "Recompensas",
+    "route" : "/recompensa/list"
+  },
+  {
+    "nombre" : "Logout",
+    "route" : "/auth/logout"
+  }
+]
