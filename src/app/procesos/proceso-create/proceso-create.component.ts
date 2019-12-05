@@ -51,7 +51,7 @@ export class ProcesoCreateComponent implements OnInit {
     this.procesoService.createProceso(proceso).subscribe(o => {
       this.showSuccess();
     })
-    this.router.navigate(['/mascotasperdidas/list']);
+    this.router.navigate(['/mascotasAdopcion/list']);
     return proceso;
 
   }
@@ -69,7 +69,7 @@ export class ProcesoCreateComponent implements OnInit {
 
   }
   onCreate(){
-    this.createProceso;
+    this.createProceso();
   }
 
   /**
@@ -82,7 +82,7 @@ export class ProcesoCreateComponent implements OnInit {
    * Muestra que se pudo crear
    */
   showSuccess() {
-    this.toastr.success("Recompensa", "Creada exitosamente!", { "progressBar": true, timeOut: 3000 });
+    this.toastr.success("Proceso", "Creado exitosamente!", { "progressBar": true, timeOut: 3000 });
   }
 
 }

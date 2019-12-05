@@ -111,7 +111,7 @@ export class MascotaadopcionListComponent implements OnInit {
   }
 
   onCreateProceso(){
-    this.router.navigate(["procesos", "create"])
+    this.router.navigate(["procesos"])
   }
 
   /**

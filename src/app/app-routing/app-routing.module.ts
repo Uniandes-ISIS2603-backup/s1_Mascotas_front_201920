@@ -125,18 +125,7 @@ const routes: Routes = [
     },
     {
         path: 'procesos',
-        component: ProcesosListComponent,
-        children: [
-            {
-                path: 'create',
-                component: ProcesoCreateComponent
-            },
-            {
-                path: ':id',
-                component: ProcesosDetailComponent
-            }
-
-        ]
+        component: ProcesoCreateComponent
     },
     {
       path: 'recompensa',
