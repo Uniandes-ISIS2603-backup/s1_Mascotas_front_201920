@@ -26,6 +26,7 @@ import { RecompensaModule } from './recompensa/recompensa.module';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { Page404Component } from './page404/page404.component';
+import {FuncionService} from "./funcion/funcion.service";
 
 @NgModule({
     declarations: [
@@ -68,7 +69,7 @@ import { Page404Component } from './page404/page404.component';
             provide: HTTP_INTERCEPTORS,
             useClass: HttpErrorInterceptor,
             multi: true
-        }
+        }, FuncionService
     ]
 })
 export class AppModule {}

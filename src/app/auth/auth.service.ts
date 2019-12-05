@@ -15,7 +15,9 @@ export class AuthService {
      * @param roleService NgxRolesService to manage authentication roles
      * @param permissionsService NgxPermissionsService to manage authentication permissions
      */
-    constructor (private router: Router, private roleService: NgxRolesService, private permissionsService: NgxPermissionsService) { }
+    constructor (private router: Router,
+                 private roleService: NgxRolesService,
+                 private permissionsService: NgxPermissionsService) { }
 
     start (): void {
         this.permissionsService.flushPermissions();
@@ -46,6 +48,11 @@ export class AuthService {
         this.roleService.flushRoles();
         this.roleService.addRole('ADMIN', ['edit_author_permission', 'delete_author_permission']);
         localStorage.setItem('role', 'ADMIN');
+    }
+
+    getRole (): string
+    {
+        return localStorage.getItem('role');
     }
 
     printRole (): void {

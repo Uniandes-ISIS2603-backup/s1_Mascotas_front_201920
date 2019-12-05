@@ -16,6 +16,7 @@ import { EspeciePipe,  MascotaPerdidaListComponent } from './mascotaperdida-list
 import { MascotaPerdidaDetailComponent } from './mascotaperdida-detail/mascotaperdida-detail.component';
 import { MascotaPerdidaService } from './mascotaperdida.service';
 import { MascotaPerdidaCreateComponent } from './mascotaperdida-create/mascotaperdida-create.component';
+import { RecompensaCreateComponent } from './recompensa-create/recompensa-create.component';
 
 
 
@@ -36,7 +37,8 @@ import { MascotaPerdidaCreateComponent } from './mascotaperdida-create/mascotape
     MatInputModule,
     MultimediaModule 
   ],
-  declarations: [ EspeciePipe, MascotaPerdidaListComponent, MascotaPerdidaDetailComponent, MascotaPerdidaCreateComponent],
+  declarations: [ EspeciePipe, 
+    MascotaPerdidaListComponent, MascotaPerdidaDetailComponent, MascotaPerdidaCreateComponent, RecompensaCreateComponent],
   providers: [MascotaPerdidaService, {provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}],
   exports: [EspeciePipe]
 })
