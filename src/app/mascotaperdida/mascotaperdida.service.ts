@@ -29,8 +29,8 @@ export class MascotaPerdidaService {
     return this.http
       .post<MascotaPerdida>(API_URL + editorials, mascotaperdida, this.httpOptions);
   }
-  /*updateMascotaPerdida(mascotaPerdida:MascotaPerdidaDetail): Observable<MascotaPerdida> {
-    return this.http.put<MascotaPerdida>(API_URL + '/' + editorials + mascotaPerdida.id, mascotaPerdida);
+  updateMascotaPerdida(mascotaPerdida:MascotaPerdidaDetail, id:number): Observable<MascotaPerdida> {
+    return this.http.put<MascotaPerdida>(API_URL + '/' + editorials + id, mascotaPerdida);
   }
-*/
+
 }

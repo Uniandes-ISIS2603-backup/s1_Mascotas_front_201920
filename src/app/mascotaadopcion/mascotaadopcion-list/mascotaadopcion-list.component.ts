@@ -110,6 +110,10 @@ export class MascotaadopcionListComponent implements OnInit {
     return new Date(ob.toString().split('[UTC]')[0]);
   }
 
+  onCreateProceso(){
+    this.router.navigate(["procesos", "create"])
+  }
+
   /**
    * This will initialize the component by retrieving the list of mascotas from the service
    * This method will be called when the component is created
