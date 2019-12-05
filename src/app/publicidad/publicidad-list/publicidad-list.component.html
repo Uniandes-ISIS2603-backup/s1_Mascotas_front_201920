@@ -1,33 +1,30 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col">
-
+      <div class="card text-white bg-dark m-2">
+        <div class="card-header"></div>
+        <div class="card-body">
+          <h5 class="card-title">Info</h5>
+          <p class="card-text">Total {{total}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
       <div class="container-fluid">
         <div class="row">
           <div class="col">
-
-            <div class="card text-white bg-dark m-5">
-              <div class="card-header"></div>
-              <div class="card-body">
-                <h5 class="card-title">Info</h5>
-                <p class="card-text">Total {{total}}</p>
-              </div>
-            </div>
-
+            <button type="button" class="btn btn-dark m-2" (click)="onCreate()">Create</button>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <button type="button" class="btn btn-dark m-5" (click)="onCreate()">Create</button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <button type="button" class="btn btn-dark m-5" (click)="onSearch()">Buscar</button>
+            <button type="button" class="btn btn-dark mt-4 ml-2" (click)="onSearch()">Buscar</button>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="row">
     <div class="col">
       <div class="card-columns">
         <app-publicidad-detail *ngFor="let publicidad of publicidades" id={{publicidad.id}}></app-publicidad-detail>
