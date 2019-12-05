@@ -21,4 +21,8 @@ export class PublicidadSearchComponent implements OnInit {
   onSearch() {
     this.router.navigate([this.id.value + ""], { relativeTo: this.route });
   }
+
+  onBack() {
+    this.router.navigate(["publicidad", "list"])
+  }
 }

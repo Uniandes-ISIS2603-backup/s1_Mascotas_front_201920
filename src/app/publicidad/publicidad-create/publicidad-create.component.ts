@@ -6,6 +6,8 @@ import { ToastrService } from 'ngx-toastr';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {PublicidadDetail} from "../publicidad-detail";
 import {Multimedia} from "../../multimedia/multimedia";
+import {Router} from "@angular/router";
+
 
 //German Rozo
 @Component({
@@ -15,12 +17,19 @@ import {Multimedia} from "../../multimedia/multimedia";
 })
 export class PublicidadCreateComponent{
 
+    current: Date = new Date();
+    maxDate = {
+        year: this.current.getFullYear(),
+        month: this.current.getMonth() + 1,
+        day: this.current.getDate()
+    };
   publicidadForm: FormGroup;
 
   constructor(
     private publicidadService: PublicidadService,
     private formBuilder: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {
     this.publicidadForm = this.formBuilder.group({
       diasPorSemana: ["", [Validators.required, Validators.minLength(1)]],
@@ -41,8 +50,8 @@ export class PublicidadCreateComponent{
       newPublicidad.multimedia = [multimedia];
       console.log(newPublicidad.multimedia);
    this.showSuccess();
-   newPublicidad.fechaInicio= newPublicidad.fechaInicio+"T05:00:00Z[UTC]";
-   newPublicidad.fechaFin= newPublicidad.fechaFin+"T05:00:00Z[UTC]";
+   //newPublicidad.fechaInicio= newPublicidad.fechaInicio+"T05:00:00Z[UTC]";
+   //newPublicidad.fechaFin= newPublicidad.fechaFin+"T05:00:00Z[UTC]";
     // Process checkout data here
     console.warn("La publicidad se ha enviado", newPublicidad);
 
@@ -58,4 +67,7 @@ export class PublicidadCreateComponent{
     this.toastr.success("Publicidad", "Creada exitosamente!", {"progressBar": true,timeOut:3000});
   }
 
+  onBack() {
+     this.router.navigate(["publicidad", "list"])
+  }
 }
