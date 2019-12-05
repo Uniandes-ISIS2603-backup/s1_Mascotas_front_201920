@@ -20,6 +20,10 @@
     "route" : "/procesos"
   },
   {
+    "nombre" : "Usuarios",
+    "route" : "/usuarios"
+  },
+  {
     "nombre" : "Recompensas",
     "route" : "/recompensa/list"
   },
